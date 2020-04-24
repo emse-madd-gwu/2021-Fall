@@ -1,0 +1,15 @@
+---
+title: "Syllabus"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=objects()) # start with a clean workspace
+source("knitr_setup.R")
+library(cowplot)
+```
+
+Coming soon!

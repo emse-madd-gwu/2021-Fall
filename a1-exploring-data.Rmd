@@ -1,0 +1,39 @@
+---
+title: "Assignment 1: Exploring Data"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+**Due**: 21 January, 11:00 pm
+
+**Weight**: This assignment is worth 4% of your final grade.
+
+**Purpose**: The purpose of this assignment is to develop some basic strategies for exploring data sets to gain a greater understanding of the variable types and their relationships.
+
+**Skills & Knowledge**: After completing these exercises, you should be able to:
+
+- Apply a strategy for systematically exploring data.
+- Know the distinctions between variables, values, and observations.
+- Know the distinctions between nominal, ordinal, interval, and ratio data.
+- Select appropriate measures of centrality and variability for different data types.
+- Select appropriate data visualizations for different relationships among data variables.
+
+**Assessment**: This assignment is graded for completion. Credit will be allocated in proportion to the percentage of the assignment completed by the due date. No more than 2 late days can be used on any one assignment.
+
+**Tasks**:
+
+1. **Register**: If you haven't already, register for:
+
+    - [DataCamp](https://www.datacamp.com/home): **you must use your @gwu.edu email for this to work** (not the @email.gwu.edu address). An invite link can be found in the announcement on Blackboard or in Slack.
+    - [RStudio Cloud](https://login.rstudio.cloud/register)
+
+2. **Read**: Open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you go through the [readings for this week](r2-exploring-data.html).
+
+3. **Exercise**: Take notes while you complete the following exercises:
+
+    - Complete [Lesson 3: Numerical Summaries](https://campus.datacamp.com/courses/exploratory-data-analysis/numerical-summaries?ex=1) from the DataCamp course "Exploratory Data Analysis in R" (you don't need to complete the other lessons in the course). When finished, you should be able to see it completed in your [DataCamp dashboard](https://www.datacamp.com/enterprise/emse-4197-exploratory-data-analysis).
+    - Complete the following RStudio Primer lesson: [Exploratory Data Analysis](https://rstudio.cloud/learn/primers/3.1)
+
+4. **Report**: When you have completed all of the above exercises, go to the "Assignment Submission" page on Blackboard and write three things from your notes that you learned while going through these readings and exercises.
