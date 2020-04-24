@@ -63,7 +63,7 @@ navbar:
       href: mailto:jph@gwu.edu
     - text: GitHub
       icon: fa-github
-      href: https://emse-madd-gwu.github.io/2022-Spring
+      href: https://github.com/emse-madd-gwu/2022-Spring
 
 output:
   html_document:
