@@ -20,7 +20,7 @@ output:
 
 **Tasks**:
 
-1. Take this [three-question self-assessment quiz](https://emse-madd-gwu.github.io/2022-Spring/other/self-assessment.pdf). It shouldn't take more than 10-20 minutes to complete, and answers can be compared with the [solutions](https://emse-madd-gwu.github.io/2022-Spring/other/self-assessment-solutions.pdf). If you have trouble answering these questions, you may find this course challenging and may want to take other courses or review refresher materials on these topics prior to taking this course.
+1. Take this [three-question self-assessment quiz](https://github.com/emse-madd-gwu/2022-Spring/raw/master/other/self-assessment.pdf). It shouldn't take more than 10-20 minutes to complete, and answers can be compared with the [solutions](https://github.com/emse-madd-gwu/2022-Spring/raw/master/other/self-assessment-solutions.pdf). If you have trouble answering these questions, you may find this course challenging and may want to take other courses or review refresher materials on these topics prior to taking this course.
 
 2. We will work in the R programming language throughout the course, but no prior programming experience is required. We will spend the first two weeks going through exercises to get up to speed in R. To get a head start, you can get familiar with R and RStudio by reading the following lessons:
 

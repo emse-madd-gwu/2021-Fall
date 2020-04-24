@@ -1,6 +1,6 @@
 Type: Website
-Package: emseeda
-Title: Exploratory Data Analysis
+Package: emsemadd
+Title: Marketing Analytics for Design Decisions
 Version: 1.0
 Maintainer: John Helveston <jph@gwu.edu>
 Author: John Helveston <jph@gwu.edu>
@@ -20,14 +20,9 @@ Imports:
     roxygen2,
     here,
     kableExtra,
-    wikifacts,
-    TurtleGraphics,
-    DAAG,
     dslabs,
-    gapminder,
     gsheet,
     kableExtra,
     cowplot,
     janitor,
-    GGally,
-    HistData
+    mlogit
