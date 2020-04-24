@@ -6,7 +6,7 @@ name: Render and Deploy RMarkdown Website
 
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: ubuntu-18.04
         steps:
       - name: Checkout Repository
         uses: actions/checkout@master
