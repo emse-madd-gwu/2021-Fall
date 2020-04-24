@@ -14,7 +14,7 @@ source("knitr_setup.R")
 <div class = "row">
 
 <div class = "col-md-3">
-<img src="images/eda_hex_sticker.png" width="200">
+<img src="images/madd_hex_sticker.png" width="200">
 </div>
 
 <div class = "col-md-9">
