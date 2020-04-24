@@ -1,6 +1,6 @@
 ## EMSE 6035: Marketing Analytics for Design Decisions - Spring 2022
 
-![Render Website](https://github.com/emse-madd-gwu/2022-Spring/workflows/Render%20and%20Deploy%20RMarkdown%20Website/badge.svg)[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Render & Deploy Site](https://github.com/emse-madd-gwu/2022-Spring/workflows/Render%20&%20Deploy%20Site/badge.svg)[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ### Description
 
