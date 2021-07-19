@@ -65,7 +65,7 @@ navbar:
           href: https://jhelvy.appointlet.com/b/professor-helveston
     - text: ""
       icon: fab fa-slack
-      href: https://emse-madd-s21.slack.com
+      href: https://emse-madd-f21.slack.com
 
   right:
   - icon: fas fa-bars
