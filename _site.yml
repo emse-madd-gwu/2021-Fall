@@ -5,7 +5,7 @@ exclude:
 - LICENSE
 new_session: true
 navbar:
-  title: "MADD - Spring 2022"
+  title: "MADD - Fall 2021"
   left:
     - text: "Home"
       href: index.html
