@@ -1,14 +1,33 @@
 ---
-title: "EMSE 6035: Marketing Analytics for Design Decisions - Spring 2022"
+title: "EMSE 6035: Marketing Analytics for Design Decisions - Fall 2021"
 output:
   html_document:
     number_sections: false
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+```{r child = "knitr_setup.Rmd"}
+```
+
+```{r metadata, message=FALSE, warning=FALSE, include=FALSE}
+library(metathis)
+
+meta() %>%
+  meta_description(
+    'Course website for Fall 2021 semester of the EMSE course "Marketing Analytics for Design Decisions" at GWU'
+  ) %>%
+  meta_name("github-repo" = "emse-madd-gwu/2021-Fall") %>%
+  meta_viewport() %>%
+  meta_social(
+    title = "EMSE 6035: Fall 2021",
+    url = "https://madd.seas.gwu.edu/2021-Fall/",
+    image = "https://madd.seas.gwu.edu/images/madd_hex_sticker.png",
+    image_alt = "Hex sticker for class logo",
+    og_type = "website",
+    og_author = c("John Paul Helveston"),
+    twitter_card_type = "summary",
+    twitter_creator = "@JohnHelveston"
+  )
 ```
 
 <div class = "row">

@@ -1,7 +1,6 @@
 Type: Website
 Package: emsemadd
 Title: Marketing Analytics for Design Decisions
-Version: 1.0
 Maintainer: John Helveston <jph@gwu.edu>
 Author: John Helveston <jph@gwu.edu>
 Authors@R: c(
