@@ -9,19 +9,33 @@ Authors@R: c(
 Depends: R (>= 3.6.0)
 License: CC-BY
 Encoding: UTF-8
+License: CC-BY-SA
+Encoding: UTF-8
 Imports:
-    rmarkdown,
-    knitr,
-    yaml,
-    tidyverse,
-    testthat,
-    devtools,
-    roxygen2,
-    here,
-    kableExtra,
-    dslabs,
-    gsheet,
-    kableExtra,
     cowplot,
+    devtools,
+    emo,
+    fontawesome,
+    ggrepel,
+    gsheet,
+    here,
     janitor,
-    mlogit
+    kableExtra,
+    knitr,
+    logitr,
+    metathis,
+    remotes,
+    rmarkdown,
+    roxygen2,
+    tidyverse,
+    viridis,
+    xaringanExtra,
+    yaml
+Remotes:
+    hadley/emo,
+    rstudio/fontawesome,
+    haozhu233/kableExtra,
+    jhelvy/logitr,
+    r-lib/remotes,
+    rstudio/rmarkdown,
+    gadenbuie/xaringanExtra

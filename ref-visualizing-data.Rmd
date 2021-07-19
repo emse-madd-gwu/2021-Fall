@@ -6,9 +6,7 @@ output:
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+```{r child = "knitr_setup.Rmd"}
 ```
 
 # Principles of data visualization
@@ -25,7 +23,6 @@ source("knitr_setup.R")
 
 You will want to choose different chart types depending on the relationship or message you want to convey. Fortunately, we live in the future and awesome people have created wonderful tools to help you find the most appropriate graph for your data. Take a look through some of these resources - these will come in handy when you start working on your final project:
 
-- <i class="fas fa-file-pdf"></i> [Stephen Few's Graph Selection Matrix](content/Graph_Selection_Matrix.pdf)
 - [The Data Visualisation Catalogue](https://datavizcatalogue.com/)
 - [Data-to-Viz](https://www.data-to-viz.com/)
 - [R Graph Gallery](http://r-graph-gallery.com/)

@@ -1,0 +1,23 @@
+---
+title: "Getting Started"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+params:
+  class: "1-getting-started"
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+# Before we start...
+
+For this class, you'll need to install some software and register for some tools. Go to the [course software](ref-course-software.html) page to get setup before we get started with class.
+
+# For new students
+
+# Class notes
+
+```{r child = "_slides.Rmd"}
+```
