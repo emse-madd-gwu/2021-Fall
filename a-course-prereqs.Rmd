@@ -9,8 +9,17 @@ output:
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-This course requires prior exposure to probability theory, multivariable calculus, linear algebra, and regression. Each of these concepts will be applied throughout the course, and no time will be spent reviewing the foundational elements of each concept.
+## This assignment is optional
 
-**Take this quiz to assess your comfort level with the prerequisites**:
+This course requires prior exposure to:
 
-The purpose of this assignment is to allow you to self-assess whether you have the prerequisite knowledge and skills required for this course and to give you a head start on programming and working with data in R. Take this [three-question self-assessment quiz](https://github.com/emse-madd-gwu/2021-Fall/raw/master/other/self-assessment.pdf). It shouldn't take more than 10-20 minutes to complete, and answers can be compared with the [solutions](https://github.com/emse-madd-gwu/2021-Fall/raw/master/other/self-assessment-solutions.pdf). If you have trouble answering these questions, you may find this course challenging and may want to take other courses or review refresher materials on these topics prior to taking this course.
+- Probability theory
+- Multivariable calculus
+- Linear algebra
+- Regression
+
+Each of these concepts will be applied throughout the course, and no time will be spent reviewing the foundational elements of each concept.
+
+This optional assignment allows you to self-assess whether you have the prerequisite knowledge required for this course. Take this [three-question self-assessment quiz](https://github.com/emse-madd-gwu/2021-Fall/raw/master/other/self-assessment.pdf). It shouldn't take more than 10-20 minutes to complete, and answers can be compared with the [solutions](https://github.com/emse-madd-gwu/2021-Fall/raw/master/other/self-assessment-solutions.pdf).
+
+If you have trouble answering these questions, you may find this course challenging and may want to take other courses or review refresher materials on these topics prior to taking this course.
