@@ -1,0 +1,14 @@
+---
+title: "Exam"
+output:
+  html_document:
+    toc: false
+params:
+  number: 10
+  purpose: 'purpose'
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+Coming soon!

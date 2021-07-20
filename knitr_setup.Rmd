@@ -4,6 +4,7 @@ library(knitr)
 library(here)
 library(tidyverse)
 library(cowplot)
+source(file.path("R", "functions.R"))
 options(knitr.kable.NA = '')
 knitr::opts_chunk$set(
     warning    = FALSE,

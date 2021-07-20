@@ -1,0 +1,11 @@
+---
+title: "Plotting"
+output:
+  html_document:
+    toc: false
+params:
+  number: 2
+  purpose: 'purpose'
+---
+
+Coming soon!

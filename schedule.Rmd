@@ -12,9 +12,30 @@ output:
 ```
 
 ```{r echo=FALSE}
+# 9/01
+# Labor day: 9/06
+# 9/08
+# 9/15
+# 9/22
+# 9/29
+# 10/06
+# 10/13
+# 10/20
+# Fall break: 10/22
+# 10/27
+# 11/03
+# 11/10
+# 11/17
+# 11/24: Thanksgiving: 11/24 - 11/27
+# 12/01
+# Designated Friday: 12/07
+# 12/08
+# Make-up day: 12/13
+# Last day of class: 12/11
+# Final exam: 12/15
+
 library(kableExtra)
 library(tidyverse)
-library(gsheet)
 
 # Setup some common values
 fa <- list(
@@ -26,8 +47,7 @@ fa <- list(
 
 # Make the schedule data frame
 quizUrl <- "https://maddf21quiz"
-url <- 'https://docs.google.com/spreadsheets/d/1Wf_nJcvjgfBAWxfpYwzwvnjudlK8UQKXm9AkhGoH09E/edit?usp=sharing'
-schedule <- gsheet2tbl(url) %>%
+schedule <- get_schedule() %>%
   mutate(
     date = format(date, format = "%b %d"),
     reading_due = format(reading_due, format = "%b %d"),
@@ -52,13 +72,13 @@ schedule <- gsheet2tbl(url) %>%
     assignments = ifelse(
       is.na(reading_name), NA,
       paste0(
-        fa$readings, "(", reading_url, ".html) **", reading_name, "**<br>Due ",
-        reading_due)),
+        fa$readings, "(r", reading_n, "-", reading_url, ".html) **",
+        reading_name, "**<br>Due ", reading_due)),
     project = ifelse(
       is.na(project_name), NA,
       paste0(
-        fa$project, "(", project_url, ") **", project_name, "**<br>Due ",
-        project_due))
+        fa$project, "(p", project_n, "-", project_url, ") **", 
+        project_name, "**<br>Due ", project_due))
   )
 
 # Make the final schedule
