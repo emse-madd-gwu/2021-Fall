@@ -1,11 +1,11 @@
 ---
-title: "Getting Started"
+title: "Data Wrangling"
 output:
   html_document:
     number_sections: false
     toc: no
 params:
-  class: "c1-getting-started"
+  class: "c2-data-wrangling"
 ---
 
 ```{r child = "knitr_setup.Rmd"}

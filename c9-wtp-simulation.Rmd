@@ -1,11 +1,11 @@
 ---
-title: "Getting Started"
+title: "WTP & Simulations"
 output:
   html_document:
     number_sections: false
     toc: no
 params:
-  class: "c1-getting-started"
+  class: "c9-wtp-simulation"
 ---
 
 ```{r child = "knitr_setup.Rmd"}

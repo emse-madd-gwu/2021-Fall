@@ -1,11 +1,11 @@
 ---
-title: "Getting Started"
+title: "Utility Models"
 output:
   html_document:
     number_sections: false
     toc: no
 params:
-  class: "c1-getting-started"
+  class: "c7-utility"
 ---
 
 ```{r child = "knitr_setup.Rmd"}

@@ -1,11 +1,11 @@
 ---
-title: "Getting Started"
+title: "Heterogeneity"
 output:
   html_document:
     number_sections: false
     toc: no
 params:
-  class: "c1-getting-started"
+  class: "c14-heterogeneity"
 ---
 
 ```{r child = "knitr_setup.Rmd"}

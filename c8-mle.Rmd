@@ -1,11 +1,11 @@
 ---
-title: "Getting Started"
+title: "Optimization & MLE"
 output:
   html_document:
     number_sections: false
     toc: no
 params:
-  class: "c1-getting-started"
+  class: "c8-mle"
 ---
 
 ```{r child = "knitr_setup.Rmd"}

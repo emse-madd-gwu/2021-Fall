@@ -1,11 +1,11 @@
 ---
-title: "Getting Started"
+title: "Conjoint Questions"
 output:
   html_document:
     number_sections: false
     toc: no
 params:
-  class: "c1-getting-started"
+  class: "c6-conjoint-questions"
 ---
 
 ```{r child = "knitr_setup.Rmd"}

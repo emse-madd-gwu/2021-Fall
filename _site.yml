@@ -21,6 +21,28 @@ navbar:
       menu:
         - text: "Sep 01: Getting Started"
           href: c1-getting-started.html
+        - text: "Sep 08: Data Wrangling"
+          href: c2-data-wrangling.html
+        - text: "Sep 15: RMarkdown & Plotting"
+          href: c3-rmd-plotting.html
+        - text: "Sep 22: Intro to formr"
+          href: c4-formr.html
+        - text: "Oct 06: Conjoint Questions"
+          href: c6-conjoint-questions.html
+        - text: "Oct 13: Utility Models"
+          href: c7-utility.html
+        - text: "Oct 20: Optimization & MLE"
+          href: c8-mle.html
+        - text: "Oct 27: WTP & Simulations"
+          href: c9-wtp-simulation.html
+        - text: "Nov 03: DOE & Power Analysis"
+          href: c10-doe.html
+        - text: "Nov 17: Uncertainty"
+          href: c12-uncertainty.html
+        - text: "Dec 01: Heterogeneity"
+          href: c14-heterogeneity.html
+        - text: "Dec 08: Exam Solutions"
+          href: c15-exam-solutions.html
     - text: "Readings"
       icon: fas fa-book-reader
       menu:

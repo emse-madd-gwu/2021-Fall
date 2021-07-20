@@ -1,11 +1,11 @@
 ---
-title: "Getting Started"
+title: "Intro to formr"
 output:
   html_document:
     number_sections: false
     toc: no
 params:
-  class: "c1-getting-started"
+  class: "c4-formr"
 ---
 
 ```{r child = "knitr_setup.Rmd"}

@@ -1,11 +1,11 @@
 ---
-title: "Getting Started"
+title: "RMarkdown & Plotting"
 output:
   html_document:
     number_sections: false
     toc: no
 params:
-  class: "c1-getting-started"
+  class: "c3-rmd-plotting"
 ---
 
 ```{r child = "knitr_setup.Rmd"}
