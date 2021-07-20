@@ -25,38 +25,39 @@ fa <- list(
 )
 
 # Make the schedule data frame
+quizUrl <- "https://maddf21quiz"
 url <- 'https://docs.google.com/spreadsheets/d/1Wf_nJcvjgfBAWxfpYwzwvnjudlK8UQKXm9AkhGoH09E/edit?usp=sharing'
 schedule <- gsheet2tbl(url) %>%
   mutate(
     date = format(date, format = "%b %d"),
     reading_due = format(reading_due, format = "%b %d"),
     project_due = format(project_due, format = "%b %d"),
-    # quiz = ifelse(is.na(quiz), NA, paste0(
-    #   fa$quiz, "(", quizUrl, quiz, ".formr.org)")),
+    # Replace NA values with ""
+    class_desc = ifelse(is.na(class_desc), "", class_desc),
+    project_desc = ifelse(is.na(project_desc), "", project_desc),
+    # Build markdown
+    quiz = ifelse(
+      is.na(quiz), "", 
+      paste0(fa$quiz, "(", quizUrl, quiz, ".formr.org)")),
+    class_url = ifelse(
+      is.na(class_url), "", 
+      paste0(fa$class, "(c", week, "-",  class_url, ".html)")),
     class = ifelse(
-      is.na(class_url), 
-      "", 
-      paste0(fa$class, "(", week, "-",  class_url, ".html)")),
-    concepts = ifelse(
-      is.na(concept), 
-      paste0("**", concept, "**"), 
-      paste0("**", concept, "**<br>", concept_desc)),
-    class = paste(class, concepts, sep = " "),
+      is.na(class), "",
+      paste0("**", class, "**<br>", class_desc)),
+    class = paste(class_url, class, sep = " "),
     projects = ifelse(
-      is.na(project), 
-      NA,
+      is.na(project), NA,
       paste0("**", project, "**<br>", project_desc)),
     assignments = ifelse(
-      is.na(reading_name), 
-      NA, 
+      is.na(reading_name), NA,
       paste0(
-        fa$readings, "(", reading_url, ".html) ", reading_name, "<br>Due ",
+        fa$readings, "(", reading_url, ".html) **", reading_name, "**<br>Due ",
         reading_due)),
     project = ifelse(
-      is.na(project_name), 
-      NA, 
+      is.na(project_name), NA,
       paste0(
-        fa$project, "(", project_url, ") ", project_name, "<br>Due ",
+        fa$project, "(", project_url, ") **", project_name, "**<br>Due ",
         project_due))
   )
 
@@ -64,12 +65,12 @@ schedule <- gsheet2tbl(url) %>%
 names(schedule) <- str_to_title(names(schedule))
 schedule %>%
   rename(` ` = Project) %>%
-  select(Week, Date, Class, Projects, Assignments, ` `) %>%
+  select(Week, Date, Quiz, Class, Projects, Assignments, ` `) %>%
   kable(format = 'html', escape = FALSE,
-        align = c('c', 'c', 'l', 'l', 'l', 'l')) %>%
+        align = c('c', 'c', 'c', 'l', 'l', 'l', 'l')) %>%
   kable_styling(full_width = F) %>%
-  column_spec(column = 3, width = '16em') %>% 
   column_spec(column = 4, width = '16em') %>% 
-  column_spec(column = 5, width = '10em') %>% 
-  column_spec(column = 6, width = '10em')
+  column_spec(column = 5, width = '16em') %>% 
+  column_spec(column = 6, width = '10em') %>% 
+  column_spec(column = 7, width = '10em')
 ```
