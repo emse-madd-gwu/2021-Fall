@@ -50,23 +50,23 @@ navbar:
           href: r0-self-assessment.html
         - text: "Sep 01: Data Wrangling (Due 09/07)"
           href: r1-data-wrangling.html
-        - text: "date: Plotting (Due 09/14)"
+        - text: "Sep 08: Plotting (Due 09/14)"
           href: r2-plotting.html
-        - text: "date: formr (Due 09/21)"
+        - text: "Sep 15: formr (Due 09/21)"
           href: r3-formr.html
-        - text: "date: Utility Models (Due 10/12)"
+        - text: "Oct 06: Utility Models (Due 10/12)"
           href: r4-utility-models.html
-        - text: "date: Estimation (Due 10/19)"
+        - text: "Oct. 13: Estimation (Due 10/19)"
           href: r5-estimation.html
-        - text: "date: WTP & Simulations (Due 10/26)"
+        - text: "Oct 20: WTP & Simulations (Due 10/26)"
           href: r6-wtp-simulation.html
-        - text: "date: Design of Experiment (Due 11/02)"
+        - text: "oct 27: Design of Experiment (Due 11/02)"
           href: r7-doe.html
-        - text: "date: Uncertainty (Due 11/16)"
+        - text: "Nov 10: Uncertainty (Due 11/16)"
           href: r8-uncertainty.html
-        - text: "date: Heterogeneity (Due 11/30)"
+        - text: "Nov 17: Heterogeneity (Due 11/30)"
           href: r9-heterogeneity.html
-        - text: "date: Exam (Due 12/05)"
+        - text: "Dec 01: Exam (Due 12/05)"
           href: r10-exam.html
     - text: "Project"
       icon: fas fa-pencil-ruler
