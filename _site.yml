@@ -60,7 +60,7 @@ navbar:
           href: r5-estimation.html
         - text: "Oct 20: WTP & Simulations (Due 10/26)"
           href: r6-wtp-simulation.html
-        - text: "oct 27: Design of Experiment (Due 11/02)"
+        - text: "Oct 27: Design of Experiment (Due 11/02)"
           href: r7-doe.html
         - text: "Nov 10: Uncertainty (Due 11/16)"
           href: r8-uncertainty.html
@@ -71,8 +71,20 @@ navbar:
     - text: "Project"
       icon: fas fa-pencil-ruler
       menu:
-        - text: "Proposals (Due 09/24)"
-          href: p1-proposals.html
+        - text: "Project Overview"
+          href: p0-overview.html
+        - text: "Project Proposal (Due 09/26)"
+          href: p1-proposal.html
+        - text: "Survey Plan (Due 10/05)"
+          href: p2-survey-plan.html
+        - text: "Pilot Survey (Due 10/15)"
+          href: p3-pilot-survey.html
+        - text: "Pilot Analysis (Due 11/07)"
+          href: p4-pilot-analysis.html
+        - text: "Final Survey (Due 11/21)"
+          href: p5-final-survey.html
+        - text: "Final Analysis (Due 12/13)"
+          href: p6-final-analysis.html
     - text: "References"
       icon: fa fa-bookmark
       menu:

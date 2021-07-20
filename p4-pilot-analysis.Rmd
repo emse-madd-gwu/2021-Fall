@@ -1,0 +1,12 @@
+---
+title: "Pilot Analysis"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+Coming soon!
