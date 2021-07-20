@@ -24,13 +24,13 @@ navbar:
     - text: "Readings"
       icon: fas fa-book-reader
       menu:
+        - text: "Self Assessment (optional)"
+          href: r0-self-assessment.html
         - text: "Sep 01: Data Wrangling (Due 09/07)"
           href: r1-data-wrangling.html
     - text: "Project"
       icon: fas fa-pencil-ruler
       menu:
-        - text: "Course Prerequisites (optional)"
-          href: a-course-prereqs.html
         - text: "Proposals (Due 09/24)"
           href: p1-proposals.html
     - text: "References"

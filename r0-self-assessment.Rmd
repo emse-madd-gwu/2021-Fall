@@ -11,14 +11,8 @@ output:
 
 ## This assignment is optional
 
-This course requires prior exposure to:
-
-- Probability theory
-- Multivariable calculus
-- Linear algebra
-- Regression
-
-Each of these concepts will be applied throughout the course, and no time will be spent reviewing the foundational elements of each concept.
+```{r child = '_prerequisites.Rmd'}
+```
 
 This optional assignment allows you to self-assess whether you have the prerequisite knowledge required for this course. Take this [three-question self-assessment quiz](https://github.com/emse-madd-gwu/2021-Fall/raw/master/other/self-assessment.pdf). It shouldn't take more than 10-20 minutes to complete, and answers can be compared with the [solutions](https://github.com/emse-madd-gwu/2021-Fall/raw/master/other/self-assessment-solutions.pdf).
 

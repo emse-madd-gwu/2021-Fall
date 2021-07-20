@@ -57,5 +57,7 @@ meta() %>%
 ```{r child = '_prerequisites.Rmd'}
 ```
 
+Students are encouraged to complete [this self assessment](r0-self-assessment.html) prior to registering for the course to self-assess familiarity with these concepts.
+
 </div>
 </div>
