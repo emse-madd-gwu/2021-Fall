@@ -4,6 +4,72 @@ output:
   html_document:
     number_sections: false
     toc: no
+    css:
+      - css/custom.css
 ---
 
-Coming soon!
+```{r child = "knitr_setup.Rmd"}
+```
+
+```{r echo=FALSE}
+library(kableExtra)
+library(tidyverse)
+library(gsheet)
+
+# Setup some common values
+fa <- list(
+  quiz     = '[<i class="fas fa-edit"></i>]',
+  readings = '[<i class="fas fa-book-reader"></i>]',
+  class    = '[<i class="fas fa-laptop-code"></i>]',
+  project  = '[<i class="fas fa-pencil-ruler"></i>]'
+)
+
+# Make the schedule data frame
+url <- 'https://docs.google.com/spreadsheets/d/1Wf_nJcvjgfBAWxfpYwzwvnjudlK8UQKXm9AkhGoH09E/edit?usp=sharing'
+schedule <- gsheet2tbl(url) %>%
+  mutate(
+    date = format(date, format = "%b %d"),
+    reading_due = format(reading_due, format = "%b %d"),
+    project_due = format(project_due, format = "%b %d"),
+    # quiz = ifelse(is.na(quiz), NA, paste0(
+    #   fa$quiz, "(", quizUrl, quiz, ".formr.org)")),
+    class = ifelse(
+      is.na(class_url), 
+      "", 
+      paste0(fa$class, "(", week, "-",  class_url, ".html)")),
+    concepts = ifelse(
+      is.na(concept), 
+      paste0("**", concept, "**"), 
+      paste0("**", concept, "**<br>", concept_desc)),
+    class = paste(class, concepts, sep = " "),
+    projects = ifelse(
+      is.na(project), 
+      NA,
+      paste0("**", project, "**<br>", project_desc)),
+    assignments = ifelse(
+      is.na(reading_name), 
+      NA, 
+      paste0(
+        fa$readings, "(", reading_url, ".html) ", reading_name, "<br>Due ",
+        reading_due)),
+    project = ifelse(
+      is.na(project_name), 
+      NA, 
+      paste0(
+        fa$project, "(", project_url, ") ", project_name, "<br>Due ",
+        project_due))
+  )
+
+# Make the final schedule
+names(schedule) <- str_to_title(names(schedule))
+schedule %>%
+  rename(` ` = Project) %>%
+  select(Week, Date, Class, Projects, Assignments, ` `) %>%
+  kable(format = 'html', escape = FALSE,
+        align = c('c', 'c', 'l', 'l', 'l', 'l')) %>%
+  kable_styling(full_width = F) %>%
+  column_spec(column = 3, width = '16em') %>% 
+  column_spec(column = 4, width = '16em') %>% 
+  column_spec(column = 5, width = '10em') %>% 
+  column_spec(column = 6, width = '10em')
+```
