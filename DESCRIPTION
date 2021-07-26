@@ -15,6 +15,7 @@ Imports:
     cowplot,
     devtools,
     emo,
+    fastDummies,
     fontawesome,
     ggrepel,
     gsheet,

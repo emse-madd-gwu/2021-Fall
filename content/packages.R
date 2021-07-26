@@ -1,6 +1,7 @@
 # Install packages from CRAN
 install.packages(c(
     "cowplot",
+    "fastDummies",
     "ggrepel",
     "here",
     "janitor",
