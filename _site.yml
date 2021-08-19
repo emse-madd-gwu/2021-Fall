@@ -33,12 +33,12 @@ navbar:
           href: c7-utility.html
         - text: "Oct 20: Optimization & MLE"
           href: c8-mle.html
-        - text: "Oct 27: WTP & Simulations"
-          href: c9-wtp-simulation.html
+        - text: "Oct 27: Uncertainty"
+          href: c9-uncertainty.html
         - text: "Nov 03: DOE & Power Analysis"
           href: c10-doe.html
-        - text: "Nov 17: Uncertainty"
-          href: c12-uncertainty.html
+        - text: "Nov 17: WTP & Simulations"
+          href: c12-wtp-simulation.html
         - text: "Dec 01: Heterogeneity"
           href: c14-heterogeneity.html
         - text: "Dec 08: Exam Solutions"
@@ -56,14 +56,14 @@ navbar:
           href: r3-formr.html
         - text: "Oct 06: Utility Models (Due 10/12)"
           href: r4-utility-models.html
-        - text: "Oct. 13: Estimation (Due 10/19)"
+        - text: "Oct 13: Estimation (Due 10/19)"
           href: r5-estimation.html
-        - text: "Oct 20: WTP & Simulations (Due 10/26)"
-          href: r6-wtp-simulation.html
+        - text: "Oct 20: Uncertainty (Due 10/26)"
+          href: r6-uncertainty.html
         - text: "Oct 27: Design of Experiment (Due 11/02)"
           href: r7-doe.html
-        - text: "Nov 10: Uncertainty (Due 11/16)"
-          href: r8-uncertainty.html
+        - text: "Nov 10: WTP & Simulations (Due 11/16)"
+          href: r8-wtp-simulation.html
         - text: "Nov 17: Heterogeneity (Due 11/30)"
           href: r9-heterogeneity.html
         - text: "Dec 01: Exam (Due 12/05)"
