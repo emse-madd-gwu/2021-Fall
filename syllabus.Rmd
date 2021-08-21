@@ -10,14 +10,6 @@ output:
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-# COVID-19 Precautions
-
-This semester is going to be weird. Please help us all stay safe so we can continue having in-person classes. Yes, the university does require that masks be worn in class, and I hope everyone understands why that policy is in place. Let's work together on this folks. If you're sick, stay home and send me a message, we'll work it out.
-
-<center>
-<img src="images/covid.png" width=100%>
-</center>
-
 # Course Information
 
 <div style="width:550px">
@@ -29,6 +21,14 @@ Instructor | Course
 <i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> 6:10PM - 08:40PM EST
 <i class="fab fa-twitter"></i> [\@JohnHelveston](https://twitter.com/JohnHelveston) | <i class="fab fa-slack"></i> [Slack](https://emse-madd-f21.slack.com/)
 </div>
+
+# COVID-19 Precautions
+
+Please help us all stay safe so we can continue having in-person classes. Please wear a mask in class, and wash your hands often. If you're sick, stay home and send me a message, we'll work it out. Yes, the university does require that masks be worn in class, and I hope everyone understands why [these policies](https://onward.gwu.edu/campus-health) are in place. Let's work together on this folks.
+
+<center>
+<img src="images/covid.png" width=500>
+</center>
 
 # Course Description
 
@@ -81,26 +81,28 @@ Regular class attendance is **essential**. Much of the class time will be spent 
 
 ## Quizzes
 
-There will be 5 quizzes given about once every two weeks immediately at the beginning of class. Quizzes cover material presented in previous classes and assignments during the weeks since the most-recent quiz. Quizzes are **short** (~5 minutes) and are designed to identify areas where additional study is needed. **Quizzes are low-stakes** - your worst one is dropped, and the rest count for just 15% of your final grade. If you do poorly on one, use that as feedback on where you need additional improvement.
+There will be 5 quizzes given about once every two weeks immediately at the beginning of class. Quizzes cover material presented in previous classes and assignments during the weeks since the most-recent quiz. Quizzes are **short** (~5 minutes) and are designed to identify areas where additional study is needed. **Quizzes are low-stakes** - your worst one is dropped, and the rest count for just 12% of your final grade. If you do poorly on one, use that as feedback on where you need additional improvement.
 
 > **Why quiz at all?** Research shows that giving small quizzes throughout a class can dramatically help with *retention*. It's a phenomenon known as the "retrieval effect" - basically, you have to _practice_ remembering things, otherwise your brain won't remember them. The phenomenon and research on it is explained in detail in the book ["Make It Stick: The Science of Successful Learning,"](https://www.hup.harvard.edu/catalog.php?isbn=9780674729018) by Brown, Roediger, and McDaniel.
 
-## Assignments
+## Reflections
 
-Students will be responsible for two types of assignments throughout the semester:
+Each week, students will be assigned specific readings to prepare for the next class period. Students will need to submit reflections on these readings each week, which may involve answering some practice questions. 
+These are graded using a check system:
 
-- **Reflections**: Each week, students will be assigned specific readings to prepare for the next class period. Students will need to submit reflections on these readings each week. Additional, optional assignments on [DataCamp](https://www.datacamp.com) will be available for extra practice.
-- **Mini Projects**: There will be three mini projects throughout the semester designed to provide hands-on experience with the material covered in class by working with and exploring real data sets and / or creating visualizations. While students may work with their peers on these assignments, each student must submit their own work. Credit for each assignment will be allocated according to a rubric provided in the assignment description.
+- ✔+ (110%): Responses shows phenomenal thought and engagement with the course content. I will not assign these often.
+- ✔ (100%): Responses are thoughtful, well-written, and show engagement with the course content. This is the expected level of performance.
+- ✔− (50%): Responses are hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will _hopefully_ not assign these often.
+
+Notice that this is essentially a pass/fail system. I'm not grading your writing ability and I'm not counting the number of words you write. I'm looking for thoughtful engagement, that's all.
 
 ## Final Project
 
-Throughout the semester, students will work in teams of 2-3 students towards a final project of an exploratory data analysis. At the end of the semester, each student will submit a report of their analysis in the form of an html web page and create a 5 to 10-minute video presentation of their results. To make the overall project more manageable, it will be broken down into several separate "milestone" deliverables due throughout the semester, including a proposal, progress report, presentation video, and final report.
+Throughout the semester, students will work in teams of 3-4 students towards a final project. The project is broken into multiple phases with key deliverables due throughout the semester. See the [Project Overview](p0-overview.html) page for more details.
 
-View the [final project assignment](a-project.html) page for more details.
+## Final Exam
 
-## Final Interview
-
-Rather than have a final exam, each student will have a 10-minute interview by the instructor. The interview will be focused on the final project the student worked and will contain questions related to concepts covered during the course. Students will be provided a list of questions and the grading rubric ahead of the interview.
+The final exam is a take-home exam, and we will spend a portion of the last day of class going over the solutions together. 
 
 # Grading
 
@@ -109,18 +111,18 @@ Rather than have a final exam, each student will have a 10-minute interview by t
 Final grades will be calculated as follows:
 
 <div style="width:550px">
-Item                          | Weight | Notes
-------------------------------|--------|-------------------------------------
-Reflections                   | 6 %    | Weekly assignment (12 x 0.5%)
-Quizzes                       | 12 %   | 5 quizzes, lowest dropped
-Mini Project 1                | 9 %    | Individual projects
-Mini Project 2                | 9 %    |
-Mini Project 3                | 9 %    |
-Final Project Proposal        | 10 %   | Teams of 2-3 students
-Final Project Progress Report | 10 %   |
-Final Project Report          | 15 %   |
-Final Project Presentation    | 10 %   |
-Final Interview               | 10 %   | Individual interview about your project
+Item                  | Weight | Notes
+----------------------|--------|-------------------------------------
+Reflections           | 27 %   | Weekly assignment (9 x 3%)
+Quizzes               | 12 %   | 5 quizzes, lowest dropped
+Project Proposal      | 7 %    | Teams of 3-4 students
+Survey Plan           | 4 %    |
+Pilot Survey          | 4 %    |
+Pilot Analysis        | 9 %    |
+Final Survey          | 5 %    |
+Final Analysis Report | 14 %   |
+Final Presentation    | 8 %    |
+Final Exam            | 10 %   | Take home exam
 </div>
 
 Here's a visual breakdown by category:
@@ -131,8 +133,8 @@ library(ggrepel)
 
 df <- data.frame(
     category = c(
-      'Reflections', 'Quizzes', 'Mini Projects', 'Final Project',  'Interview'),
-    percent = c(6, 12, 27, 45, 10)) %>%
+      'Reflections', 'Quizzes', 'Project', 'Exam'),
+    percent = c(27, 12, 51, 10)) %>%
     arrange(desc(percent)) %>%
     mutate(
       cumpercent = cumsum(percent),
@@ -142,13 +144,8 @@ df <- data.frame(
 ggplot(df) +
     geom_col(aes(x = "", y = percent, fill = category),
              width = 1.1, alpha = 0.8) +
-    geom_label(data = filter(df, category %in% c(
-               'Mini Projects', 'Final Project')),
+    geom_label(data = df,
                aes(x = "", y = label_y, label = category)) +
-    geom_label_repel(data = filter(df, category %in% c(
-                     'Quizzes', 'Interview', 'Reflections')),
-                     aes(x = "", y = label_y, label = category),
-                     direction = 'y', label.padding = 0.25, segment.size = 0) +
     coord_flip() +
     scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
     scale_fill_viridis(discrete = TRUE) +
@@ -188,33 +185,7 @@ This class can be challenging - don't suffer in silence. Look at the ["Getting H
 
 Each students is allowed **5** late homework submission days - use them however you want, no questions asked. **No more than 2 days can be applied toward a single assignment**. Late days are meant to cover illness, family emergencies, and religious holidays. Assignments submitted more than 2 days after the due date will not be graded. In extreme circumstances, contact the instructor.
 
-## Collaboration Policy
-
-<!-- This policy is mostly copied from the course 15-112 at Carnegie Mellon University -->
-
-Learning how to program is like learning how to ride a bicycle - to get better, you must practice writing code **yourself**. Therefore, we have a set of strict rules regarding what kind of collaboration is allowed, what counts as over-collaboration, and what counts as cheating.
-
-### Good Collaboration
-
-- Discussing which general concepts might be useful in solving a problem (conditionals, loops, etc.).
-- Asking for debugging help with code.
-- Sketch out algorithms on a whiteboard together.
-- To avoid copying the code, you should write up the solution together, discuss it, then erase the solution, wait a few minutes, and write up solutions individually.
-- Help each other debug specific parts of assignment code.
-- General discussion of course concepts.
-- Detailed explanations of example code on the course website.
-- Collaboratively solving a practice problem, with any level of co-writing code and co-debugging.
-
-### Over-collaboration
-
-Over-collaboration results in a warning on the first offense, and a penalty on later offenses. Examples include:
-
-- Explaining to a friend how to solve a problem in high-level terms by going through your own program line-by-line.
-- Helping a friend debug code by suggesting they use your own approach to the problem.
-- Collaborating with a student on an assignment and then _not_ including their name as a collaborator in the assignment writeup.
-- In the case that you have taken this course before, copying your own code from the previous time you took the course.
-
-### Cheating
+## Cheating
 
 Cheating results in a penalty on the first offense, and failing the course on the second offense. Cheating on assignments can include:
 
@@ -332,5 +303,5 @@ Brownie points if it's animated.
 Some content on this page is inspired by and / or modified from other sources:
 
 - The "Pep Talk" and "Super Heros" sections are inspired by Andrew Heiss's course [Program Evaluation For Public Service](https://evalf19.classes.andrewheiss.com/syllabus/)
-- The collaboration policy is modified from the course [15-112](http://www.kosbie.net/cmu/fall-19/15-112/) at Carnegie Mellon University
+- The cheating policy is modified from the course [15-112](http://www.kosbie.net/cmu/fall-19/15-112/) at Carnegie Mellon University
 
