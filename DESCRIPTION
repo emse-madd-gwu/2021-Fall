@@ -12,6 +12,7 @@ Encoding: UTF-8
 License: CC-BY-SA
 Encoding: UTF-8
 Imports:
+    countdown,
     cowplot,
     devtools,
     emo,
@@ -33,6 +34,7 @@ Imports:
     xaringanExtra,
     yaml
 Remotes:
+    gadenbuie/countdown,
     hadley/emo,
     rstudio/fontawesome,
     haozhu233/kableExtra,
