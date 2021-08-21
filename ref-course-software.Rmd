@@ -34,6 +34,6 @@ Open this   | Not this!
 ![](images/RStudio-Ball.png){ width=50 }  |  ![](images/Rlogo.png){ width=50 }
 </div>
 
-3. You'll need to install some R packages in RStudio that we will use throughout the semester. To do so, open RStudio then copy-paste [this file](https://raw.githubusercontent.com/emse-madd-gwu/2021-Fall/master/content/packages.R) into the console and press Return. This will install all the packages listed in the file.
+3. You'll need to install some R packages in RStudio that we will use throughout the semester. To do so, open RStudio then copy-paste [this code](https://raw.githubusercontent.com/emse-madd-gwu/examples/main/code/0-install.R) into the console and press Return. This will install all the packages listed in the file.
 
 That's it - you're all set for class!
