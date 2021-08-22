@@ -12,7 +12,7 @@ All course communication will be managed through [Slack](https://emse-madd-f21.s
 
 Watch this 2-minute video to see what Slack is all about:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9RJZMSsH7-g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/812kbhp0WdY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 **You can use Slack to**:
 
