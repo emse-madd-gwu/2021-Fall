@@ -5,10 +5,11 @@ output:
     number_sections: false
     toc: no
 params:
-  class: "c1-getting-started"
+  class: "1-getting-started"
 ---
 
 ```{r child = "knitr_setup.Rmd"}
 ```
 
-Coming soon!
+```{r child = "_slides.Rmd"}
+```

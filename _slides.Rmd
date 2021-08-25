@@ -28,7 +28,7 @@ path_notes <- paste0(root, params$class, ".zip")
 </div></div>
 <div class = "col-md-3">
 <div class="class-buttons">
-**PRACTICE PROBLEMS**
+**CLASS PRACTICE**
 
 <a href=`r path_notes` class="btn-notes"><i class="fas fa-download"></i> Download zip file</a>
 
