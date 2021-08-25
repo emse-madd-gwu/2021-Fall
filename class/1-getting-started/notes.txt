@@ -1,0 +1,5 @@
+- Intro to class slides [15 min]
+- Introduce team projects [15 min]
+- Everyone introduces themselves [15 min]
+- BREAK – get into teams [15 min]
+- Go through introduction to R, hopefully up through vectors [ROC]

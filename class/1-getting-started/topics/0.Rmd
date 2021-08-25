@@ -1,0 +1,17 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Course orientation
+### 2. Intro to conjoint analysis
+### 3. Introductions
+
+### BREAK: Teaming
+
+### 4. Getting started with R & RStudio
+
+
+
+
+
