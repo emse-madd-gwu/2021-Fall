@@ -28,6 +28,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -321,6 +324,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -328,6 +394,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -627,7 +703,83 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>Throughout the semester, you will work in teams of 3-4 students towards a final project. The project will have three phases:</p>
+<ol style="list-style-type: decimal">
+<li>Project proposal</li>
+<li>Pilot survey &amp; analysis</li>
+<li>Final survey &amp; analysis</li>
+</ol>
+<p>Teams will apply topics covered in class to develop quantitative models of consumer choice to inform design decisions for a novel product, technology, or policy. Each team will have somewhat different tasks and areas of emphasis, depending on the product selected; however, all projects will be expected to demonstrate mastery of the topics covered in class and to address the criteria and guidelines required for project assignments.</p>
+<p><strong>Summary of Deliverables</strong>: To make the overall project more manageable, it is broken down into separate “milestone” deliverables due throughout the semester, starting with a proposal.</p>
+<div style="width:400px">
+<table>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Weight towards<br>final grade</th>
+<th>Due Date<br>(by 11:59pm)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Project Proposal</td>
+<td>7 %</td>
+<td>Sep. 26</td>
+</tr>
+<tr class="even">
+<td>Survey Plan</td>
+<td>4 %</td>
+<td>Oct. 05</td>
+</tr>
+<tr class="odd">
+<td>Pilot Survey</td>
+<td>4 %</td>
+<td>Oct. 15</td>
+</tr>
+<tr class="even">
+<td>Pilot Analysis</td>
+<td>9 %</td>
+<td>Nov. 07</td>
+</tr>
+<tr class="odd">
+<td>Final Survey</td>
+<td>5 %</td>
+<td>Nov. 21</td>
+</tr>
+<tr class="even">
+<td>Final Analysis Report</td>
+<td>14 %</td>
+<td>Dec. 13</td>
+</tr>
+<tr class="odd">
+<td>Final Presentation</td>
+<td>8 %</td>
+<td>Dec. 15</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="project-selection" class="section level1">
+<h1>Project Selection</h1>
+<p>I want this project to be as useful for you and your future career as possible - you’ll hopefully want to show off your final project in a portfolio or during job interviews. Accordingly, you get to choose the topic for your project, but it must meet certain guidelines.</p>
+<p>Projects must be selected during the first two weeks of class. Projects much be an emerging technology, product, or policy with a clearly identified market that has not yet been introduced into the mass market, such as a new invention from a research laboratory at GWU or a new product being explored by a firm. Students have the option to choose a sponsored project or propose their own project if it is approved by the instructor and meets the following criteria:</p>
+<ul>
+<li><strong>Innovative / Emerging</strong>: The proposed project involves a new product or technology with attributes (e.g. price, efficiency, reliability, size, performance, color, etc.) that may be competitive in the marketplace but for which actual market adoption is still uncertain.</li>
+<li><strong>Well-Defined</strong>: This course focuses on mathematical modeling to support design decision-making. There is not sufficient time in the course for conceptual design of a new product.</li>
+<li><strong>Identified Target Market</strong>: A target market has been identified for this new product or technology. Competing products in that market are known, and the attributes on which new market entrants compete can be identified. Representative potential customers can be identified for survey solicitation. If the new product or technology is a component of a larger product sold to a consumer market, students may assess the market implications for the final consumer product.</li>
+<li><strong>Prior to Mass Commercialization</strong>: The new product or technology has only recently or has not yet been introduced to the mass market.</li>
+<li><strong>Moderate Scope and Complexity</strong>: The product or technology should involve moderate complexity. For example, a non-differentiated commodity, such as sugar, is too simple, and a complex product involving many components and manufacturing operations, such as a vehicle, is too complex.</li>
+<li><strong>Expertise</strong>: If the product involves a new technology that requires specialized knowledge about its attributes, the team should have reliable access to experts who can supply the requisite knowledge.</li>
+<li><strong>Decision Variables</strong>: The product should have several non-trivial design decisions. For example, choosing between two materials or topologies, setting dimensions of a component, or selecting among a set of alternative component configurations are suitable design decisions. The models developed in the project will be used to support decision-making along such dimensions.</li>
+</ul>
+</div>
+<div id="teamwork" class="section level1">
+<h1>Teamwork</h1>
+<p>The experience of working in teams on this project will serve as preparation for teamwork throughout your careers. Some teams may experience an imbalance in team member contributions, effort, or reliability. The instructor is available to provide advice and interact in resolving team inequity and conflict; however, students should view this as a learning experience. Such situations regularly occur in any career, and learning how to handle them is a valuable skill. If you experience challenges within your team, it is a good opportunity to develop strategies and figure out how you will address such challenges in the future. One common job interview question is, “Describe a time when you experienced difficulties working in a team or experienced a team failure. What did you do about it?” This is a good chance to build a strong answer to this question.</p>
+</div>
 
 
 <hr>
@@ -656,6 +808,8 @@ $(document).ready(function () {
 <script src="js/external-link.js"></script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -688,6 +842,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
