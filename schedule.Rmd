@@ -72,7 +72,7 @@ schedule <- get_schedule() %>%
     assignments = ifelse(
       is.na(assign_name), NA,
       paste0(
-        fa$assignments, "(r", assign_n, "-", assign_url, ".html) **",
+        fa$assignments, "(a", assign_n, "-", assign_url, ".html) **",
         assign_name, "**<br>Due ", assign_due)),
     project = ifelse(
       is.na(project_name), NA,
