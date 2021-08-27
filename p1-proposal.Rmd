@@ -2,11 +2,102 @@
 title: "Project Proposal"
 output:
   html_document:
+    toc: false
     number_sections: false
-    toc: no
+params:
+  number: 1
+  weight: '7%'
+  purpose: 'purpose'
+  assessment: 'Your proposal will be assessed using [this rubric](project/proposal/rubric.html){target="_blank"}.'
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = "_knitr_setup.Rmd"}
 ```
 
-Coming soon!
+```{r echo=FALSE}
+library(tidyverse)
+
+due <- get_schedule() %>%
+  mutate(project_due = format(project_due, format = "%b %d")) %>%
+  filter(project_n == params$number) %>%
+  pull(project_due)
+due <- paste0(due, " by 11:59pm")
+```
+
+```{r child = "_pheader.Rmd"}
+```
+
+As a team, write a proposal defining the scope of your project plan. Your chosen project topic should follow the [project selection guidelines](p0-overview.html#Project_Selection).
+
+The course instructor will review and grade your proposal and provide feedback in team meetings the week following the due date. If your proposal is approved, you are done and can move on towards the next project task. In some cases, the instructor may ask you to submit a revised proposal, most likely by focusing / adjusting the proposal scope. Follow the guidelines below to prepare your proposal.
+
+## 1. Get organized
+
+Download and unzip [this template](templates/project_proposal.zip) for your proposal. Open the `proposal.Rproj` file and write your proposal in the `proposal.Rmd` file. The template comes with some text and code explaining how to use it - you should delete this code / text as it is only for explanatory purposes. Be sure to adjust the content in the YAML:
+
+- Write your project title in the `title` field (and provide a subtitle if you wish, or delete the `subtitle` field).
+ - In the `author` field, list the names of all teammates, e.g. `author: Luke Skywalker, Leia Organa, and Han Solo`.
+
+## 2. Writing Quality
+
+Your proposal should be written in a clear, concise, and logically-structured manner so that a reader can easily understand the ideas presented. The proposal should be proof-read before submission to correct any grammatical or spelling errors. Spell checking can be automated by installing the `spelling` package and running this in the R console:
+
+```{r, eval=FALSE}
+spelling::spell_check_files("proposal.Rmd")
+```
+
+All figures should be referenced in the text.
+
+## 3. Proposal contents
+
+Your proposal should contain the following items listed as separate sections:
+
+### Abstract
+
+A few sentences summarizing the project and convincing the reader why it is important. Specifically, tell the reader:
+
+1. What is the product?
+2. What key product attributes make it different than its competitors?
+3. What major design decision variables will you focus on for your analysis?
+
+### Introduction
+
+Provide a brief description and background of the product or technology. Include a picture or diagram of the product.
+
+### Market Opportunity
+
+#### Identify your customer
+
+If there are multiple potential markets, choose one to focus on for your analysis. Describe who you plan on taking your survey and how you intend to gain access to that population. You may survey customers of a "downstream" product, if appropriate (e.g. survey electric vehicle buyers to learn about preferences for electric vehicle battery attributes).
+
+#### Identify competitors
+
+Which other products will compete with yours? Benchmark how competitors compare on your product's attributes.
+
+#### Identify market size
+
+Estimate the size of the annual market (expected sales in units per year) for this product and its competitors. Specify if your estimated annual market size is regional, national, or global, and provide references.
+
+### Product Attributes & Decision Variables
+
+A key component of your proposal is to identify the relationships between your _product attributes_ and _decision variables_.
+
+#### Product attributes 
+
+These are the product features that consumers observe and care about. For example, _price_ is almost always an important product attribute that influences consumer choices. You should list and describe the major product attributes you will include in your analysis. Where possible, label the product attributes on the diagram of your design. Where possible, quantify the metrics for each attribute (e.g. if one of your attributes is _weight_, the metric could be "kilograms"). Also list the set or range of possible levels you plan to explore for each attribute (e.g. for _color_ you may choose the set {red, green, blue}, or for _price_ you may choose the range $1 - $10).
+
+#### Decision variables 
+
+These are key elements of the product / technology that the designers focused on in designing the product. For example, engineers might be trying to choose the best _thickness_ for a solar cell, which affects multiple product attributes, including _weight_ (thicker cells are heavier), _price_ (thicker cells use more material), _lifetime_ (cell thickness may affect how quickly a cell degrades), etc. You should discuss ~2-3 key decision variables that are related to your product's design that you propose to consider. Discuss why you chose these variables, and label them on your diagram of the product design. For each variable, specify units and the range of potential values under consideration. 
+
+### Model Relationships Table
+
+Include a clearly legible image of your model relationships table identifying relationships between your _product attributes_ and _decision variables_. For now, these relationships can simply be directional (e.g. _cell thickness_ is positively related to _cell weight_). Use [this example](https://docs.google.com/spreadsheets/d/1iwMI9cbJjB6J8wghZY6Y_fCOSt7MDsUTnSuuC58_xjU/edit?usp=sharing) as a template.
+
+### Questions
+
+List major outstanding questions (e.g. about the product / technology performance metrics, market opportunities, etc.) that you will need to know to conduct your analysis and how you propose to find answers. The purpose of this section is to identify high-priority items that you will need to know early on in your project.
+
+## 5. Knit and submit
+
+Click the "knit" button to compile your `proposal.Rmd` file into a html web page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file under "Project: Proposal". **Only one person from your team should submit the report.**

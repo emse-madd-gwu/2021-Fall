@@ -8,7 +8,7 @@ params:
   class: "c4-formr"
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = "_knitr_setup.Rmd"}
 ```
 
 Coming soon!

@@ -1,0 +1,7 @@
+> **Due**: `r due`
+>
+> **Weight**: This assignment is worth `r params$weight` of your final grade.
+>
+> **Purpose**: `r params$purpose`
+>
+> **Assessment**: `r params$assessment`

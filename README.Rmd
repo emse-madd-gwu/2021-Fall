@@ -6,7 +6,7 @@ output:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = "_knitr_setup.Rmd"}
 ```
 
 ## EMSE 6035: Marketing Analytics for Design Decisions - Fall 2021 <a href='https://github.com/emse-madd-gwu/2021-Fall'><img src='images/madd_hex_sticker.png' align="right" height="139"/></a>

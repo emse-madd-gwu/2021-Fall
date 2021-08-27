@@ -8,7 +8,7 @@ params:
   class: "1-getting-started"
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = "_knitr_setup.Rmd"}
 ```
 
 ```{r child = "_slides.Rmd"}

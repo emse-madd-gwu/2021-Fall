@@ -6,7 +6,7 @@ output:
     toc: no
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = "_knitr_setup.Rmd"}
 ```
 
 # Helpful Tutorials

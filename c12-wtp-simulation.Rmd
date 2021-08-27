@@ -8,7 +8,7 @@ params:
   class: "c12-wtp-simulation"
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = "_knitr_setup.Rmd"}
 ```
 
 Coming soon!

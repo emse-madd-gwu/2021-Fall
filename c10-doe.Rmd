@@ -8,7 +8,7 @@ params:
   class: "c10-doe"
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = "_knitr_setup.Rmd"}
 ```
 
 Coming soon!

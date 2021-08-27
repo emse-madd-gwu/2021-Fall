@@ -8,7 +8,7 @@ params:
   class: "c14-heterogeneity"
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = "_knitr_setup.Rmd"}
 ```
 
 Coming soon!

@@ -7,7 +7,7 @@ output:
     toc_float: yes
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = "_knitr_setup.Rmd"}
 ```
 
 # Overview

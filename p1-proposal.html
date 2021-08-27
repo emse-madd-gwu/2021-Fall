@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Project Proposal</title>
+
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" href="images/favicon.ico">
+<script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
+<style type="text/css">
+
+/* Text */
+
+h1{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 60px;
+}
+h2{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 50px;
+}
+h3{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 40px;
+}
+body {
+  font-size: 16px;
+  line-height: 26px;
+}
+blockquote{
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-color: #2780e3;
+  border-radius: 5px;
+}
+blockquote h3 {
+  margin-top: 0px;
+}
+
+/* Images */
+
+img {
+  padding-bottom: 10px;
+}
+
+/* Tables */
+
+table {
+  border-collapse: collapse;
+  margin-bottom:10px;
+}
+thead {
+  border-top: solid #DCDCDC;
+  border-bottom: solid #DCDCDC;
+}
+tr.odd {
+  background-color: #F8F8F8;
+}
+tr:first-child {
+  border-top: solid #DCDCDC;
+}
+tr:last-child {
+  border-bottom: solid #DCDCDC;
+}
+
+.class-buttons {
+  text-align: center;
+}
+
+.btn-slides {
+  background-color: #bf3e11;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 10px; /* Rounded edges */
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  padding: .9rem;
+  line-height: .5;
+  border-radius: .3rem;
+}
+
+.btn-notes {
+  background-color: #000000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 10px; /* Rounded edges */
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  padding: .9rem;
+  line-height: .5;
+  border-radius: .3rem;
+}
+
+</style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fas fa-home"></span>
+     
+    
+  </a>
+</li>
+<li>
+  <a href="syllabus.html">
+    <span class="fa fa-map"></span>
+     
+    Syllabus
+  </a>
+</li>
+<li>
+  <a href="schedule.html">
+    <span class="fa fa-calendar-alt"></span>
+     
+    Schedule
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-laptop-code"></span>
+     
+    Class
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="c1-getting-started.html">Sep 01: Getting Started</a>
+    </li>
+    <li>
+      <a href="c2-data-wrangling.html">Sep 08: Data Wrangling</a>
+    </li>
+    <li>
+      <a href="c3-rmd-plotting.html">Sep 15: RMarkdown &amp; Plotting</a>
+    </li>
+    <li>
+      <a href="c4-formr.html">Sep 22: Intro to formr</a>
+    </li>
+    <li>
+      <a href="c6-conjoint-questions.html">Oct 06: Conjoint Questions</a>
+    </li>
+    <li>
+      <a href="c7-utility.html">Oct 13: Utility Models</a>
+    </li>
+    <li>
+      <a href="c8-mle.html">Oct 20: Optimization &amp; MLE</a>
+    </li>
+    <li>
+      <a href="c9-uncertainty.html">Oct 27: Uncertainty</a>
+    </li>
+    <li>
+      <a href="c10-doe.html">Nov 03: DOE &amp; Power Analysis</a>
+    </li>
+    <li>
+      <a href="c12-wtp-simulation.html">Nov 17: WTP &amp; Simulations</a>
+    </li>
+    <li>
+      <a href="c14-heterogeneity.html">Dec 01: Heterogeneity</a>
+    </li>
+    <li>
+      <a href="c15-exam-solutions.html">Dec 08: Exam Solutions</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-book-reader"></span>
+     
+    Assignments
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="a0-self-assessment.html">Self Assessment (optional)</a>
+    </li>
+    <li>
+      <a href="a1-data-wrangling.html">Sep 01: Data Wrangling (Due 09/07)</a>
+    </li>
+    <li>
+      <a href="a2-plotting.html">Sep 08: Plotting (Due 09/14)</a>
+    </li>
+    <li>
+      <a href="a3-formr.html">Sep 15: formr (Due 09/21)</a>
+    </li>
+    <li>
+      <a href="a4-utility-models.html">Oct 06: Utility Models (Due 10/12)</a>
+    </li>
+    <li>
+      <a href="a5-estimation.html">Oct 13: Estimation (Due 10/19)</a>
+    </li>
+    <li>
+      <a href="a6-uncertainty.html">Oct 20: Uncertainty (Due 10/26)</a>
+    </li>
+    <li>
+      <a href="a7-doe.html">Oct 27: Design of Experiment (Due 11/02)</a>
+    </li>
+    <li>
+      <a href="a8-wtp-simulation.html">Nov 10: WTP &amp; Simulations (Due 11/16)</a>
+    </li>
+    <li>
+      <a href="a9-heterogeneity.html">Nov 17: Heterogeneity (Due 11/30)</a>
+    </li>
+    <li>
+      <a href="a10-exam.html">Dec 01: Exam (Due 12/05)</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-pencil-ruler"></span>
+     
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="p0-overview.html">Project Overview</a>
+    </li>
+    <li>
+      <a href="p1-proposal.html">Project Proposal (Due 09/26)</a>
+    </li>
+    <li>
+      <a href="p2-survey-plan.html">Survey Plan (Due 10/05)</a>
+    </li>
+    <li>
+      <a href="p3-pilot-survey.html">Pilot Survey (Due 10/15)</a>
+    </li>
+    <li>
+      <a href="p4-pilot-analysis.html">Pilot Analysis (Due 11/07)</a>
+    </li>
+    <li>
+      <a href="p5-final-survey.html">Final Survey (Due 11/21)</a>
+    </li>
+    <li>
+      <a href="p6-final-analysis.html">Final Analysis (Due 12/13)</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bookmark"></span>
+     
+    References
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ref-course-software.html">
+        <span class="fas fa-hdd"></span>
+         
+        Course Software
+      </a>
+    </li>
+    <li>
+      <a href="ref-getting-help.html">
+        <span class="fas fa-question-circle"></span>
+         
+        Getting Help
+      </a>
+    </li>
+    <li>
+      <a href="ref-visualizing-data.html">
+        <span class="fas fa-chart-bar"></span>
+         
+        Visualizing Data
+      </a>
+    </li>
+    <li>
+      <a href="ref-programming.html">
+        <span class="fas fa-terminal"></span>
+         
+        Programming in R
+      </a>
+    </li>
+    <li>
+      <a href="ref-rmarkdown.html">
+        <span class="fas fa-feather-alt"></span>
+         
+        R Markdown
+      </a>
+    </li>
+    <li>
+      <a href="ref-other.html">
+        <span class="fas fa-expand"></span>
+         
+        Other
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-tools"></span>
+     
+    Tools
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="https://rstudio.seas.gwu.edu/">
+        <span class="fab fa-r-project"></span>
+         
+        RStudio Server
+      </a>
+    </li>
+    <li>
+      <a href="https://jhelvy.appointlet.com/b/professor-helveston">
+        <span class="fas fa-user-clock"></span>
+         
+        Schedule a meeting w/Prof. Helveston
+      </a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="https://emse-madd-f21.slack.com">
+    <span class="fab fa-slack"></span>
+     
+    
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-bars"></span>
+     
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="about.html">
+        <span class="fas fa-info-circle"></span>
+         
+        About
+      </a>
+    </li>
+    <li>
+      <a href="LICENSE.html">
+        <span class="fas fa-gavel"></span>
+         
+        License
+      </a>
+    </li>
+    <li>
+      <a href="mailto:jph@gwu.edu">
+        <span class="fas fa-envelope"></span>
+         
+        Contact
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/emse-madd-gwu/2021-Fall/">
+        <span class="fab fa-github"></span>
+         
+        Source files
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Project Proposal</h1>
+
+</div>
+
+
+<blockquote>
+<p><strong>Due</strong>: Sep 26 by 11:59pm</p>
+<p><strong>Weight</strong>: This assignment is worth 7% of your final grade.</p>
+<p><strong>Purpose</strong>: purpose</p>
+<p><strong>Assessment</strong>: Your proposal will be assessed using <a href="project/proposal/rubric.html" target="_blank">this rubric</a>.</p>
+</blockquote>
+<p>As a team, write a proposal defining the scope of your project plan. Your chosen project topic should follow the <a href="p0-overview.html#Project_Selection">project selection guidelines</a>.</p>
+<p>The course instructor will review and grade your proposal and provide feedback in team meetings the week following the due date. If your proposal is approved, you are done and can move on towards the next project task. In some cases, the instructor may ask you to submit a revised proposal, most likely by focusing / adjusting the proposal scope. Follow the guidelines below to prepare your proposal.</p>
+<div id="get-organized" class="section level2">
+<h2>1. Get organized</h2>
+<p>Download and unzip <a href="templates/project_proposal.zip">this template</a> for your proposal. Open the <code>proposal.Rproj</code> file and write your proposal in the <code>proposal.Rmd</code> file. The template comes with some text and code explaining how to use it - you should delete this code / text as it is only for explanatory purposes. Be sure to adjust the content in the YAML:</p>
+<ul>
+<li>Write your project title in the <code>title</code> field (and provide a subtitle if you wish, or delete the <code>subtitle</code> field).</li>
+<li>In the <code>author</code> field, list the names of all teammates, e.g. <code>author: Luke Skywalker, Leia Organa, and Han Solo</code>.</li>
+</ul>
+</div>
+<div id="writing-quality" class="section level2">
+<h2>2. Writing Quality</h2>
+<p>Your proposal should be written in a clear, concise, and logically-structured manner so that a reader can easily understand the ideas presented. The proposal should be proof-read before submission to correct any grammatical or spelling errors. Spell checking can be automated by installing the <code>spelling</code> package and running this in the R console:</p>
+<pre class="r"><code>spelling::spell_check_files(&quot;proposal.Rmd&quot;)</code></pre>
+<p>All figures should be referenced in the text.</p>
+</div>
+<div id="proposal-contents" class="section level2">
+<h2>3. Proposal contents</h2>
+<p>Your proposal should contain the following items listed as separate sections:</p>
+<div id="abstract" class="section level3">
+<h3>Abstract</h3>
+<p>A few sentences summarizing the project and convincing the reader why it is important. Specifically, tell the reader:</p>
+<ol style="list-style-type: decimal">
+<li>What is the product?</li>
+<li>What key product attributes make it different than its competitors?</li>
+<li>What major design decision variables will you focus on for your analysis?</li>
+</ol>
+</div>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>Provide a brief description and background of the product or technology. Include a picture or diagram of the product.</p>
+</div>
+<div id="market-opportunity" class="section level3">
+<h3>Market Opportunity</h3>
+<div id="identify-your-customer" class="section level4">
+<h4>Identify your customer</h4>
+<p>If there are multiple potential markets, choose one to focus on for your analysis. Describe who you plan on taking your survey and how you intend to gain access to that population. You may survey customers of a “downstream” product, if appropriate (e.g. survey electric vehicle buyers to learn about preferences for electric vehicle battery attributes).</p>
+</div>
+<div id="identify-competitors" class="section level4">
+<h4>Identify competitors</h4>
+<p>Which other products will compete with yours? Benchmark how competitors compare on your product’s attributes.</p>
+</div>
+<div id="identify-market-size" class="section level4">
+<h4>Identify market size</h4>
+<p>Estimate the size of the annual market (expected sales in units per year) for this product and its competitors. Specify if your estimated annual market size is regional, national, or global, and provide references.</p>
+</div>
+</div>
+<div id="product-attributes-decision-variables" class="section level3">
+<h3>Product Attributes &amp; Decision Variables</h3>
+<p>A key component of your proposal is to identify the relationships between your <em>product attributes</em> and <em>decision variables</em>.</p>
+<div id="product-attributes" class="section level4">
+<h4>Product attributes</h4>
+<p>These are the product features that consumers observe and care about. For example, <em>price</em> is almost always an important product attribute that influences consumer choices. You should list and describe the major product attributes you will include in your analysis. Where possible, label the product attributes on the diagram of your design. Where possible, quantify the metrics for each attribute (e.g. if one of your attributes is <em>weight</em>, the metric could be “kilograms”). Also list the set or range of possible levels you plan to explore for each attribute (e.g. for <em>color</em> you may choose the set {red, green, blue}, or for <em>price</em> you may choose the range $1 - $10).</p>
+</div>
+<div id="decision-variables" class="section level4">
+<h4>Decision variables</h4>
+<p>These are key elements of the product / technology that the designers focused on in designing the product. For example, engineers might be trying to choose the best <em>thickness</em> for a solar cell, which affects multiple product attributes, including <em>weight</em> (thicker cells are heavier), <em>price</em> (thicker cells use more material), <em>lifetime</em> (cell thickness may affect how quickly a cell degrades), etc. You should discuss ~2-3 key decision variables that are related to your product’s design that you propose to consider. Discuss why you chose these variables, and label them on your diagram of the product design. For each variable, specify units and the range of potential values under consideration.</p>
+</div>
+</div>
+<div id="model-relationships-table" class="section level3">
+<h3>Model Relationships Table</h3>
+<p>Include a clearly legible image of your model relationships table identifying relationships between your <em>product attributes</em> and <em>decision variables</em>. For now, these relationships can simply be directional (e.g. <em>cell thickness</em> is positively related to <em>cell weight</em>). Use <a href="https://docs.google.com/spreadsheets/d/1iwMI9cbJjB6J8wghZY6Y_fCOSt7MDsUTnSuuC58_xjU/edit?usp=sharing">this example</a> as a template.</p>
+</div>
+<div id="questions" class="section level3">
+<h3>Questions</h3>
+<p>List major outstanding questions (e.g. about the product / technology performance metrics, market opportunities, etc.) that you will need to know to conduct your analysis and how you propose to find answers. The purpose of this section is to identify high-priority items that you will need to know early on in your project.</p>
+</div>
+</div>
+<div id="knit-and-submit" class="section level2">
+<h2>5. Knit and submit</h2>
+<p>Click the “knit” button to compile your <code>proposal.Rmd</code> file into a html web page, then create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file under “Project: Proposal”. <strong>Only one person from your team should submit the report.</strong></p>
+</div>
+
+
+<hr>
+
+<div>
+<center>
+    EMSE 6035: Marketing Analytics for Design Decisions (Fall 2021)
+
+    <br>
+
+    <i class="far fa-calendar-alt"></i> Wednesdays |
+    <i class="far fa-clock"></i> 6:10 - 8:40 PM |
+    <a href="https://acadtech.gwu.edu/location?staging&id=350&selected=SEH&method=building"><i class="fa fa-map-marker-alt"></i> SEH 7040</a> |
+    <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> |
+    <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>
+
+    <br>
+
+    <a href="LICENSE.html">LICENSE: CC-BY-SA <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-sa"></i></a>
+</center>
+</div>
+
+<!-- Add function to open links to external links in new tab, from: -->
+<!-- https://yihui.name/en/2018/09/target-blank/ -->
+
+<script src="js/external-link.js"></script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

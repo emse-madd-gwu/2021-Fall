@@ -3,7 +3,7 @@ title: "Getting Help"
 output: html_document
 ---
 
-```{r child = "knitr_setup.Rmd"}
+```{r child = "_knitr_setup.Rmd"}
 ```
 
 # Slack
