@@ -3,6 +3,7 @@ title: "Data Wrangling"
 output:
   html_document:
     toc: false
+    number_sections: false
 params:
   number: 1
   purpose: 'The purpose of this assignment is to get more familiar with R and RStudio and to develop some basic strategies for working with data in R.'
@@ -31,7 +32,7 @@ url_template <- paste0(
 
 # 1. Software 
 
-If you haven't yet, go to the [Course Software](https://madd.seas.gwu.edu/2021-Fall/ref-course-software.html) page and install all the software we'll need for this course. You'll need these tools for this assignment.
+If you haven't yet, go to the [Course Software](ref-course-software.html) page and install all the software we'll need for this course. You'll need these tools for this assignment.
 
 # 2. Getting Organized
 
@@ -41,7 +42,7 @@ Download and edit [this template](`r url_template`) when working through this as
 
 Open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you go through these readings:
 
-1. **Getting Familiar with the Course**: Follow [Snoop's advice](https://twitter.com/ryancbriggs/status/1293543531496308736?s=20) and read the entire [Course Syllabus](syllabus.html) (actually read the whole thing). Then review the [schedule](schedule.html) and make sure to note important upcoming deadlines.
+1. **Getting Familiar with the Course**: Follow [Snoop's advice](https://www.youtube.com/watch?v=Tnlaokj1opA) and read the entire [Course Syllabus](syllabus.html) (actually read the whole thing). Then review the [schedule](schedule.html) and make sure to note important upcoming deadlines.
 2. **`r fa('r-project')` Basics** [Optional] Read through Lessons [1 "Getting Started"](https://jhelvy.github.io/r4aPrimer/L1-getting-started.html) and [2 "Data Types & Vectors"](https://jhelvy.github.io/r4aPrimer/L2-data-types-vectors.html) in the [R4A Primer](https://jhelvy.github.io/r4aPrimer/index.html) to get more familiar with `r fa('r-project')` basics. You may also want to watch the recording of last week's class on Blackboard (see the "Zoom Recordings" section). 
 3. **Data Frames & Data Wrangling** Reading through Lessons [3 "Data Frames"](https://jhelvy.github.io/r4aPrimer/L3-data-frames.html) and [4 "Data Wrangling"](https://jhelvy.github.io/r4aPrimer/L4-data-wrangling.html) in the [R4A Primer](https://jhelvy.github.io/r4aPrimer/index.html) to get more familiar with working with data sets in `r fa('r-project')`.
 
