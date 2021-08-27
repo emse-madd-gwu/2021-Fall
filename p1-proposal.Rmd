@@ -2,7 +2,9 @@
 title: "Project Proposal"
 output:
   html_document:
-    toc: false
+    toc: true
+    toc_float: true
+    toc_level: 2
     number_sections: false
 params:
   number: 1
@@ -90,7 +92,7 @@ These are the product features that consumers observe and care about. For exampl
 
 These are key elements of the product / technology that the designers focused on in designing the product. For example, engineers might be trying to choose the best _thickness_ for a solar cell, which affects multiple product attributes, including _weight_ (thicker cells are heavier), _price_ (thicker cells use more material), _lifetime_ (cell thickness may affect how quickly a cell degrades), etc. You should discuss ~2-3 key decision variables that are related to your product's design that you propose to consider. Discuss why you chose these variables, and label them on your diagram of the product design. For each variable, specify units and the range of potential values under consideration. 
 
-### Model Relationships Table
+#### Model Relationships Table
 
 Include a clearly legible image of your model relationships table identifying relationships between your _product attributes_ and _decision variables_. For now, these relationships can simply be directional (e.g. _cell thickness_ is positively related to _cell weight_). Use [this example](https://docs.google.com/spreadsheets/d/1iwMI9cbJjB6J8wghZY6Y_fCOSt7MDsUTnSuuC58_xjU/edit?usp=sharing) as a template.
 
@@ -98,6 +100,6 @@ Include a clearly legible image of your model relationships table identifying re
 
 List major outstanding questions (e.g. about the product / technology performance metrics, market opportunities, etc.) that you will need to know to conduct your analysis and how you propose to find answers. The purpose of this section is to identify high-priority items that you will need to know early on in your project.
 
-## 5. Knit and submit
+## 4. Knit and submit
 
 Click the "knit" button to compile your `proposal.Rmd` file into a html web page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file under "Project: Proposal". **Only one person from your team should submit the report.**
