@@ -1,0 +1,98 @@
+---
+title: "Data Wrangling"
+output:
+  html_document:
+    toc: false
+params:
+  number: 1
+  purpose: 'The purpose of this assignment is to get more familiar with R and RStudio and to develop some basic strategies for working with data in R.'
+---
+
+```{r child = "knitr_setup.Rmd"}
+```
+
+```{r echo=FALSE}
+library(tidyverse)
+library(fontawesome)
+
+due <- get_schedule() %>%
+  mutate(assign_due = format(assign_due, format = "%b %d")) %>%
+  filter(assign_n == params$number) %>%
+  pull(assign_due)
+due <- paste0(due, " by 11:59pm")
+
+url_template <- paste0(
+  'https://eda.seas.gwu.edu/2021-Spring/templates/reflection',
+  params$number, '.zip')
+```
+
+```{r child = "_rheader.Rmd"}
+```
+
+# 1. Software 
+
+If you haven't yet, go to the [Course Software](https://madd.seas.gwu.edu/2021-Fall/ref-course-software.html) page and install all the software we'll need for this course. You'll need these tools for this assignment.
+
+# 2. Getting Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment.
+
+# 3. Readings
+
+Open up a notebook (physical, digital...whatever you take notes in best), and **take notes** while you go through these readings:
+
+1. **Getting Familiar with the Course**: Follow [Snoop's advice](https://twitter.com/ryancbriggs/status/1293543531496308736?s=20) and read the entire [Course Syllabus](syllabus.html) (actually read the whole thing). Then review the [schedule](schedule.html) and make sure to note important upcoming deadlines.
+2. **`r fa('r-project')` Basics** [Optional] Read through Lessons [1 "Getting Started"](https://jhelvy.github.io/r4aPrimer/L1-getting-started.html) and [2 "Data Types & Vectors"](https://jhelvy.github.io/r4aPrimer/L2-data-types-vectors.html) in the [R4A Primer](https://jhelvy.github.io/r4aPrimer/index.html) to get more familiar with `r fa('r-project')` basics. You may also want to watch the recording of last week's class on Blackboard (see the "Zoom Recordings" section). 
+3. **Data Frames & Data Wrangling** Reading through Lessons [3 "Data Frames"](https://jhelvy.github.io/r4aPrimer/L3-data-frames.html) and [4 "Data Wrangling"](https://jhelvy.github.io/r4aPrimer/L4-data-wrangling.html) in the [R4A Primer](https://jhelvy.github.io/r4aPrimer/index.html) to get more familiar with working with data sets in `r fa('r-project')`.
+
+# 4. Exercises
+
+RStudio offers many excellent [primers](https://rstudio.cloud/learn/primers/) to get up and running quickly in `r fa('r-project')`. Running through these exercises will help prepare you for class next week:
+
+1. [Programming Basics](https://rstudio.cloud/learn/primers/1.2) [Optional]
+2. [Working with Data](https://rstudio.cloud/learn/primers/2.1)
+3. [Isolating Data with dplyr](https://rstudio.cloud/learn/primers/2.2)
+4. [Derive Information with dplyr](https://rstudio.cloud/learn/primers/2.3)
+
+# 5. Reflect & Submit
+
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write a few sentences in the template you downloaded for this assignment, then reate a zip file of everything in your R Project folder and submit the zip file in the "Assignment Submission" page on Blackboard.
+
+----
+
+# Extra Practice
+
+Not required, but probably helpful, especially if you're new to `r fa('r-project')`.
+
+## Inspect data from other packages
+
+Write R code to install the **dslabs** package from CRAN, then write code to load the library. Write some code to preview and inspect the `movielens` data frame that gets loaded when you load the library using some of the techniques we saw in class. For each of the following questions, write code to find your answer and leave a detailed response in a comment:
+
+- What is this dataset about?
+- How many observations are in the data frame?
+- What is the original source of the data?
+- What type of data is each variable?
+- What are the years of the earliest and most recent observations in the data set?
+
+## Answer questions about the data
+
+For each of the following questions, write code to find your answer and leave a detailed response in a comment:
+
+- What is the min, mean, and max rating in the data set?
+- How many observations received the maximum rating?
+- What percentage of total observations received the maximum rating?
+- What is the title of the observation with the longest `title` (in terms of numbers of letters in the title)?
+
+## Installing packages from Github: the **BRRR** library
+
+The vast majority of the time, you will install external packages using the `install.packages()` function. This installs packages from the [Comprehensive R Archive Network](https://cran.r-project.org/) (CRAN), where most packages are published. But you can also install packages that are under development or haven't been published to CRAN yet. Most of the time, these packages are hosted on GitHub - an online platform for sharing code (it's also where all of the files that make up this website are [stored](https://github.com/emse-madd-gwu/2021-Fall)).
+
+To install a package from GitHub, you first need to install the **remotes** library. Then you can use the `remotes`::install_github()` function to install packages directly from GitHub. To try this out, install the **remotes** library, then trying installing the **BRRR** package:
+
+```{r, eval=FALSE}
+remotes::install_github("brooke-watson/BRRR")
+```
+
+> Note: Packges on GitHub are _in development_ and often require other packges to work. So if you get an installation error about some other package dependency, try restarting your R session and try again. 
+
+Not sure what this package does? Well, one of the other nice things about packages listed on GitHub is the authors tend to write detailed descriptions - check out the [GitHub page for the BRRR package](https://github.com/brooke-watson/BRRR). Then try using the `BRRR::skrrrahh()` function with different number arguments (turn your volume up). In the `#welcome` channel on slack, post your favorite argument to `skrrrahh()` (mine is 24).

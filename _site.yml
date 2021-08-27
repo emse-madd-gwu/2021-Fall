@@ -43,31 +43,31 @@ navbar:
           href: c14-heterogeneity.html
         - text: "Dec 08: Exam Solutions"
           href: c15-exam-solutions.html
-    - text: "Readings"
+    - text: "Assignments"
       icon: fas fa-book-reader
       menu:
         - text: "Self Assessment (optional)"
-          href: r0-self-assessment.html
+          href: a0-self-assessment.html
         - text: "Sep 01: Data Wrangling (Due 09/07)"
-          href: r1-data-wrangling.html
+          href: a1-data-wrangling.html
         - text: "Sep 08: Plotting (Due 09/14)"
-          href: r2-plotting.html
+          href: a2-plotting.html
         - text: "Sep 15: formr (Due 09/21)"
-          href: r3-formr.html
+          href: a3-formr.html
         - text: "Oct 06: Utility Models (Due 10/12)"
-          href: r4-utility-models.html
+          href: a4-utility-models.html
         - text: "Oct 13: Estimation (Due 10/19)"
-          href: r5-estimation.html
+          href: a5-estimation.html
         - text: "Oct 20: Uncertainty (Due 10/26)"
-          href: r6-uncertainty.html
+          href: a6-uncertainty.html
         - text: "Oct 27: Design of Experiment (Due 11/02)"
-          href: r7-doe.html
+          href: a7-doe.html
         - text: "Nov 10: WTP & Simulations (Due 11/16)"
-          href: r8-wtp-simulation.html
+          href: a8-wtp-simulation.html
         - text: "Nov 17: Heterogeneity (Due 11/30)"
-          href: r9-heterogeneity.html
+          href: a9-heterogeneity.html
         - text: "Dec 01: Exam (Due 12/05)"
-          href: r10-exam.html
+          href: a10-exam.html
     - text: "Project"
       icon: fas fa-pencil-ruler
       menu:

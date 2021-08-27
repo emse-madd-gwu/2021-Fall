@@ -39,10 +39,10 @@ library(tidyverse)
 
 # Setup some common values
 fa <- list(
-  quiz     = '[<i class="fas fa-edit"></i>]',
-  readings = '[<i class="fas fa-book-reader"></i>]',
-  class    = '[<i class="fas fa-laptop-code"></i>]',
-  project  = '[<i class="fas fa-pencil-ruler"></i>]'
+  quiz        = '[<i class="fas fa-edit"></i>]',
+  assignments = '[<i class="fas fa-book-reader"></i>]',
+  class       = '[<i class="fas fa-laptop-code"></i>]',
+  project     = '[<i class="fas fa-pencil-ruler"></i>]'
 )
 
 # Make the schedule data frame
@@ -50,7 +50,7 @@ quizUrl <- "https://maddf21quiz"
 schedule <- get_schedule() %>%
   mutate(
     date = format(date, format = "%b %d"),
-    reading_due = format(reading_due, format = "%b %d"),
+    assign_due = format(assign_due, format = "%b %d"),
     project_due = format(project_due, format = "%b %d"),
     # Replace NA values with ""
     class_desc = ifelse(is.na(class_desc), "", class_desc),
@@ -70,10 +70,10 @@ schedule <- get_schedule() %>%
       is.na(project), NA,
       paste0("**", project, "**<br>", project_desc)),
     assignments = ifelse(
-      is.na(reading_name), NA,
+      is.na(assign_name), NA,
       paste0(
-        fa$readings, "(r", reading_n, "-", reading_url, ".html) **",
-        reading_name, "**<br>Due ", reading_due)),
+        fa$assignments, "(r", assign_n, "-", assign_url, ".html) **",
+        assign_name, "**<br>Due ", assign_due)),
     project = ifelse(
       is.na(project_name), NA,
       paste0(

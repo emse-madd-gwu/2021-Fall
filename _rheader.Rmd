@@ -1,6 +1,6 @@
 > **Due**: `r due`
 >
-> **Weight**: This assignment is worth 0.5% of your final grade.
+> **Weight**: This assignment is worth 3% of your final grade.
 >
 > **Purpose**: `r params$purpose`
 >
@@ -10,4 +10,4 @@
 > - ✔ (100%): Responses are thoughtful, well-written, and show engagement with the course content. This is the expected level of performance.
 > - ✔− (50%): Responses are hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will _hopefully_ not assign these often.
 >
-> Notice that this is essentially a pass/fail system. I'm not grading your writing ability and I'm not counting the number of words you write. I'm looking for thoughtful engagement, that's all.
+> Notice that this is essentially a pass/fail system. I'm not grading your writing ability and I'm not counting the number of words you write - I'm looking for thoughtful engagement.
