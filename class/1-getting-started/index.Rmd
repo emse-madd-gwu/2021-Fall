@@ -523,45 +523,30 @@ class: center
 
 class: center, inverse, middle
 
-# Example:<br>Athletic Sole Insole Sensor
+# Example: _Pocket Charge_
+
+## A Flexible, Portable Solar Charger
 
 ---
 
-class: center
-background-color: #fff
-
-# Product: Electronic Shoe Sensor
-
-<center>
-<img src="images/shoe1.png" width=900>
-</center>
+background-image: url(images/solar1.png)
+background-size: contain
 
 ---
 
 class: center, middle
 background-color: #fff
 
+### Example survey choice question
+
 <center>
-<img src="images/shoe2.png" width=900>
+<img src="images/solar2.png" width=850>
 </center>
 
 ---
 
-class: center, middle
-background-color: #fff
-
-<center>
-<img src="images/shoe3.png" width=900>
-</center>
-
----
-
-class: center, middle
-background-color: #fff
-
-<center>
-<img src="images/shoe4.png" width=900>
-</center>
+background-image: url(images/solar3.png)
+background-size: contain
 
 ---
 
