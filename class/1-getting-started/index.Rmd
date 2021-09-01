@@ -188,7 +188,7 @@ class: center
 
 ### **Not sure?** 
 
-### Take [this self assessment](https://madd.seas.gwu.edu/2021-Fall/r0-self-assessment.html)
+### Take [this self assessment](https://madd.seas.gwu.edu/2021-Fall/a0-self-assessment.html)
 
 ]
 
