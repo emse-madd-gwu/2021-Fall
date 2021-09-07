@@ -57,7 +57,7 @@ RStudio offers many excellent [primers](https://rstudio.cloud/learn/primers/) to
 
 # 5. Reflect & Submit
 
-Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write a few sentences in the template you downloaded for this assignment, then reate a zip file of everything in your R Project folder and submit the zip file in the "Assignment Submission" page on Blackboard.
+Reflect on what you've learned while going through these readings and exercises. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? Write a few sentences in the template you downloaded for this assignment, then create a zip file of everything in your R Project folder and submit the zip file in the "Assignment Submission" page on Blackboard.
 
 ----
 
