@@ -5,7 +5,7 @@ output:
     number_sections: false
     toc: no
 params:
-  class: "c12-wtp-simulation"
+  class: "12-wtp-simulation"
 ---
 
 ```{r child = "_knitr_setup.Rmd"}

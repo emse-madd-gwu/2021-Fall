@@ -5,10 +5,11 @@ output:
     number_sections: false
     toc: no
 params:
-  class: "c2-data-wrangling"
+  class: "2-data-wrangling"
 ---
 
 ```{r child = "_knitr_setup.Rmd"}
 ```
 
-Coming soon!
+```{r child = "_slides.Rmd"}
+```
