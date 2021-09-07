@@ -1,0 +1,11 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Working with data frames
+### 2. .orange[Data wrangling with the _tidyverse_]
+
+### BREAK
+
+### 3. Project proposals
