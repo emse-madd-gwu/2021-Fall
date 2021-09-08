@@ -102,7 +102,7 @@ class: middle, inverse
 Make sure you have these libraries installed:
 
 ```{r, eval=FALSE}
-install.packages(c("tidyverse", "nycflights13", "here"))
+install.packages(c("tidyverse", "here"))
 ```
 
 **Remember: you only need to install packages once!**
@@ -115,7 +115,6 @@ Once installed, you'll need to _load_ the libraries every time you open RStudio:
 
 ```{r, eval=FALSE}
 library(tidyverse)
-library(nycflights13)
 library(here)
 ```
 
@@ -353,9 +352,9 @@ countdown(minutes = 10,
 - How many rows and columns are in the data frame?
 - What type of data is each column? (Just look, don't need to type out the answer)
 - Preview the different columns - what do you think this data is about? What might one row represent?
-- How many unique airports are in the data frame?
+- How many unique airlines are in the data frame? 
 - What is the earliest and latest observation in the data frame?
-- What is the lowest and highest cost of any one repair in the data frame?
+- What is the shortest and longest air time for any one flight in the data frame?
 ]
 
 ---
@@ -631,10 +630,10 @@ countdown(minutes = 10,
 
 2) Use the `data` object and the `select()` and `filter()` functions to answer the following questions:
 
-- Create a new data frame, `dc`, that contains only the rows from DC airports.
-- Create a new data frame, `dc_dawn`, that contains only the rows from DC airports that occurred at dawn.
-- Create a new data frame, `dc_dawn_birds`, that contains only the rows from DC airports that occurred at dawn and only the columns about the _species_ of bird.
-- How many unique species of birds have been involved in accidents at DC airports?
+- Create a new data frame, `flights_fall`, that contains only flights that departed in the fall semester.
+- Create a new data frame, `flights_dc`, that contains only flights that flew to DC airports (Reagan or Dulles).
+- Create a new data frame, `flights_dc_carrier`, that contains only flights that flew to DC airports (Reagan or Dulles) and only the columns about the month and airline.
+- How many unique airlines were flying to DC airports in July?
 ]
 
 ---
@@ -748,21 +747,13 @@ countdown(minutes = 10,
 
 2) Using the `data` object, create the following new variables:
 
-- `height_miles`: The `height` variable converted to miles (Hint: there are 5,280 feet in a mile).
-- `cost_mil`: Is `TRUE` if the repair costs was greater or equal to $1 million, `FALSE` otherwise.
+- `speed`: The speed in mph, computed from the time (in minutes) and distance (in miles) variables. 
+- `dep_delay_hour`: Is `TRUE` if the departure delay is greater or equal to one hour, `FALSE` otherwise.
 
-3) Remove rows that have `NA` for `cost_repairs_infl_adj` and re-arrange the resulting data frame based on the highest height and most expensive cost
+3) Which flight flew the fastest?
+
+4) Remove rows that have `NA` for `air_time` and re-arrange the resulting data frame based on the longest air time and longest flight distance.
 ]
-
-
-
-
-
-
-
-
-
-
 
 ---
 

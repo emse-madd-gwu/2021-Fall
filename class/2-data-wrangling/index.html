@@ -70,7 +70,7 @@ Make sure you have these libraries installed:
 
 
 ```r
-install.packages(c("tidyverse", "nycflights13", "here"))
+install.packages(c("tidyverse", "here"))
 ```
 
 **Remember: you only need to install packages once!**
@@ -84,7 +84,6 @@ Once installed, you'll need to _load_ the libraries every time you open RStudio:
 
 ```r
 library(tidyverse)
-library(nycflights13)
 library(here)
 ```
 
@@ -146,7 +145,7 @@ beatles
 ```
 
 ```
-#&gt; # A tibble: 4 × 5
+#&gt; # A tibble: 4 x 5
 #&gt;   firstName lastName  instrument yearOfBirth deceased
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
 #&gt; 1 John      Lennon    guitar            1940 TRUE    
@@ -165,7 +164,7 @@ beatles
 ```
 
 ```
-#&gt; # A tibble: 4 × 5
+#&gt; # A tibble: 4 x 5
 #&gt;   firstName lastName  instrument yearOfBirth deceased
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
 #&gt; 1 John      Lennon    guitar            1940 TRUE    
@@ -199,7 +198,7 @@ beatles[1,]
 ```
 
 ```
-#&gt; # A tibble: 1 × 5
+#&gt; # A tibble: 1 x 5
 #&gt;   firstName lastName instrument yearOfBirth deceased
 #&gt;   &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
 #&gt; 1 John      Lennon   guitar            1940 TRUE
@@ -215,7 +214,7 @@ beatles[2,]
 ```
 
 ```
-#&gt; # A tibble: 1 × 5
+#&gt; # A tibble: 1 x 5
 #&gt;   firstName lastName  instrument yearOfBirth deceased
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
 #&gt; 1 Paul      McCartney bass              1942 FALSE
@@ -313,7 +312,7 @@ path_to_data
 ```
 
 ```
-#&gt; [1] "/Users/jhelvy/gh/0gw/MADD/2021-Fall/class/2-data-wrangling/data/data.csv"
+#&gt; [1] "C:/Users/jph/Downloads/gh/2021-Fall/class/2-data-wrangling/data/data.csv"
 ```
 
 --
@@ -338,7 +337,7 @@ here()
 ```
 
 ```
-#&gt; [1] "/Users/jhelvy/gh/0gw/MADD/2021-Fall/class/2-data-wrangling"
+#&gt; [1] "C:/Users/jph/Downloads/gh/2021-Fall/class/2-data-wrangling"
 ```
 
 --
@@ -352,7 +351,7 @@ path_to_data
 ```
 
 ```
-#&gt; [1] "/Users/jhelvy/gh/0gw/MADD/2021-Fall/class/2-data-wrangling/data/data.csv"
+#&gt; [1] "C:/Users/jph/Downloads/gh/2021-Fall/class/2-data-wrangling/data/data.csv"
 ```
 
 ---
@@ -391,7 +390,7 @@ path_to_data &lt;- here('data', 'data.csv')
 
 class: inverse
 
-<div class="countdown" id="timer_6137b742" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_61392208" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -405,9 +404,9 @@ class: inverse
 - How many rows and columns are in the data frame?
 - What type of data is each column? (Just look, don't need to type out the answer)
 - Preview the different columns - what do you think this data is about? What might one row represent?
-- How many unique airports are in the data frame?
+- How many unique airlines are in the data frame? 
 - What is the earliest and latest observation in the data frame?
-- What is the lowest and highest cost of any one repair in the data frame?
+- What is the shortest and longest air time for any one flight in the data frame?
 ]
 
 ---
@@ -539,7 +538,7 @@ beatles
 ```
 
 ```
-#&gt; # A tibble: 4 × 5
+#&gt; # A tibble: 4 x 5
 #&gt;   firstName lastName  instrument yearOfBirth deceased
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
 #&gt; 1 John      Lennon    guitar            1940 TRUE    
@@ -561,7 +560,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 4 × 2
+#&gt; # A tibble: 4 x 2
 #&gt;   firstName lastName 
 #&gt;   &lt;chr&gt;     &lt;chr&gt;    
 #&gt; 1 John      Lennon   
@@ -583,7 +582,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 4 × 3
+#&gt; # A tibble: 4 x 3
 #&gt;   instrument yearOfBirth deceased
 #&gt;   &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
 #&gt; 1 guitar            1940 TRUE    
@@ -616,7 +615,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 4 × 2
+#&gt; # A tibble: 4 x 2
 #&gt;   firstName lastName 
 #&gt;   &lt;chr&gt;     &lt;chr&gt;    
 #&gt; 1 John      Lennon   
@@ -666,7 +665,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 2 × 5
+#&gt; # A tibble: 2 x 5
 #&gt;   firstName lastName  instrument yearOfBirth deceased
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
 #&gt; 1 Paul      McCartney bass              1942 FALSE   
@@ -686,7 +685,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 1 × 5
+#&gt; # A tibble: 1 x 5
 #&gt;   firstName lastName  instrument yearOfBirth deceased
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
 #&gt; 1 Paul      McCartney bass              1942 FALSE
@@ -701,7 +700,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 1 × 5
+#&gt; # A tibble: 1 x 5
 #&gt;   firstName lastName  instrument yearOfBirth deceased
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
 #&gt; 1 Paul      McCartney bass              1942 FALSE
@@ -749,7 +748,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 1 × 2
+#&gt; # A tibble: 1 x 2
 #&gt;   firstName lastName 
 #&gt;   &lt;chr&gt;     &lt;chr&gt;    
 #&gt; 1 Paul      McCartney
@@ -759,7 +758,7 @@ beatles %&gt;%
 
 class: inverse
 
-<div class="countdown" id="timer_6137b518" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_61392172" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -770,10 +769,10 @@ class: inverse
 
 2) Use the `data` object and the `select()` and `filter()` functions to answer the following questions:
 
-- Create a new data frame, `dc`, that contains only the rows from DC airports.
-- Create a new data frame, `dc_dawn`, that contains only the rows from DC airports that occurred at dawn.
-- Create a new data frame, `dc_dawn_birds`, that contains only the rows from DC airports that occurred at dawn and only the columns about the _species_ of bird.
-- How many unique species of birds have been involved in accidents at DC airports?
+- Create a new data frame, `flights_fall`, that contains only flights that departed in the fall semester.
+- Create a new data frame, `flights_dc`, that contains only flights that flew to DC airports (Reagan or Dulles).
+- Create a new data frame, `flights_dc_carrier`, that contains only flights that flew to DC airports (Reagan or Dulles) and only the columns about the month and airline.
+- How many unique airlines were flying to DC airports in July?
 ]
 
 ---
@@ -809,7 +808,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 4 × 6
+#&gt; # A tibble: 4 x 6
 #&gt;   firstName lastName  instrument yearOfBirth deceased   age
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;    &lt;dbl&gt;
 #&gt; 1 John      Lennon    guitar            1940 TRUE        81
@@ -831,7 +830,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 4 × 7
+#&gt; # A tibble: 4 x 7
 #&gt;   firstName lastName  instrument yearOfBirth deceased   age meanAge
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
 #&gt; 1 John      Lennon    guitar            1940 TRUE        81    79.8
@@ -855,7 +854,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 4 × 6
+#&gt; # A tibble: 4 x 6
 #&gt;   firstName lastName  instrument yearOfBirth deceased playsGuitar
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;    &lt;lgl&gt;      
 #&gt; 1 John      Lennon    guitar            1940 TRUE     TRUE       
@@ -879,7 +878,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 4 × 5
+#&gt; # A tibble: 4 x 5
 #&gt;   firstName lastName  instrument yearOfBirth deceased
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
 #&gt; 1 John      Lennon    guitar            1940 TRUE    
@@ -901,7 +900,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 4 × 5
+#&gt; # A tibble: 4 x 5
 #&gt;   firstName lastName  instrument yearOfBirth deceased
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;   
 #&gt; 1 George    Harrison  guitar            1943 TRUE    
@@ -924,7 +923,7 @@ beatles %&gt;%
 ```
 
 ```
-#&gt; # A tibble: 4 × 6
+#&gt; # A tibble: 4 x 6
 #&gt;   firstName lastName  instrument yearOfBirth deceased   age
 #&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;    &lt;dbl&gt;
 #&gt; 1 George    Harrison  guitar            1943 TRUE        78
@@ -937,7 +936,7 @@ beatles %&gt;%
 
 class: inverse
 
-<div class="countdown" id="timer_6137b577" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_61391feb" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -948,21 +947,13 @@ class: inverse
 
 2) Using the `data` object, create the following new variables:
 
-- `height_miles`: The `height` variable converted to miles (Hint: there are 5,280 feet in a mile).
-- `cost_mil`: Is `TRUE` if the repair costs was greater or equal to $1 million, `FALSE` otherwise.
+- `speed`: The speed in mph, computed from the time (in minutes) and distance (in miles) variables. 
+- `dep_delay_hour`: Is `TRUE` if the departure delay is greater or equal to one hour, `FALSE` otherwise.
 
-3) Remove rows that have `NA` for `cost_repairs_infl_adj` and re-arrange the resulting data frame based on the highest height and most expensive cost
+3) Which flight flew the fastest?
+
+4) Remove rows that have `NA` for `air_time` and re-arrange the resulting data frame based on the longest air time and longest flight distance.
 ]
-
-
-
-
-
-
-
-
-
-
 
 ---
 
@@ -970,7 +961,7 @@ class: inverse, center
 
 # .fancy[Break]
 
-<div class="countdown" id="timer_6137b704" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<div class="countdown" id="timer_6139204a" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1125,7 +1116,7 @@ class: center
 
 class: inverse
 
-<div class="countdown" id="timer_6137b553" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_61391f8e" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
