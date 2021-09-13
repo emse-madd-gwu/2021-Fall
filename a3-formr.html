@@ -627,7 +627,59 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
+<blockquote>
+<p><strong>Due</strong>: Sep 21 by 11:59pm</p>
+<p><strong>Weight</strong>: This assignment is worth 3% of your final grade.</p>
+<p><strong>Purpose</strong>: The purpose of this assignment is to get familiar with the <a href="https://formr.org/">formr.org</a> survey platform, which we will be using to implement our surveys.</p>
+<p><strong>Assessment</strong>: This assignment is graded using a check system:</p>
+<ul>
+<li>✔+ (110%): Responses shows phenomenal thought and engagement with the course content. I will not assign these often.</li>
+<li>✔ (100%): Responses are thoughtful, well-written, and show engagement with the course content. This is the expected level of performance.</li>
+<li>✔− (50%): Responses are hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will <em>hopefully</em> not assign these often.</li>
+</ul>
+<p>Notice that this is essentially a pass/fail system. I’m not grading your writing ability and I’m not counting the number of words you write - I’m looking for thoughtful engagement.</p>
+</blockquote>
+<div id="getting-organized" class="section level1">
+<h1>1. Getting Organized</h1>
+<p>Download and edit <a href="https://madd.seas.gwu.edu/2021-Fall/templates/reflection3.zip">this template</a> when working through this assignment. Notice that this week’s template is a .Rmd file.</p>
+</div>
+<div id="readings" class="section level1">
+<h1>2. Readings</h1>
+<p>Next week we will start getting into designing conjoint surveys for our projects. We will implement them using <a href="https://formr.org/">formr.org</a>, which is an R-based platform for designing surveys. The platform allows you to use R or markdown code (just like you would in a .Rmd file) to define everything you see in an online survey. All survey elements are defined using Google Sheets.</p>
+<p>To get familiar with the platform, go to <strong><a href="https://www.jhelvy.com/talks/2021-01-21-surveys-with-formr/">this post</a></strong> on my website and watch the ~45 min video on the page. It is a recording of me introducing formr.org at a <a href="https://gwcoders.github.io/">GW Coders</a> community meet up earlier this year. The first 5 minutes is a high level introduction, and the rest of the video goes into a detailed demo of the platform.</p>
+<p><strong>Take notes</strong> as you watch the video.</p>
+<p>At the bottom of the page in the section titled “Surveys with {formr}”, you can see links to the actual surveys I used in the video.</p>
+</div>
+<div id="make-a-team-formr-account" class="section level1">
+<h1>3. Make a team formr account</h1>
+<p>As a team, you will need to create a formr.org account to design and implement your own survey. Follow these recommended steps to get started:</p>
+<ol style="list-style-type: decimal">
+<li>Create a team gmail account that everyone can access. Please do not use an existing personal account - just create a new account for the whole team to share. We’ll use this account to create the Google Sheets for our formr surveys.</li>
+<li>Use your team gmail account to <a href="https://formr.org/admin/account/register">create a team formr account</a>. When you do, you’ll need a referral token - check the <a href="https://emse-madd-f21.slack.com/">class slack</a> for the token to use (it’ll be posted in the #project channel).</li>
+</ol>
+</div>
+<div id="make-a-practice-survey" class="section level1">
+<h1>4. Make a practice survey</h1>
+<p>Using your team gmail and formr account, try replicating the <a href="https://docs.google.com/spreadsheets/d/1hs551J6PYJNxc4sftmJyUqj6XYGYFVnN_5faQBWY7cs/edit?usp=sharing">random images</a> survey I demonstrated in the video. Follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Make a copy of the survey Google Sheet in your team gmail account.</li>
+<li>Log in to formr.org with your team account and create a new survey using that Google Sheet. Since your teammates will all be doing this using the same account, give your survey a unique name, like <code>randomImagesName</code> but replace <code>Name</code> with your name.</li>
+<li>Once you have your survey uploaded, you can make it live by creating a “Run”. Add your survey to the run by clicking on the <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z"/></svg> icon, then add a stopping point by clicking the <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"/></svg> icon.</li>
+<li>The link to the survey will be <code>https://your_run_name.formr.org</code>. You can control whether your survey is “live” or not by modifying the “volume” icons. I recommend setting it to the <svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M215.03 72.04L126.06 161H24c-13.26 0-24 10.74-24 24v144c0 13.25 10.74 24 24 24h102.06l88.97 88.95c15.03 15.03 40.97 4.47 40.97-16.97V89.02c0-21.47-25.96-31.98-40.97-16.98zm123.2 108.08c-11.58-6.33-26.19-2.16-32.61 9.45-6.39 11.61-2.16 26.2 9.45 32.61C327.98 229.28 336 242.62 336 257c0 14.38-8.02 27.72-20.92 34.81-11.61 6.41-15.84 21-9.45 32.61 6.43 11.66 21.05 15.8 32.61 9.45 28.23-15.55 45.77-45 45.77-76.88s-17.54-61.32-45.78-76.87z"/></svg> icon, which means people who have the link can access the survey.</li>
+<li>Try it out! See if the survey works as expected. You can also click through a few times and then see the response data by going to your survey (not the run) in the formr.org admin page.</li>
+</ol>
+</div>
+<div id="reflect-knit-submit" class="section level1">
+<h1>5. Reflect, Knit, &amp; Submit</h1>
+<p>Reflect on what you’ve learned and any questions or points of confusion you have about creating surveys with formr. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? After reflecting, do the following:</p>
+<ul>
+<li>Write a few sentences in the template you downloaded for this assignment.</li>
+<li>Click the “knit” button to compile your .Rmd file into a html web page.</li>
+<li>Open up the resulting <code>reflection3.html</code> file in your web browser and see how it looks!</li>
+<li>Create a zip file of everything in your R Project folder and submit the zip file in the “Assignment Submission” page on Blackboard.</li>
+</ul>
+</div>
 
 
 <hr>
