@@ -3,9 +3,71 @@ title: "formr"
 output:
   html_document:
     toc: false
+    number_sections: false
 params:
   number: 3
-  purpose: 'purpose'
+  purpose: 'The purpose of this assignment is to get familiar with the [formr.org](https://formr.org/) survey platform, which we will be using to implement our surveys.'
 ---
 
-Coming soon!
+<script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
+
+```{r child = "_knitr_setup.Rmd"}
+```
+
+```{r echo=FALSE}
+library(tidyverse)
+library(fontawesome)
+
+due <- get_schedule() %>%
+  mutate(assign_due = format(assign_due, format = "%b %d")) %>%
+  filter(assign_n == params$number) %>%
+  pull(assign_due)
+due <- paste0(due, " by 11:59pm")
+
+url_template <- paste0(
+  'https://madd.seas.gwu.edu/2021-Fall/templates/reflection',
+  params$number, '.zip')
+```
+
+```{r child = "_aheader.Rmd"}
+```
+
+# 1. Getting Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment. Notice that this week's template is a .Rmd file.
+
+# 2. Readings
+
+Next week we will start getting into designing conjoint surveys for our projects. We will implement them using [formr.org](https://formr.org/), which is an R-based platform for designing surveys. The platform allows you to use R or markdown code (just like you would in a .Rmd file) to define everything you see in an online survey. All survey elements are defined using Google Sheets.
+
+To get familiar with the platform, go to **[this post](https://www.jhelvy.com/talks/2021-01-21-surveys-with-formr/)** on my website and watch the ~45 min video on the page. It is a recording of me introducing formr.org at a [GW Coders](https://gwcoders.github.io/) community meet up earlier this year. The first 5 minutes is a high level introduction, and the rest of the video goes into a detailed demo of the platform.
+
+**Take notes** as you watch the video. 
+
+At the bottom of the page in the section titled "Surveys with {formr}", you can see links to the actual surveys I used in the video.
+
+# 3. Make a team formr account 
+
+As a team, you will need to create a formr.org account to design and implement your own survey. Follow these recommended steps to get started:
+
+1. Create a team gmail account that everyone can access. Please do not use an existing personal account - just create a new account for the whole team to share. We'll use this account to create the Google Sheets for our formr surveys. 
+2. Use your team gmail account to [create a team formr account](https://formr.org/admin/account/register). When you do, you'll need a referral token - check the [class slack](https://emse-madd-f21.slack.com/) for the token to use (it'll be posted in the #project channel).
+
+# 4. Make a practice survey 
+
+Using your team gmail and formr account, try replicating the [random images](https://docs.google.com/spreadsheets/d/1hs551J6PYJNxc4sftmJyUqj6XYGYFVnN_5faQBWY7cs/edit?usp=sharing) survey I demonstrated in the video. Follow these steps:
+
+1. Make a copy of the survey Google Sheet in your team gmail account.
+2. Log in to formr.org with your team account and create a new survey using that Google Sheet. Since your teammates will all be doing this using the same account, give your survey a unique name, like `randomImagesName` but replace `Name` with your name.
+3. Once you have your survey uploaded, you can make it live by creating a "Run". Add your survey to the run by clicking on the `r fa("pen-square")` icon, then add a stopping point by clicking the `r fa("stop")` icon. 
+4. The link to the survey will be `https://your_run_name.formr.org`. You can control whether your survey is "live" or not by modifying the "volume" icons. I recommend setting it to the `r fa("volume-down")` icon, which means people who have the link can access the survey.
+5. Try it out! See if the survey works as expected. You can also click through a few times and then see the response data by going to your survey (not the run) in the formr.org admin page. 
+
+# 5. Reflect, Knit, & Submit
+
+Reflect on what you've learned and any questions or points of confusion you have about creating surveys with formr. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? After reflecting, do the following:
+
+- Write a few sentences in the template you downloaded for this assignment.
+- Click the "knit" button to compile your .Rmd file into a html web page. 
+- Open up the resulting `reflection3.html` file in your web browser and see how it looks!
+- Create a zip file of everything in your R Project folder and submit the zip file in the "Assignment Submission" page on Blackboard.
