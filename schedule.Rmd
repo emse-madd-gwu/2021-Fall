@@ -46,7 +46,7 @@ fa <- list(
 )
 
 # Make the schedule data frame
-quizUrl <- "https://maddf21quiz"
+quizUrl <- "https://quiz10.formr.org/"
 schedule <- get_schedule() %>%
   mutate(
     date = format(date, format = "%b %d"),
@@ -58,7 +58,7 @@ schedule <- get_schedule() %>%
     # Build markdown
     quiz = ifelse(
       is.na(quiz), "", 
-      paste0(fa$quiz, "(", quizUrl, quiz, ".formr.org)")),
+      paste0(fa$quiz, "(", quizUrl, ")")),
     class_url = ifelse(
       is.na(class_url), "", 
       paste0(fa$class, "(c", week, "-",  class_url, ".html)")),
