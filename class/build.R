@@ -15,4 +15,5 @@ zip::zipr(
         "ggplot2_solutions.Rmd",
         "ggplot2.Rmd",
         "rmd_demo.Rmd",
+        "madd_hex_sticker.png",
         paste0(lesson, ".Rproj")))

@@ -93,6 +93,6 @@ bears %>%
 You can define the side using `out.width`, like this:
 
 ```{r, echo=FALSE, out.width="20%", fig.align='center'}
-knitr::include_graphics("images/madd_hex_sticker.png")
+knitr::include_graphics("madd_hex_sticker.png")
 ```
 
