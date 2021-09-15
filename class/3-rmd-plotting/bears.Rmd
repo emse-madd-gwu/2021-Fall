@@ -1,0 +1,19 @@
+---
+title: "Title"
+author: "John Helveston"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    theme: flatly
+---
+
+
+### Which months have the highest frequency of bear killings?
+
+
+### Who has been killed more often by bears: hunters or hikers?
+
+
+### How do the the number of bear attacks on men vs women compare?
+

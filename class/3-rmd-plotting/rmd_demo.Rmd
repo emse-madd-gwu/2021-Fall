@@ -1,0 +1,98 @@
+---
+title: "A quick RMarkdown demo"
+subtitle: "A summary of just a few features"
+author: "John Helveston"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+# Basic knit settings
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+
+# Load libraries
+library(tidyverse)
+library(here)
+
+# Read in data 
+bears <- read_csv(here::here('data', 'bear_killings.csv'))
+```
+
+# R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see [rmarkdown.rstudio.com](http://rmarkdown.rstudio.com).
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Useful tools
+
+- Quick markdown reference guide: [https://commonmark.org/help/](https://commonmark.org/help/)
+- Quick demo guide: [https://markdown-it.github.io/](https://markdown-it.github.io/).
+- Online table converter: [http://www.tablesgenerator.com](http://www.tablesgenerator.com/markdown_tables)
+
+# In-line code 
+
+In-line code allows you to insert R code directly into a sentence. For example, the sum of 3 and 4 is `r 3 + 4`. Here the value of 7 was computed from `3 + 4` and inserted into the sentence. 
+
+You can also use variables. For example, the `bears` data frame has `r nrow(bears)` rows.
+
+# Code chunks 
+
+Code chunks are places to write longer bits of R code that will be compiled. For example, let's say I wanted to show the first 6 rows of the `bears` data frame - I could write that in a chunk like this: 
+
+```{r}
+head(bears)
+```
+
+Now when compiled, the print out of `head(bears)` will show.
+
+You can change how the chunk behave by changing some settings inside the `{r}` part of the chunk. For example, if I only want to show the result of the code (and not the code itself), I can set `echo=FALSE`:
+
+```{r, echo=FALSE}
+head(bears)
+```
+
+If I only want to show the code but not actually run it, I can set `eval=FALSE`:
+
+```{r, eval=FALSE}
+head(bears)
+```
+
+If I want to the code in the background but not show anything, I can set `include=FALSE`:
+
+```{r, include=FALSE}
+head(bears)
+```
+
+# Plots
+
+## Using ggplot
+
+Here is an example of how to make a plot with ggplot2:
+
+```{r}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(aes(x = as.factor(month), y = n)) +
+  theme_minimal(base_size = 22) + 
+  labs(x = "Month", y = "Count")
+```
+
+## Inserting an image file 
+
+You can define the side using `out.width`, like this:
+
+```{r, echo=FALSE, out.width="20%", fig.align='center'}
+knitr::include_graphics("images/madd_hex_sticker.png")
+```
+
