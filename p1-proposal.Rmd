@@ -33,7 +33,7 @@ As a team, write a proposal defining the scope of your project plan. Your chosen
 
 The course instructor will review and grade your proposal and provide feedback in team meetings the week following the due date. If your proposal is approved, you are done and can move on towards the next project task. In some cases, the instructor may ask you to submit a revised proposal, most likely by focusing / adjusting the proposal scope. Follow the guidelines below to prepare your proposal.
 
-## 1. Get organized
+## 1. Get Organized
 
 Download and unzip [this template](templates/project_proposal.zip) for your proposal. Open the `proposal.Rproj` file and write your proposal in the `proposal.Rmd` file. The template comes with some text and code explaining how to use it - you should delete this code / text as it is only for explanatory purposes. Be sure to adjust the content in the YAML:
 
@@ -50,15 +50,17 @@ spelling::spell_check_files("proposal.Rmd")
 
 All figures should be referenced in the text.
 
-## 3. Proposal contents
+## 3. Proposal Contents
 
-Your proposal should contain the following items listed as separate sections:
+Your proposal should contain the following items listed as separate sections.
+
+> NOTE: If your team is working on a _policy_ project rather than a product, see the [Policy Proposal Contents](#policy-proposal-contents) section below.
 
 ### Abstract
 
-A few sentences summarizing the project and convincing the reader why it is important. Specifically, tell the reader:
+A few sentences summarizing the overall proposal and convincing the reader why it is important. Specifically, tell the reader:
 
-1. What is the product?
+1. What is the product you are studying?
 2. What key product attributes make it different than its competitors?
 3. What major design decision variables will you focus on for your analysis?
 
@@ -68,15 +70,15 @@ Provide a brief description and background of the product or technology. Include
 
 ### Market Opportunity
 
-#### Identify your customer
+#### Identify Your Customer
 
 If there are multiple potential markets, choose one to focus on for your analysis. Describe who you plan on taking your survey and how you intend to gain access to that population. You may survey customers of a "downstream" product, if appropriate (e.g. survey electric vehicle buyers to learn about preferences for electric vehicle battery attributes).
 
-#### Identify competitors
+#### Identify Competitors
 
 Which other products will compete with yours? Benchmark how competitors compare on your product's attributes.
 
-#### Identify market size
+#### Identify Market Size
 
 Estimate the size of the annual market (expected sales in units per year) for this product and its competitors. Specify if your estimated annual market size is regional, national, or global, and provide references.
 
@@ -84,11 +86,11 @@ Estimate the size of the annual market (expected sales in units per year) for th
 
 A key component of your proposal is to identify the relationships between your _product attributes_ and _decision variables_.
 
-#### Product attributes 
+#### Product Attributes 
 
 These are the product features that consumers observe and care about. For example, _price_ is almost always an important product attribute that influences consumer choices. You should list and describe the major product attributes you will include in your analysis. Where possible, label the product attributes on the diagram of your design. Where possible, quantify the metrics for each attribute (e.g. if one of your attributes is _weight_, the metric could be "kilograms"). Also list the set or range of possible levels you plan to explore for each attribute (e.g. for _color_ you may choose the set {red, green, blue}, or for _price_ you may choose the range $1 - $10).
 
-#### Decision variables 
+#### Decision Variables 
 
 These are key elements of the product / technology that the designers focused on in designing the product. For example, engineers might be trying to choose the best _thickness_ for a solar cell, which affects multiple product attributes, including _weight_ (thicker cells are heavier), _price_ (thicker cells use more material), _lifetime_ (cell thickness may affect how quickly a cell degrades), etc. You should discuss ~2-3 key decision variables that are related to your product's design that you propose to consider. Discuss why you chose these variables, and label them on your diagram of the product design. For each variable, specify units and the range of potential values under consideration. 
 
@@ -103,3 +105,44 @@ List major outstanding questions (e.g. about the product / technology performanc
 ## 4. Knit and submit
 
 Click the "knit" button to compile your `proposal.Rmd` file into a html web page, then create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file under "Project: Proposal". **Only one person from your team should submit the report.**
+
+---
+
+## Policy Proposal Contents
+
+For teams looking at a policy design rather than a product design, your proposal should contain the following sections.
+
+### Abstract
+
+A few sentences summarizing the overall proposal and convincing the reader why it is important. Specifically, tell the reader:
+
+1. What is the problem you are trying to address?
+2. What policy options are you considering to address the problem?
+3. What is the target population of your policies? Who will be affected by them? 
+
+### Introduction
+
+Provide a brief description and background of the problem you are trying to address and the goal of the policies you are considering.
+
+### Target Population
+
+Describe the target population for your analysis. Who will be affected by the policies you are considering? Who are you targeting these policies towards? Who are you planning on getting to take your survey, and how you intend to gain access to that population? Include an estimate of the size of the total target population.
+
+### Policy Options
+
+#### Identify Policy Options
+
+Which policies are you considering, and what are some of the potential pros and cons of them? Are some easier / more feasible to implement or enforce than others? Are some more costly to implement than others? Include a summary table comparing some basic features of each policy, e.g.
+
+Policy | Description | Pro | Con 
+-------|-------------|-----|-----
+Policy 1 | Brief description | Easily implemented | Expensive
+Policy 2 | Brief description | Hard to enforce | Cheap
+
+#### Identify Policy Attributes
+
+For each policy, identify the key attributes that your target population will observe. For example, if the policy involves a fee or tax, then the _amount_ of that fee or tax would be a key attribute. For each attribute, specify the range of possible levels you plan to explore (e.g. for _amount_ you may choose the range $1 - $10). You should choose levels that reflect the range of existing policies or potential policies. You may choose to include policies / attributes that have not yet been implemented as well.
+
+### Questions
+
+List major outstanding questions that you will need to know to conduct your analysis and how you propose to find answers. The purpose of this section is to identify high-priority items that you will need to know early on in your project.
