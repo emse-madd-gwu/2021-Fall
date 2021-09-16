@@ -57,9 +57,9 @@ As a team, you will need to create a formr.org account to design and implement y
 
 Using your team gmail and formr account, try replicating the [random images](https://docs.google.com/spreadsheets/d/1hs551J6PYJNxc4sftmJyUqj6XYGYFVnN_5faQBWY7cs/edit?usp=sharing) survey I demonstrated in the video. Follow these steps:
 
-1. Make a copy of the survey Google Sheet in your team gmail account.
+1. Make a copy of the survey Google Sheet in your team gmail account. **Make sure you turn the share settings on so that anyone can view it** (if you don't, formr won't be able to read it in).
 2. Log in to formr.org with your team account and create a new survey using that Google Sheet. Since your teammates will all be doing this using the same account, give your survey a unique name, like `randomImagesName` but replace `Name` with your name.
-3. Once you have your survey uploaded, you can make it live by creating a "Run". Add your survey to the run by clicking on the `r fa("pen-square")` icon, then add a stopping point by clicking the `r fa("stop")` icon. 
+3. Once you have your survey uploaded, you can make it live by creating a "Run". Create a new run, and give it the same name as your survey name. Add your survey to the run by clicking on the `r fa("pen-square")` icon, then add a stopping point by clicking the `r fa("stop")` icon.
 4. The link to the survey will be `https://your_run_name.formr.org`. You can control whether your survey is "live" or not by modifying the "volume" icons. I recommend setting it to the `r fa("volume-down")` icon, which means people who have the link can access the survey.
 5. Try it out! See if the survey works as expected. You can also click through a few times and then see the response data by going to your survey (not the run) in the formr.org admin page. 
 
