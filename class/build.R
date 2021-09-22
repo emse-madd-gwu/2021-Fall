@@ -9,11 +9,7 @@ xaringanBuilder::build_pdf("index.html", paste0(lesson, ".pdf"))
 zip::zipr(
     zipfile = paste0(lesson, ".zip"),
     files = c(
-        "bears_solutions.Rmd",
-        "bears.Rmd",
-        "data",
-        "ggplot2_solutions.Rmd",
-        "ggplot2.Rmd",
-        "rmd_demo.Rmd",
-        "madd_hex_sticker.png",
+        "demoSurvey.Rmd", 
+        "practiceSurvey.Rmd", 
+        "practiceSurvey_solutions.Rmd",
         paste0(lesson, ".Rproj")))
