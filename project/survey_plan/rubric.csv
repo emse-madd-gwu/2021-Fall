@@ -1,22 +1,13 @@
 order,category,label,rating,maxPoints,points,description
-1,organization,Organization & Formatting,Excellent,5,5,All formatting guidelines are followed; YAML is correct with all team members listed.
-1,organization,Organization & Formatting,Good,5,4,Most formatting guidelines are followed; YAML is correct with all team members listed.
-1,organization,Organization & Formatting,Needs work,5,3,Several or all formatting guidelines not followed; YAML contains elements that aren't updated from the template. Some template text / content remains in submitted proposal.
-2,abstract,Abstract,Excellent,5,5,"Abstract clearly defines the product, product attributes, and design decision variables."
-2,abstract,Abstract,Good,5,4,"Abstract defines the product, product attributes, and design decision variables, but some components are unclear."
-2,abstract,Abstract,Needs work,5,3,"Abstract is missing a component: product, product attributes, or design decision variables."
-3,introduction,Introduction,Excellent,5,5,Includes a description of the product with some background content and a picture / diagram.
-3,introduction,Introduction,Good,5,4,Includes a description of the product with limited background content and a poor quality picture / diagram.
-3,introduction,Introduction,Needs work,5,3,Includes a description of the product with little to no background content and / or is missing a picture / diagram.
-4,marketOpportunity,Market Opportunity,Excellent,10,10 / 9,"Clearly identifies customer, competitors, and estimated market size."
-4,marketOpportunity,Market Opportunity,Good,10,8 / 7 / 6,"Identifies customer, competitors, and estimated market size, but parts are unclear."
-4,marketOpportunity,Market Opportunity,Needs work,10,5 / 4 / 3,"Section is missing a key component: customer, competitors, or estimated market size."
-5,attributesVariables,Product Attributes & Decision Variables,Excellent,10,10 / 9,All product attributes and decision variables are listed; metrics and level ranges are specified; diagram is appropriately labeled; model relationships table is well-defined.
-5,attributesVariables,Product Attributes & Decision Variables,Good,10,8 / 7 / 6,All product attributes and decision variables are listed; metrics and level ranges are not all specified; diagram is poorly labeled; model relationships table not well-defined.
-5,attributesVariables,Product Attributes & Decision Variables,Needs work,10,5 / 4 / 3,"Product attributes and decision variables are listed, but some key ones are missing; metrics and level ranges are not specified; diagram is not labeled; model relationships table is poorly-defined or missing."
-6,questions,Questions,Excellent,5,5,Includes at leaset three thoughtful questions.
-6,questions,Questions,Good,5,4,Includes one or two thoughtful questions.
-6,questions,Questions,Needs work,5,3,Includes few or no questions.
-7,writing,Writing Quality,Excellent,5,5,"Writing is clear, concise, and logically-structured; ideas are easily understood."
-7,writing,Writing Quality,Good,5,4,Writing is clear but verbose and the structure could be improved; ideas are mostly easily understood.
-7,writing,Writing Quality,Needs work,5,3,"Writing is not clear, verbose, and poorly-structured; ideas are not easily understood."
+1,organization,Organization & Formatting,Excellent,5,5,All formatting guidelines are followed; YAML is correct with all team members listed; Rmd compiles to html.
+1,organization,Organization & Formatting,Good,5,4,Most formatting guidelines are followed; YAML is correct with all team members listed; Rmd might require one fix to compile to html.
+1,organization,Organization & Formatting,Needs work,5,3,Several or all formatting guidelines not followed; YAML contains elements that aren't updated from the template; Rmd requires mutliple fixes to compile to html.
+2,targetPopulation,Target Population,Excellent,10,10 / 9,Target population clearly identified; fielding strategy is discussed; eligibility requirement question text is specified.
+2,targetPopulation,Target Population,Good,10,8 / 7 / 6,"Target population identified, though may need to be refined; fielding strategy is discussed; eligibility requirement question text needs to be refined."
+2,targetPopulation,Target Population,Needs work,10,5 / 4 / 3,Target population unclear; fielding strategy missing; eligibility requirement question text needs to be refined or is missing.
+3,conjointQuestions,Conjoint Questions,Excellent,10,10 / 9,Exact conjoint question text is clear and specific; table of all attributes are included.
+3,conjointQuestions,Conjoint Questions,Good,10,8 / 7 / 6,Conjoint question text could be improved; table of all attributes are included with some attributes missing.
+3,conjointQuestions,Conjoint Questions,Needs work,10,5 / 4 / 3,Conjoint question text is missing or poorly written / unclear; table of all attributes is missing or unclear.
+4,other,Other Content,Excellent,10,10 / 9,"All required survey components are specified with clear, precise question text included."
+4,other,Other Content,Good,10,8 / 7 / 6,Some but not all required survey components are specified.
+4,other,Other Content,Needs work,10,5 / 4 / 3,"Missing multiple of the required survey components, question text is unclear."
