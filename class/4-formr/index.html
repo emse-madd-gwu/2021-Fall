@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Intro to formr</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2020-09-22" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <meta name="description" content="EMSE 6035: Marketing Analytics for Design Decisions"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="emse-madd-gwu/2021-Fall"/>
+    <meta name="twitter:title" content="Intro to formr"/>
+    <meta name="twitter:description" content="EMSE 6035: Marketing Analytics for Design Decisions"/>
+    <meta name="twitter:url" content="https://madd.seas.gwu.edu/2021-Fall/"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@johnhelveston"/>
+    <meta name="twitter:site" content="@johnhelveston"/>
+    <meta property="og:title" content="Intro to formr"/>
+    <meta property="og:description" content="EMSE 6035: Marketing Analytics for Design Decisions"/>
+    <meta property="og:url" content="https://madd.seas.gwu.edu/2021-Fall/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="John Paul Helveston"/>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="css/lexis.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: middle, inverse
+
+.leftcol30[
+&lt;center&gt;
+&lt;img src="https://github.com/emse-madd-gwu/emse-madd-gwu.github.io/raw/master/images/madd_hex_sticker.png" width=250&gt;
+&lt;/center&gt;
+]
+
+.rightcol70[
+# Week 4: .fancy[Intro to formr]
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"/></svg> EMSE 6035: Marketing Analytics for Design Decisions
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg> John Paul Helveston
+### <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"/></svg> September 22, 2020
+]
+
+---
+
+class: inverse, middle
+
+# .center[**Reminders**]
+
+# - Proposals due Sunday, 9/26 by midnight
+
+--
+
+# - No class next week - team meetings instead
+
+---
+
+
+
+class: inverse, middle
+
+# Week 4: .fancy[Intro to formr]
+
+### 1. Surveys in R
+### 2. Surveys in formr
+
+### BREAK
+
+### 3. Conjoint survey components
+
+---
+
+
+
+class: inverse, middle
+
+# Week 4: .fancy[Intro to formr]
+
+### 1. .orange[Surveys in R]
+### 2. Surveys in formr
+
+### BREAK
+
+### 3. Conjoint survey components
+
+---
+
+class: center, middle 
+
+# Start in RMarkdown
+
+## See `demoSurvey.Rmd`
+
+---
+
+# Some Guidelines
+
+- Use `---` to indicate new pages (this inserts a horizontal line)
+
+--
+
+- Be sure that any data / images are hosted somewhere on the web
+
+--
+
+- Consider each new page a **New R Session** (reload libraries, etc.)
+
+---
+
+# Embedding images 
+
+I recommend just writing html code, like this
+
+
+```html
+&lt;img src="https://github.com/emse-madd-gwu/2021-Fall/raw/master/images/madd_hex_sticker.png" width=300&gt;
+```
+
+&lt;img src="https://github.com/emse-madd-gwu/2021-Fall/raw/master/images/madd_hex_sticker.png" width=300&gt;
+
+---
+
+# Centered image
+
+I recommend just writing html code, like this
+
+
+```html
+&lt;center&gt;
+&lt;img src="https://github.com/emse-madd-gwu/2021-Fall/raw/master/images/madd_hex_sticker.png" width=300&gt;
+&lt;/center&gt;
+```
+
+&lt;center&gt;
+&lt;img src="https://github.com/emse-madd-gwu/2021-Fall/raw/master/images/madd_hex_sticker.png" width=300&gt;
+&lt;/center&gt;
+
+---
+
+# Check your urls carefully!
+
+&lt;br&gt;
+
+This is the link to the Github page with the class logo image: 
+
+https://github.com/emse-madd-gwu/2021-Fall/blob/master/images/madd_hex_sticker.png
+
+This is the link to the actual image:
+
+https://raw.githubusercontent.com/emse-madd-gwu/2021-Fall/master/images/madd_hex_sticker.png
+
+---
+
+class: inverse
+
+<div class="countdown" id="timer_614b50c3" style="top:0;right:0;font-size:2em;" data-warnwhen="15">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Think Pair Share
+
+- Open and edit the `practiceSurvey.Rmd` file.
+- Pick a topic for your survey (a food, an animal, a sports team...whatever).
+- Draft a survey about that topic. Include the following:
+    - Page 1: A welcome message in large font ("Welcome to a survey about [topic]") and an image about the topic (find an image somewhere).
+    - Page 2: Once simple multiple choice question about the topic (state the question and write the choice responses as bullets).
+    - Page 3: Choose a data set from [this page](https://github.com/emse-eda-gwu/2021-Spring/tree/master/data) (pick a .csv file). Get the url to the .csv file you chose, read it in, and display only the first 6 rows of the data file (do not show any code - only the output of your code).
+    - Page 4: Show the last 6 rows of the same data file (again, only the output - hide all code).
+    
+---
+
+
+
+class: inverse, middle
+
+# Week 4: .fancy[Intro to formr]
+
+### 1. Surveys in R
+### 2. .orange[Surveys in formr]
+
+### BREAK
+
+### 3. Conjoint survey components
+
+---
+
+# formr principles
+
+&lt;br&gt;
+
+## - Use _RMarkdown / html_ to create survey elements
+
+## - Define surveys in _Google Sheets_
+
+## - Import Google Sheets into formr _surveys_
+
+## - Link surveys together in formr _runs_
+
+---
+
+class: middle, center
+
+# [Demo survey](https://docs.google.com/spreadsheets/d/13jSdlIDFRVsIHbiObgyZlPTGovIcB-xDQ0dkhL75fZQ/edit?usp=sharing)
+
+---
+
+# .center[formr row types [(more here)](https://formr.org/documentation#available_items)]
+
+Type | Description
+-----|---------------------
+`note` | Display content in `label` column 
+`submit` | Next page button
+`mc` | Multiple choice question (single choice) 
+`mc_multiple` | Multiple choice question (multiple choices) 
+`mc_button` | Multiple choice question (large buttons)
+`select_one` | Drop down menu (choose one)
+`text` | Open text, single row
+`textarea` | Open text, block
+
+---
+
+# Two ways to define choice options 
+
+.leftcol[
+Add "choice" columns 
+
+&lt;center&gt;
+&lt;img src="images/choices.png" width=100%&gt;
+&lt;/center&gt;
+]
+
+--
+
+.rightcol[
+Use `choices` tab&lt;br&gt;(when you have a lot of choices)
+
+Example: "Year of birth" in demo survey
+]
+
+---
+
+class: center, middle
+
+# Control the way things look in `class` column
+
+# ([options here](https://formr.org/documentation#sample_survey_sheet))
+
+---
+
+class: center 
+
+# Importing survey into formr 
+
+### formr.org --&gt; Admin --&gt; Surveys --&gt; Create new survey
+
+### (Make sure your Google Sheet is visible!)
+
+&lt;center&gt;
+&lt;img src="images/gsheetlink.png" width=600&gt;
+&lt;/center&gt;
+
+---
+
+class: center 
+
+# Make a run
+
+## formr.org --&gt; Admin --&gt; Runs --&gt; Create new run
+
+--
+
+&lt;br&gt;
+# Insert survey with <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z"/></svg>
+
+--
+
+&lt;br&gt;
+# Insert stop with <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"/></svg>
+
+---
+
+class: center 
+
+## Change order by adjusting numbers &amp; clicking "Reorder"
+
+&lt;center&gt;
+&lt;img src="images/order.png" width=500&gt;
+&lt;/center&gt;
+
+---
+
+class: center, middle
+
+# Make it "live" with the volume buttons
+
+&lt;center&gt;
+&lt;img src="images/publicness.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+class: center 
+
+# Fine tune look &amp; feel in "Settings"
+
+---
+
+class: inverse
+
+<div class="countdown" id="timer_614b50a7" style="top:0;right:0;font-size:2em;" data-warnwhen="15">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Think Pair Share
+
+- Using your team's Google account, create a new survey spreadsheet&lt;br&gt;(you may wish to copy-paste from [this one](https://docs.google.com/spreadsheets/d/13jSdlIDFRVsIHbiObgyZlPTGovIcB-xDQ0dkhL75fZQ/edit#gid=1611481919))
+- Name your sheet "`[netID]practice`", replacing "`[netID]`" with your GW Net ID&lt;br&gt;(e.g. "`jphpractice`")
+- Insert the content in your `practiceSurvey.Rmd` file into your Google Sheet. 
+- Using your team's formr account, import your Google Sheet as a survey in formr (use the same "`[netID]practice`" name for your survey). 
+- Create a run that includes your survey and a stop.
+- Test it!
+
+---
+
+class: inverse, center
+
+# .fancy[Break]
+
+<div class="countdown" id="timer_614b4e26" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+
+
+class: inverse, middle
+
+# Week 4: .fancy[Intro to formr]
+
+### 1. Surveys in R
+### 2. Surveys in formr
+
+### BREAK
+
+### 3. .orange[Conjoint survey components]
+
+---
+
+# 3 Parts
+
+&lt;br&gt;
+
+- ### **Part 1**: Intro
+- ### **Part 2**: Conjoint questions
+- ### **Part 3**: Other / demographic questions
+
+
+---
+
+# 3 Parts
+
+&lt;br&gt;
+
+- ### **Part 1**: Intro --&gt; .red[screen for target population]
+- ### **Part 2**: Conjoint questions --&gt; .red[screen for random answers]
+- ### **Part 3**: Other / demographic questions
+
+---
+
+# .center[Think of your survey as a _conversation_]
+
+&lt;br&gt;
+
+- Include "transition" pages (e.g. Great job! Now we'll ask you about...) 
+
+---
+
+class: middle, center, inverse
+
+# **Part 1**: Intro
+
+---
+
+class: center
+
+# Start with a welcome page
+
+&lt;center&gt;
+&lt;img src="images/1welcome page.png" width=800&gt;
+&lt;/center&gt;
+
+---
+
+class: center, middle
+
+.leftcol30[
+# Consent form
+]
+
+.rightcol70[
+&lt;center&gt;
+&lt;img src="images/2consent.png" width=500&gt;
+&lt;/center&gt;
+]
+
+---
+
+class: center
+
+## **Eligibility questions**: who is your target population?
+
+### .red[_Filter out respondents here_]
+
+&lt;center&gt;
+&lt;img src="images/3filter.png" width=700&gt;
+&lt;/center&gt;
+
+---
+
+class: middle, center, inverse
+
+# **Part 2**: Conjoint questions
+
+---
+
+class: middle, center
+
+# Education information
+
+&lt;center&gt;
+&lt;img src="images/5education1.png" width=700&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+# Education information
+
+.leftcol[
+&lt;center&gt;
+&lt;img src="images/5education2.png"&gt;
+&lt;/center&gt;
+]
+
+.rightcol[
+&lt;center&gt;
+&lt;img src="images/5education3.png"&gt;
+&lt;/center&gt;
+]
+
+---
+
+## .center[Can be helpful to provide relative comparisons]
+
+Weight: 
+
+- 1/2 lbs (similar to 1 cup water)
+- 8 lbs (similar to 1 gallon of milk)
+
+---
+
+class: center
+
+# Conjoint intro
+
+&lt;center&gt;
+&lt;img src="images/6conjoint_intro1.png" width=800&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+## Practice conjoint (also attention check)
+
+### .red[_May also filter out respondents here_]
+
+&lt;center&gt;
+&lt;img src="images/7conjoint_practice.png" width=550&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+# Transition to actual conjoint questions
+
+&lt;center&gt;
+&lt;img src="images/8conjoint_intro2.png" width=700&gt;
+&lt;/center&gt;
+
+---
+
+class: middle 
+
+.leftcol40[
+# Conjoint questions
+
+### .red[_May also filter out respondents at the end_]
+
+(e.g. chose all same answers)
+]
+
+.rightcol60[
+&lt;center&gt;
+&lt;img src="images/9conjoint.png" width=600&gt;
+&lt;/center&gt;
+]
+
+---
+
+class: middle, center, inverse
+
+# **Part 3**: Other / demographic questions
+
+---
+
+class: center
+
+# Transition
+
+&lt;center&gt;
+&lt;img src="images/10wrap_up.png" width=700&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+# Critical respondent information 
+
+&lt;center&gt;
+&lt;img src="images/4critical_info.png" width=900&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+ 
+# Demographic / other questions
+ 
+&lt;center&gt;
+&lt;img src="images/11demo.png" width=500&gt;
+&lt;/center&gt;
+
+---
+
+class: center
+
+# Finale
+
+&lt;center&gt;
+&lt;img src="images/12end.png" width=900&gt;
+&lt;/center&gt;
+
+---
+
+class: inverse, center, middle
+
+# [Blog post on conjoint in formr](https://www.jhelvy.com/posts/2021-09-18-choice-based-conjoint-surveys-in-r-with-formr/)
+
+--
+
+# [Project survey plan](https://madd.seas.gwu.edu/2021-Fall/p2-survey-plan.html)
+
+--
+
+# Sign up for meeting slot next week&lt;br&gt;(link in #project channel)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
