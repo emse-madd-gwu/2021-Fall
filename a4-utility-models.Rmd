@@ -3,9 +3,54 @@ title: "Utility Models"
 output:
   html_document:
     toc: false
+    number_sections: false
 params:
   number: 4
-  purpose: 'purpose'
+  purpose: "The purpose of this assignment is to get familiar with utility models, which will be the underyling modeling framework we will use for constructing choice models."
 ---
 
-Coming soon!
+```{r child = "_knitr_setup.Rmd"}
+```
+
+```{r echo=FALSE}
+library(tidyverse)
+library(fontawesome)
+
+due <- get_schedule() %>%
+  mutate(assign_due = format(assign_due, format = "%b %d")) %>%
+  filter(assign_n == params$number) %>%
+  pull(assign_due)
+due <- paste0(due, " by 11:59pm")
+
+url_template <- paste0(
+  'https://madd.seas.gwu.edu/2021-Fall/templates/reflection',
+  params$number, '.zip')
+```
+
+```{r child = "_aheader.Rmd"}
+```
+
+# 1. Getting Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment. Notice that this week's template is a .Rmd file.
+
+# 2. Readings
+
+Next week we will start getting into choice modeling. I have pre-recorded videos covering most of the technical concepts we will use for estimating choice models in [this Youtube playlist](https://www.youtube.com/playlist?list=PLzFdSE-D7jUQnbczxdjohRqlBBrrsaFFg). Feel free to look ahead at concepts we'll be covering over the next few weeks.
+
+For this coming week, you should watch the first video: Introduction to Choice Modeling
+
+**Take notes** as you watch the video. Note that throughout the video I ask practice questions at several places - try to answer those questions in your reflection .Rmd file.
+
+<center>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/CjFLZf-hHwA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+
+# 3. Reflect, Knit, & Submit
+
+Reflect on what you've learned and any questions or points of confusion you have about the basics of utility models. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? After reflecting, do the following:
+
+- Write a few sentences in the template you downloaded for this assignment.
+- Click the "knit" button to compile your .Rmd file into a html web page. 
+- Open up the resulting `reflection4.html` file in your web browser and see how it looks!
+- Create a zip file of everything in your R Project folder and submit the zip file in the "Assignment Submission" page on Blackboard.
