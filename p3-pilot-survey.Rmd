@@ -2,11 +2,69 @@
 title: "Pilot Survey"
 output:
   html_document:
+    toc: true
+    toc_float: true
+    toc_level: 2
     number_sections: false
-    toc: no
+params:
+  number: 3
+  weight: '4%'
+  purpose: 'purpose'
+  assessment: 'Your pilot survey will be assessed using [this rubric](project/pilot/rubric.html){target="_blank"}.'
 ---
 
 ```{r child = "_knitr_setup.Rmd"}
 ```
 
-Coming soon!
+```{r echo=FALSE}
+library(tidyverse)
+
+due <- get_schedule() %>%
+  mutate(project_due = format(project_due, format = "%b %d")) %>%
+  filter(project_n == params$number) %>%
+  pull(project_due)
+due <- paste0(due, " by 11:59pm")
+```
+
+```{r child = "_pheader.Rmd"}
+```
+
+As a team, create a **pilot survey** - an initial draft of your final survey for preliminary testing. Your fellow classmates will all take your survey and provide feedback. The course instructor will also review and grade your survey and will provide written feedback. Follow the instructions below to prepare your pilot survey.
+
+## 1. Get Organized
+
+Download and unzip [this template](templates/project_pilot.zip) for your pilot survey. The folder contains the following files:
+
+- `pilot.Rproj`: An R Project file for staying organized.
+- `p1-intro.Rmd`: The code for creating part 1 of your survey, which should include a welcome page, content form, and eligibility questions for screening our ineligible respondents.
+- `p2-choice-questions.Rmd`: The code for creating part 2 of your survey, which should include your education content and randomized conjoint choice questions.
+- `p3-demos.Rmd`: The code for creating part 3 of your survey, which should include any other questions (e.g. demographics) you wish to ask your survey respondents.
+- `make_choice_questions.R`: The code to generate the `choice_questions.csv` file.
+- `choice_questions.csv`: The survey choice question design file.
+- `images`: A folder of images you're using in your survey.
+
+## 2. Write your survey content
+
+The files included in the zip file are taken directly from the example [apples conjoint repo](https://github.com/jhelvy/formr4conjoint) on GitHub associated with the [blog post](https://www.jhelvy.com/posts/2021-09-18-choice-based-conjoint-surveys-in-r-with-formr/) on building conjoint surveys in R. **This is just placeholder content - you need to replace it with your survey content**.
+
+Follow these guidelines in inserting your content:
+
+- You may directly copy and paste any content you wish from your [Survey Plan](https://madd.seas.gwu.edu/2021-Fall/p2-survey-plan.html) assignment.
+- In your `p2-choice-questions.Rmd` file, you should include at least one example choice question (e.g. the first choice question for the first respondent) using your choice question design file (the `choice_questions.csv` file).
+- Your code should **not** reference any local files - all files should be hosted online somewhere (e.g. uploaded to a formr run, github.com, etc.), and your code should use the urls to those locations. This includes your `choice_questions.csv` file as well as any images used in your survey.
+
+> Be sure to knit each file often - you should knit each part to html files so you can preview that everything is displaying as expected.
+
+## 3. Upload your content to formr.org
+
+Using your team google and formr accounts:
+
+1. Create a Google Sheet for each of your survey .Rmd files. You may directly copy and edit from the example survey parts [1](https://docs.google.com/spreadsheets/d/1tnt7IBSmOOe0wOZ8F6qN152yHYZMCBCo7_KQ3N1e-t8/edit#gid=1611481919), [2](https://docs.google.com/spreadsheets/d/1Ih3Pt6uz-gp5vc0SBxBzl4K0aZoRLwI6dtdtZiXSLz0/edit#gid=1611481919), and [3](https://docs.google.com/spreadsheets/d/1t6DYMZsf6ZX6r5GVTBemZZhX1RlFTV6weM8w0LzwMK4/edit#gid=1611481919).
+2. Upload each sheet as a separate Survey in formr, then create a Run linking the surveys together. Be sure to carefully edit the Run settings such that respondents are appropriately screened out as desired.
+3. When you are confident that the Run is ready, turn the "volume" settings to the third setting ("People who have the link can access").
+
+## 4. Submit
+
+Create a zip file of everything in your R Project folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file under "Project: Pilot Survey". **Include the link to your survey in the Blackboard submission**.
+
+**Only one person from your team should submit the report.**
