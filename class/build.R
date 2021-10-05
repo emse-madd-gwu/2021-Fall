@@ -9,7 +9,9 @@ xaringanBuilder::build_pdf("index.html", paste0(lesson, ".pdf"))
 zip::zipr(
     zipfile = paste0(lesson, ".zip"),
     files = c(
-        "demoSurvey.Rmd", 
-        "practiceSurvey.Rmd", 
-        "practiceSurvey_solutions.Rmd",
+        'data',
+        'images',
+        'make_choice_questions.R',
+        'p2-choice-questions-table.Rmd',
+        'p2-choice-questions.Rmd',
         paste0(lesson, ".Rproj")))

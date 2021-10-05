@@ -11,4 +11,5 @@ params:
 ```{r child = "_knitr_setup.Rmd"}
 ```
 
-Coming soon!
+```{r child = "_slides.Rmd"}
+```

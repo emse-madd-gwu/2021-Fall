@@ -1,0 +1,11 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Defining choice questions in R
+### 2. Displaying choice questions in RMarkdown
+
+### BREAK
+
+### 3. Choice questions in formr
