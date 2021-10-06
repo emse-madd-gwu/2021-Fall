@@ -37,10 +37,12 @@ navbar:
           href: c9-uncertainty.html
         - text: "Nov 03: DOE & Power Analysis"
           href: c10-doe.html
-        - text: "Nov 17: WTP & Simulations"
-          href: c12-wtp-simulation.html
-        - text: "Dec 01: Heterogeneity"
-          href: c14-heterogeneity.html
+        - text: "Nov 10: WTP & Simulations"
+          href: c11-wtp-simulation.html
+        - text: "Nov 17: Heterogeneity"
+          href: c12-heterogeneity.html
+        - text: "Dec 01: Class Review & Final Analysis Overview"
+          href: c14-review.html
         - text: "Dec 08: Exam Solutions"
           href: c15-exam-solutions.html
     - text: "Assignments"
@@ -62,9 +64,9 @@ navbar:
           href: a6-uncertainty.html
         - text: "Oct 27: Design of Experiment (Due 11/02)"
           href: a7-doe.html
-        - text: "Nov 10: WTP & Simulations (Due 11/16)"
+        - text: "Nov 03: WTP & Simulations (Due 11/09)"
           href: a8-wtp-simulation.html
-        - text: "Nov 17: Heterogeneity (Due 11/30)"
+        - text: "Nov 10: Heterogeneity (Due 11/16)"
           href: a9-heterogeneity.html
         - text: "Dec 01: Exam (Due 12/05)"
           href: a10-exam.html
@@ -81,7 +83,7 @@ navbar:
           href: p3-pilot-survey.html
         - text: "Pilot Analysis (Due 11/07)"
           href: p4-pilot-analysis.html
-        - text: "Final Survey (Due 11/21)"
+        - text: "Final Survey (Due 11/14)"
           href: p5-final-survey.html
         - text: "Final Analysis (Due 12/13)"
           href: p6-final-analysis.html
