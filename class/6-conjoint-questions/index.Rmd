@@ -224,6 +224,18 @@ countdown(minutes = 10,
 
 ---
 
+# Upcoming events
+
+- **Society of Women Engineers (SWE) Conference Boot Camp**:<br>Friday, October 8, 4-5:30 p.m.
+
+- **Virtual Media, Journalism, & Public Affairs Fair**:<br>Oct. 19  Time: 4:30 p.m. - 6 p.m.
+
+- **Fundamentals of Engineering (FE) Exam Prep Workshop**:<br>November 1, 4-5:30 p.m.
+
+- **Virtual Government & Nonprofit Fair**:<br>Nov. 19 Time: 1 p.m. - 4 p.m.
+
+---
+
 class: inverse, middle, center
 
 # Some RMarkdown tips
