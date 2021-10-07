@@ -40,7 +40,7 @@ Next week we will start getting into choice modeling. I have pre-recorded videos
 
 For this coming week, you should watch the first video: Introduction to Choice Modeling
 
-**Take notes** as you watch the video. Note that throughout the video I ask practice questions at several places - try to answer those questions in your reflection .Rmd file.
+**Take notes** as you watch the video. Throughout the video, I ask practice questions at several places - answer those questions in your reflection .Rmd file. If asked to draw something (e.g., a chart), you may draw it by hand and include an image of your drawing in your .Rmd file, or you may write R code in a chunk to create the chart.
 
 <center>
 <iframe width="640" height="360" src="https://www.youtube.com/embed/CjFLZf-hHwA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
