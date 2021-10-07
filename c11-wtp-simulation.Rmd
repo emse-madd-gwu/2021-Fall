@@ -1,0 +1,14 @@
+---
+title: "WTP & Simulations"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+params:
+  class: "11-wtp-simulation"
+---
+
+```{r child = "_knitr_setup.Rmd"}
+```
+
+Coming soon!

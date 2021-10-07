@@ -1,11 +1,11 @@
 ---
-title: "WTP & Simulations"
+title: "Heterogeneity"
 output:
   html_document:
     number_sections: false
     toc: no
 params:
-  class: "12-wtp-simulation"
+  class: "14-review"
 ---
 
 ```{r child = "_knitr_setup.Rmd"}
