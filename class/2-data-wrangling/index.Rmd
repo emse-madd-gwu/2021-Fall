@@ -1,7 +1,7 @@
 ---
 title: "Data Wrangling"
 subtitle: "EMSE 6035: Marketing Analytics for Design Decisions"
-date: September 08, 2020
+date: September 08, 2021
 week: 2
 author: "John Paul Helveston"
 institute: "The George Washington University | Dept. of Engineering Management and Systems Engineering"

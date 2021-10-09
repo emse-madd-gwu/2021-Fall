@@ -1,7 +1,7 @@
 ---
 title: "RMarkdown & Plotting"
 subtitle: "EMSE 6035: Marketing Analytics for Design Decisions"
-date: September 15, 2020
+date: September 15, 2021
 week: 3
 class: "3-rmd-plotting"
 author: "John Paul Helveston"
@@ -83,7 +83,6 @@ path_notes <- paste0(root, class, ".zip")
 # For this class
 data <- mtcars
 bears <- read_csv(here::here('data', 'bear_killings.csv'))
-birds <- read_csv(here::here('data', 'wildlife_impacts.csv'))
 theme_set(theme_gray(base_size = 16))
 ```
 

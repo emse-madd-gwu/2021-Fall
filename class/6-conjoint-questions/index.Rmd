@@ -1,7 +1,7 @@
 ---
 title: "Conjoint Questions"
 subtitle: "EMSE 6035: Marketing Analytics for Design Decisions"
-date: October 06, 2020
+date: October 06, 2021
 week: 6
 class: "6-conjoint-questions"
 author: "John Paul Helveston"
