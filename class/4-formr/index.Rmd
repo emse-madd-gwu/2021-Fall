@@ -1,7 +1,7 @@
 ---
 title: "Intro to formr"
 subtitle: "EMSE 6035: Marketing Analytics for Design Decisions"
-date: September 22, 2020
+date: September 22, 2021
 week: 4
 class: "4-formr"
 author: "John Paul Helveston"
