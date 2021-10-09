@@ -1,5 +1,5 @@
 ---
-title: "Heterogeneity"
+title: "Class Review & Final Analysis Overview"
 output:
   html_document:
     number_sections: false
