@@ -14,21 +14,6 @@ params:
 ```{r child = "_knitr_setup.Rmd"}
 ```
 
-```{r echo=FALSE}
-library(tidyverse)
-library(fontawesome)
-
-due <- get_schedule() %>%
-  mutate(assign_due = format(assign_due, format = "%b %d")) %>%
-  filter(assign_n == params$number) %>%
-  pull(assign_due)
-due <- paste0(due, " by 11:59pm")
-
-url_template <- paste0(
-  'https://madd.seas.gwu.edu/2021-Fall/templates/reflection',
-  params$number, '.zip')
-```
-
 ```{r child = "_aheader.Rmd"}
 ```
 
