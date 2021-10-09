@@ -38,9 +38,11 @@ Download and edit [this template](`r url_template`) when working through this as
 
 Next week we will start getting into choice modeling. I have pre-recorded videos covering most of the technical concepts we will use for estimating choice models in [this Youtube playlist](https://www.youtube.com/playlist?list=PLzFdSE-D7jUQnbczxdjohRqlBBrrsaFFg). Feel free to look ahead at concepts we'll be covering over the next few weeks.
 
-For this coming week, you should watch the first video: Introduction to Choice Modeling
+For this coming week, you should watch the first video: _Introduction to Choice Modeling_
 
 **Take notes** as you watch the video. Throughout the video, I ask practice questions at several places - answer those questions in your reflection .Rmd file. If asked to draw something (e.g., a chart), you may draw it by hand and include an image of your drawing in your .Rmd file, or you may write R code in a chunk to create the chart.
+
+Click [here](content/slides_choice_modeling.pdf) to download the slides in the video as a PDF.
 
 <center>
 <iframe width="640" height="360" src="https://www.youtube.com/embed/CjFLZf-hHwA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
