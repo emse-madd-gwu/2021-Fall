@@ -1,0 +1,134 @@
+---
+title: "Practice Questions"
+date: October 13, 2021
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+library(tidyverse)
+library(knitr)
+library(here)
+library(logitr)
+library(fastDummies)
+```
+
+
+
+## Practice Question 1
+
+a) A random variable, $\tilde{x}$, has the PDF, $f_{\tilde{x}}(x)$. Write the equation to compute its total probability (hint: think area under the curve!). What is the answer to the equation?
+
+b) A random variable, $\tilde{x}$, has a uniform distribution between the values 0 and 1. Draw the probability density function (PDF) and Cumulative Density Function (CDF) of $\tilde{x}$.
+
+c) The value of a random variable, $\tilde{x}$, is determined by rolling one fair, 6-sided dice. Draw the PDF and CDF of $\tilde{x}$.
+
+
+
+## Practice Question 2
+
+a) A consumer is making a choice between two bars of chocolate: milk chocolate $(m)$ and dark chocolate $(d)$. Assume that we know the observed utility of each bar to be $v_m = 3$ and $v_d = 4$. Using a logit model, compute the probabilities of choosing each bar: $P_m$ and $P_d$.
+
+```{r}
+# Write code here
+```
+
+```{r}
+# Write code here
+```
+
+b) A third bar of chocolate is now added to the choice set. It is the exact same as the milk chocolate bar, but it has a slightly different wrapper (which has no effect on the consumer's utility). Now,  $v_{m1} = v_{m2} = 3$, and $v_d = 4$. Based on the probabilities from question a), what would we expect the probabilities of choosing each bar to be? What probabilities does the logit model produce?
+
+```{r}
+# Write code here
+```
+
+
+
+## Practice Question 3
+
+|Attribute |Bar 1 |Bar 2 |Bar 3 |
+|----------|------|------|------|
+|Price     |$1.20 |$1.50 |$3.00 |
+|% Cacao   |10%   |60%   |80%   |
+
+a) Write out a model for the observed utility of each chocolate bar in the above set.
+
+b) If the coefficient for the _price_ attribute was -0.1 and the coefficient for % _Cacao_ attribute was 0.1, what is the difference in the observed utility between bars 3 and 1?
+
+```{r}
+# Write code here
+```
+
+c) With the addition of the _brand_ attribute, repeat part a.
+
+|Attribute |Bar 1   |Bar 2 |Bar 3       |
+|----------|--------|------|------------|
+|Price     |$1.20   |$1.50 |$3.00       |
+|% Cacao   |10%     |60%   |80%         |
+|Brand     |Hershey |Lindt |Ghirardelli |
+
+
+
+
+# In-Class Questions 1
+
+Let's say our utility function is:
+
+$$v_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{cacao}} + \beta_3 \delta_j^{\mathrm{hershey}} + \beta_4 \delta_j^{\mathrm{lindt}}$$
+
+And we estimate the following coefficients:
+
+Parameter | Coefficient
+----------|-----------
+$\beta_1$ | -0.1
+$\beta_2$ | 0.1
+$\beta_3$ | -2.0
+$\beta_4$ | -0.1
+
+a) What are the expected probabilities of choosing each of these bars using a logit model?
+
+```{r}
+# Write your solution here
+```
+
+b) What price would Bar 2 have to be to get a 50% market share?
+
+```{r}
+# Write your solution here
+```
+
+
+
+
+
+
+
+
+# In-Class Questions 2
+
+1. Run the code chunk to read in the `data.csv` file in the "data" folder.
+
+```{r}
+data <- read_csv(here('data', 'data.csv'))
+```
+
+2. Write code to estimate the following utility model (HINT: you may need to make some dummy-coded variables!):
+
+$$u_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{\%cacao}} + \beta_3 \delta_j^{\mathrm{crispy}} + \beta_4 \delta_j^{\mathrm{hershey}} + \beta_5 \delta_j^{\mathrm{lindt}} + \varepsilon_j$$
+
+```{r}
+# Write your solution here
+```
+
+3. Write code to plot the change in utility for the _price_ attribute.
+
+```{r}
+# Write your solution here
+```

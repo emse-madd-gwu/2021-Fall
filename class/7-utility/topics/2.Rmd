@@ -1,0 +1,13 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Utility models
+### 2. .orange[Exploring choice data]
+### 3. Linear & discrete parameters
+
+### BREAK
+
+### 4. Outside good
+### 5. Team project utility models
