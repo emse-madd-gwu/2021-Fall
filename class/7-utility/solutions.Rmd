@@ -1,0 +1,313 @@
+---
+title: "Practice Questions"
+date: October 13, 2021
+week: 7
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+# Basic knit settings
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+
+library(tidyverse)
+library(knitr)
+library(patchwork)
+library(kableExtra)
+library(here)
+library(logitr)
+library(fastDummies)
+```
+
+## Practice Questions 1
+
+a) A random variable, $\tilde{x}$, has the PDF, $f_{\tilde{x}}(x)$. Write the equation to compute its total probability (hint: think area under the curve!). What is the answer to the equation?
+
+$$\int_{-\infty}^{\infty} f_{\tilde{x}} (x) dx = 1$$
+
+b) A random variable, $\tilde{x}$, has a uniform distribution between the values 0 and 1. Draw the probability density function (PDF) and Cumulative Density Function (CDF) of $\tilde{x}$.
+
+```{r, fig.width=7, fig.height=3}
+plotData <- data.frame(
+    x   = c(-0.5, 0, 0, 1, 1, 1.5),
+    pdf = c(0, 0, 1, 1, 0, 0),
+    cdf = c(0, 0, 0, 1, 1, 1))
+
+uniform_pdf <- ggplot(plotData, aes(x = x, y = pdf)) +
+    geom_path(size = 0.5) +
+    labs(x = 'x', y = 'PDF') +
+    theme_bw()
+
+uniform_cdf <- ggplot(plotData, aes(x = x, y = cdf)) +
+    geom_path(size = 0.5) +
+    labs(x =' x', y = 'CDF') +
+    theme_bw()
+
+uniform_pdf + uniform_cdf
+```
+
+c) The value of a random variable, $\tilde{x}$, is determined by rolling one fair, 6-sided dice. Draw the PDF and CDF of $\tilde{x}$.
+
+```{r, fig.width=7, fig.height=3}
+plotData <- data.frame(
+    x   = seq(6),
+    pdf = rep(1/6, 6))
+
+dice_pdf <- ggplot(plotData, aes(x = x, y = pdf)) +
+    geom_segment(aes(x = x, xend = x, y = 0, yend = pdf), linetype = 'dashed') +
+    geom_point(size = 3) +
+    labs(x = 'x', y = 'PDF') +
+    theme_bw()
+
+plotData <- data.frame(
+    x   = c(0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7),
+    cdf = c(0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6)/6)
+dice_cdf = ggplot(plotData, aes(x = x, y = cdf)) +
+    geom_path(size = 0.5) +
+    labs(x = 'x', y = 'CDF') +
+    scale_x_continuous(breaks = c(0, seq(6), 7)) +
+    theme_bw()
+
+dice_pdf + dice_cdf
+```
+
+## Practice Questions 2
+
+a) A consumer is making a choice between two bars of chocolate: milk chocolate $(m)$ and dark chocolate $(d)$. Assume that we know the observed utility of each bar to be $v_m = 3$ and $v_d = 4$. Using a logit model, compute the probabilities of choosing each bar: $P_m$ and $P_d$.
+
+$$P_m = \frac{e^{v_m}}{e^{v_m} + e^{v_d}} = \frac{e^3}{e^3 + e^4}$$ 
+
+```{r}
+denom <- exp(3) + exp(4)
+exp(3) / denom
+```
+
+$$P_d = \frac{e^{v_d}}{e^{v_m} + e^{v_d}} = \frac{e^4}{e^3 + e^4}$$ 
+
+```{r}
+exp(4) / denom
+```
+
+b) A third bar of chocolate is now added to the choice set. It is the exact same as the milk chocolate bar, but it has a slightly different wrapper (which has no effect on the consumer's utility). Now,  $v_{m1} = v_{m2} = 3$, and $v_d = 4$. Based on the probabilities from question a), what would we expect the probabilities of choosing each bar to be? What probabilities does the logit model produce?
+
+Since the utilities for the two milk chocolate bars are equivalent, we would expect the milk chocolate bars to split the probability from part a:
+
+$$P_{m1} = P_{m2} = \frac{0.27}{2} = 0.135$$
+
+and the dark chocolate bar should remain the same:
+
+$$P_d = 0.73$$
+
+However, when we compute the logit fractions we get the following results:
+
+$$P_{m1} = P_{m2} = \frac{e^{v_{m1}}}{e^{v_{m1}} + e^{v_{m2}} + e^{v_d}} = \frac{e^3}{e^3 + e^3 + e^4}$$ 
+
+```{r}
+denom <- exp(3) + exp(3) + exp(4)
+exp(3) / denom
+```
+
+$$P_d = \frac{e^{v_d}}{e^{v_{m1}} + e^{v_{m2}} + e^{v_d}} = \frac{e^4}{e^3 + e^3 + e^4}$$ 
+
+```{r}
+exp(4) / denom
+```
+
+We can see that the IIA property of the logit model is distorting the probabilities away from what we would expect. The predicted probabilities for the milk chocolate bars are higher than we would expect.
+
+## Practice Questions 3
+
+```{r, echo=FALSE}
+tibble(
+  Attribute = c("Price", "% Cacao"),
+  `Bar 1` = c("$1.20", "10%"),
+  `Bar 2` = c("$1.50", "60%"),
+  `Bar 3` = c("$3.00", "80%"),
+) %>%
+  kable() %>% 
+  kable_styling(
+      bootstrap_options = c("hover", "condensed"), 
+      full_width = FALSE)
+```
+
+a) Write out a model for the observed utility of each chocolate bar in the above set.
+
+Let's say the coefficient for price is $\beta_1$ and the coefficient for the percent of cacao is $\beta_2$. The general model for the observed utility would be: 
+
+$$v_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{cacao}}$$
+The observed utility for each bar would be: 
+
+$$v_1 = \beta_1(1.20) + \beta_2(0.1)$$
+$$v_2 = \beta_1(1.50) + \beta_2(0.6)$$
+$$v_3 = \beta_1(3.00) + \beta_2(0.8)$$
+
+b) If the coefficient for the _price_ attribute was -0.1 and the coefficient for % _Cacao_ attribute was 0.1, what is the difference in the observed utility between bars 3 and 1?
+
+```{r}
+b1 <- -0.1
+b2 <- 0.1
+v1 <- b1*1.2 + b2*0.1
+v3 <- b1*3.0 + b2*0.8
+v3 - v1
+```
+
+c) With the addition of the _brand_ attribute, repeat part a.
+
+```{r, echo=FALSE}
+tibble(
+  Attribute = c("Price", "% Cacao", "Brand"),
+  `Bar 1` = c("$1.20", "10%", "Hershey"),
+  `Bar 2` = c("$1.50", "60%", "Lindt"),
+  `Bar 3` = c("$3.00", "80%", "Ghirardelli"),
+) %>%
+  kable() %>% 
+  kable_styling(
+      bootstrap_options = c("hover", "condensed"), 
+      full_width = FALSE)
+```
+
+Let's say $\beta_3$ represents the utility of having the brand _Hershey_, and $\beta_4$ represents the utility of having the brand _Lindt_ (thus setting the reference level to _Ghirardelli_). Then the general model for the observed utility would be: 
+
+$$v_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{cacao}} + \beta_3 \delta_j^{\mathrm{hershey}} + \beta_4 \delta_j^{\mathrm{lindt}}$$
+
+The observed utility for each bar is: 
+
+$$v_1 = \beta_1(1.20) + \beta_2(0.1) + \beta_3$$
+$$v_2 = \beta_1(1.50) + \beta_2(0.6) + \beta_4$$
+$$v_3 = \beta_1(3.00) + \beta_2(0.8)$$
+
+## In-Class Questions 1
+
+Let's say our utility function is:
+
+$$v_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{cacao}} + \beta_3 \delta_j^{\mathrm{hershey}} + \beta_4 \delta_j^{\mathrm{lindt}}$$
+
+And we estimate the following coefficients:
+
+<center>
+<div style="width:200px">
+Parameter | Coefficient 
+----------|-----------
+$\beta_1$ | -0.1
+$\beta_2$ | 0.1
+$\beta_3$ | -2.0
+$\beta_4$ | -0.1
+</div>
+</center>
+
+a) What are the expected probabilities of choosing each of these bars using a logit model? 
+
+```{r, echo=FALSE}
+tibble(
+  Attribute = c("Price", "% Cacao", "Brand"),
+  `Bar 1` = c("$1.20", "10%", "Hershey"),
+  `Bar 2` = c("$1.50", "60%", "Lindt"),
+  `Bar 3` = c("$3.00", "80%", "Ghirardelli"),
+) %>%
+  kable() %>% 
+  kable_styling(
+      bootstrap_options = c("hover", "condensed"), 
+      full_width = FALSE)
+```
+
+```{r}
+# Create the model coefficient variables
+b1 <- -0.1
+b2 <- 0.1
+b3 <- -2.0
+b4 <- -0.1
+
+# Compute the observed utility for each chocolate bar
+v1 <- b1*1.2 + b2*0.1 + b3
+v2 <- b1*1.5 + b2*0.6 + b4
+v3 <- b1*3 + b2*0.8
+
+# Compute the probabilities using the logit fraction
+denom <- exp(v1) + exp(v2) + exp(v3)
+p1 <- exp(v1) / denom
+p2 <- exp(v2) / denom
+p3 <- exp(v3) / denom
+p1
+p2
+p3
+```
+
+b) What price would Bar 2 have to be to get a 50% market share? 
+
+$$P_2 = \frac{e^{v_2}}{e^{v_1} + e^{v_2} + e^{v_3}} = 0.5$$
+$$0.5 (e^{v_1} + e^{v_2} + e^{v_3}) = e^{v_2}$$
+$$0.5 (e^{v_1} + e^{v_3}) = 0.5 e^{v_2}$$
+$$e^{v_1} + e^{v_3} = e^{v_2}$$
+$$log(e^{v_1} + e^{v_3}) = v_2$$
+$$log(e^{v_1} + e^{v_3}) = \beta_1 x^{\mathrm{price}} + \beta_2(0.6) + \beta_4$$
+$$x^{\mathrm{price}} = \frac{1}{\beta_1} \left[ log(e^{v_1} + e^{v_3}) - \beta_2(0.6) - \beta_4 \right]$$
+
+```{r}
+(1/ b1) * (log(exp(v1) + exp(v3)) - b2*0.6 - b4)
+```
+
+## In-Class Questions 2
+
+1. Run the code chunk to read in the `data.csv` file in the "data" folder.
+
+```{r}
+data <- read_csv(here('data', 'data.csv'))
+```
+
+2. Write code to estimate the following utility model (HINT: you may need to make some dummy-coded variables!):
+
+$$u_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{\%cacao}} + \beta_3 \delta_j^{\mathrm{crispy}} + \beta_4 \delta_j^{\mathrm{hershey}} + \beta_5 \delta_j^{\mathrm{lindt}} + \varepsilon_j$$
+
+```{r}
+data <- dummy_cols(data, "brand")
+
+model <- logitr(
+  data = data,
+  choice = "choice",
+  obsID = "obsID",
+  pars = c(
+    "price", "percent_cacao", "crispy_rice", "brand_Hershey", "brand_Lindt"
+  )
+)
+
+summary(model)
+```
+
+3. Write code to plot the change in utility for the _price_ attribute.
+
+```{r}
+# Get the estimated coefficients
+coefs <- coef(model)
+
+# Create data frame for plotting price:
+#   level   = The attribute level (x-axis)
+#   utility = The utility associated with each level (y-axis)
+price_levels <- unique(data$price)
+df_price <- data.frame(level = price_levels) %>% 
+    mutate(
+      diff    = level - min(level),
+      utility = diff*coefs['price'])
+
+# Get upper and lower bounds (plots should have the same y-axis)
+ymin <- floor(min(df_price$utility))
+ymax <- ceiling(max(df_price$utility))
+
+# Plot the utility for each attribute
+plot_price <- df_price %>% 
+    ggplot() +
+    geom_line(aes(x = level, y = utility)) +
+    scale_y_continuous(limits = c(ymin, ymax)) +
+    labs(x = 'Price ($)', y = 'Utility') +
+    theme_bw()
+
+plot_price
+```
