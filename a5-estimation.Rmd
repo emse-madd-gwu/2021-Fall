@@ -15,6 +15,14 @@ params:
 ```{r child = "_aheader.Rmd"}
 ```
 
+# Pilot Surveys
+
+In addition to the assignment below, this week you should also help out your fellow classmates by providing feedback on their pilot surveys. For every team other than your own, answer their pilot survey and provide any feedback you have in a row in [this spreadsheet](https://docs.google.com/spreadsheets/d/1Bsi4IoFwiGunXq8AlDVnI5OQMkt83K45po8lJbzUH5I/edit?usp=sharing). Feedback should be anonymous, constructive, and objective. Note things that didn't work and / or things that weren't clear or were confusing.
+
+If you got screened out early in the survey, go back and take it again and pick a response so that you won't get screened out. Do your best to actually answer the conjoint questions honestly (don't just click randomly).
+
+Completing all the surveys shouldn't take more than an hour. In addition to giving everyone very useful feedback, this exercise may also give you new ideas for improving your own survey.
+
 # 1. Getting Organized
 
 Download and edit [this template](`r url_template`) when working through this assignment.
