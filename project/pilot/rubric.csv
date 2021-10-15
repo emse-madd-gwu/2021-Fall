@@ -1,13 +1,13 @@
 order,category,label,rating,maxPoints,points,description
-1,organization,Organization & Formatting,Excellent,5,5,All formatting guidelines are followed; YAML is correct with all team members listed; Rmd compiles to html.
-1,organization,Organization & Formatting,Good,5,4,Most formatting guidelines are followed; YAML is correct with all team members listed; Rmd might require one fix to compile to html.
-1,organization,Organization & Formatting,Needs work,5,3,Several or all formatting guidelines not followed; YAML contains elements that aren't updated from the template; Rmd requires mutliple fixes to compile to html.
-2,targetPopulation,Target Population,Excellent,10,10 / 9,Target population clearly identified; fielding strategy is discussed; eligibility requirement question text is specified.
-2,targetPopulation,Target Population,Good,10,8 / 7 / 6,"Target population identified, though may need to be refined; fielding strategy is discussed; eligibility requirement question text needs to be refined."
-2,targetPopulation,Target Population,Needs work,10,5 / 4 / 3,Target population unclear; fielding strategy missing; eligibility requirement question text needs to be refined or is missing.
-3,conjointQuestions,Conjoint Questions,Excellent,10,10 / 9,Exact conjoint question text is clear and specific; table of all attributes are included.
-3,conjointQuestions,Conjoint Questions,Good,10,8 / 7 / 6,Conjoint question text could be improved; table of all attributes are included with some attributes missing.
-3,conjointQuestions,Conjoint Questions,Needs work,10,5 / 4 / 3,Conjoint question text is missing or poorly written / unclear; table of all attributes is missing or unclear.
-4,other,Other Content,Excellent,10,10 / 9,"All required survey components are specified with clear, precise question text included."
-4,other,Other Content,Good,10,8 / 7 / 6,Some but not all required survey components are specified.
-4,other,Other Content,Needs work,10,5 / 4 / 3,"Missing multiple of the required survey components, question text is unclear."
+1,organization,Organization & Formatting,Excellent,5,5,All formatting guidelines are followed.
+1,organization,Organization & Formatting,Good,5,4,Most formatting guidelines are followed; only one or two components from the template are missing.
+1,organization,Organization & Formatting,Needs work,5,3,Most formatting guidelines are followed; several components from the template are missing or incomplete.
+2,targetPopulation,Survey Content,Excellent,10,10 / 9,Rmd files are complete and compile without error to html pages. All referenced files are on the web (not local).
+2,targetPopulation,Survey Content,Good,10,8 / 7 / 6,Rmd files are complete and compile to html pages mostly without error (may need one or two small fixeds). All referenced files are on the web (not local).
+2,targetPopulation,Survey Content,Needs work,10,5 / 4 / 3,"Rmd files are incomplete and / or missing, and they require multiple fixes to compile into html files. References local files that are not yet on the web."
+3,conjointQuestions,Conjoint Questions,Excellent,10,10 / 9,Randomized conjoint questions render on live formr survey without error.
+3,conjointQuestions,Conjoint Questions,Good,10,8 / 7 / 6,Randomized conjoint questions render on live formr survey with only one or two errors (e.g. image load fail). 
+3,conjointQuestions,Conjoint Questions,Needs work,10,5 / 4 / 3,Randomized conjoint questions have major issues rendering on the live formr survey. Page load fails or content is displayed in an unintelligle manner.
+4,formr,formr,Excellent,10,10 / 9,"Entire survey renders on live survey without errors, user can get to end and questions are clear and understandable."
+4,formr,formr,Good,10,8 / 7 / 6,"The survey contains one or two errors when rendering in formr, but the user can still get to the end of the survey."
+4,formr,formr,Needs work,10,5 / 4 / 3,"An error page displays preventing continuation in the survey, or multiple major errors exist in the survey making it difficult to understand the questions."
