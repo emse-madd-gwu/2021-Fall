@@ -1,0 +1,91 @@
+---
+title: "Practice Questions"
+date: October 20, 2021
+week: 8
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+# Basic knit settings
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+
+library(tidyverse)
+library(knitr)
+library(patchwork)
+library(kableExtra)
+library(here)
+library(logitr)
+library(fastDummies)
+```
+
+Consider a box with dimensions $x$, $y$, and $z$ with a volume of 1 cubic meters.
+
+You wish to find the dimensions $x$, $y$, and $z$ of the box that minimizes the total surface area of all 6 faces.
+
+1. Write this optimization problem in negative null form.
+2. Using a gradient decent algorithm, write code to find the solution.
+
+The surface area is 
+
+$$
+A = 2xy + 2yz + 2zx
+$$
+
+The volume is 
+
+$$
+V = xyz = 1
+$$
+
+Solve volume for $z$ and substitute into surface area:
+
+$$
+z = \frac{1}{xy}
+$$
+
+$$
+A = 2xy + \frac{2}{x} + \frac{2}{y}
+$$
+
+1. The problem in negative null form is 
+
+$$
+\min_{x,y,z} - 2xy - \frac{2}{x} - \frac{2}{y}
+$$
+
+The gradient is:
+
+$$
+\Delta f(\underline{x}) = 
+\begin{bmatrix}
+- 2y + \frac{2}{x^2}
+\\ 
+- 2x + \frac{2}{y^2}
+\end{bmatrix}
+$$
+
+```{r}
+# Use a loop to compute 20 steps of a gradient descent algorithm:
+df <- data.frame(stepNumber = seq(1, 1000), x = 0, y = 0)
+x0 <- c(1.5, 1.5)
+step <- 0.001
+for (i in 1:nrow(df)) {
+    x <- x0[1]
+    y <- x0[2]
+    grad <- c(-2*y + 2/x^2, -2*x + 2/y^2)
+    x1 <- x0 - step*grad
+    df[i, c('x', 'y')] <- x1
+    x0 <- x1
+}
+df
+```

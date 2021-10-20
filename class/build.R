@@ -11,7 +11,6 @@ zip::zipr(
     files = c(
         'data',
         'practice.Rmd',
-        'simulation.R',
         'solutions.html',
         'solutions.Rmd',
         paste0(lesson, ".Rproj")))

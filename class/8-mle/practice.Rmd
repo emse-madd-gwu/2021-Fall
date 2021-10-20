@@ -1,0 +1,111 @@
+---
+title: "Practice Questions"
+date: October 20, 2021
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+# Basic knit settings
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+
+library(tidyverse)
+library(knitr)
+library(patchwork)
+library(kableExtra)
+library(here)
+library(logitr)
+library(fastDummies)
+```
+
+## Practice Questions 1
+
+**Observations** - Height of students (inches):
+
+```{r, echo=FALSE}
+x <- c(65, 69, 66, 67, 68, 72, 68, 69, 63, 70)
+x
+```
+
+a) Let's say we know that the height of students, $\tilde{x}$, in a classroom follows a normal distribution. A professor obtains the above height measurements students in her classroom. What is the log-likelihood that $\tilde{x} \sim \mathcal{N} (68, 4)$? In other words, compute $\ln \mathcal{L} (\mu = 68, \sigma = 4)$.
+
+```{r}
+# Write code here
+```
+
+b) Compute the log-likelihood function using the same standard deviation $(\sigma = 4)$ but with the following different values for the mean, $\mu: 66, 67, 68, 69, 70$. How do the results compare? Which value for $\mu$ produces the highest log-likelihood?
+
+```{r, fig.height=4, fig.width=6}
+# Write code here
+```
+
+
+
+## Practice Questions 2
+
+Consider the following function:
+
+$$f(x) = x^2 - 6x$$
+
+The gradient is:
+
+$$\Delta f(x) = 2x - 6$$
+
+Using the starting point $x = 1$ and the step size $\gamma =  0.3$, apply the gradient descent method to compute the next **three** points in the search algorithm.
+
+```{r, fig.height=4, fig.width=6}
+# Write code here
+```
+
+
+
+
+## Practice Questions 3
+
+Consider the following function:
+
+$$
+f(\underline{x}) = x_1^2 + 4x_2^2
+$$
+
+The gradient is:
+
+$$
+\Delta f(\underline{x}) =
+\begin{bmatrix}
+2x_1
+\\
+8x_2
+\end{bmatrix}
+$$
+
+Using the starting point $\underline{x}_0 = [1, 1]$ and the step size $\gamma =  0.15$, apply the gradient descent method to compute the next **three** points in the search algorithm.
+
+```{r, fig.height=4, fig.width=6}
+# Write code here
+```
+
+
+
+## In Class Questions 1
+
+1. Write code to read in the `state_abbs.csv` and `state_regions.csv` data files in the "data" folder.
+
+```{r}
+# Write code here
+```
+
+2. Create a new data frame called `states` by joining the two data frames `states_abbs` and `state_regions` together. The result should be a data frame with variables `region`, `name`, `abb`.
+
+```{r}
+# Write code here
+```
