@@ -1,0 +1,222 @@
+---
+title: "Practice Questions"
+date: October 20, 2021
+week: 8
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+# Basic knit settings
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+
+library(tidyverse)
+library(knitr)
+library(patchwork)
+library(kableExtra)
+library(here)
+library(logitr)
+library(fastDummies)
+```
+
+## Practice Questions 1
+
+**Observations** - Height of students (inches):
+
+```{r, echo=FALSE}
+x <- c(65, 69, 66, 67, 68, 72, 68, 69, 63, 70)
+x
+```
+
+a) Let's say we know that the height of students, $\tilde{x}$, in a classroom follows a normal distribution. A professor obtains the above height measurements students in her classroom. What is the log-likelihood that $\tilde{x} \sim \mathcal{N} (68, 4)$? In other words, compute $\ln \mathcal{L} (\mu = 68, \sigma = 4)$.
+
+```{r}
+# Load the data
+x <- c(65, 69, 66, 67, 68, 72, 68, 69, 63, 70)
+
+# Compute the value of f(x) for each x
+f_x <- dnorm(x, 68, 4)
+
+# Sum the values in f_x together to get the log-likelihoo
+L <- sum(f_x)
+L
+```
+
+b) Compute the log-likelihood function using the same standard deviation $(\sigma = 4)$ but with the following different values for the mean, $\mu: 66, 67, 68, 69, 70$. How do the results compare? Which value for $\mu$ produces the highest log-likelihood?
+
+```{r, fig.height=4, fig.width=6}
+library(tidyverse)
+
+# Create a vectors of values for the mean
+means <- c(66, 67, 68, 69, 70)
+
+# Compute the likelihood using different values for the mean:
+L1 <- sum(dnorm(x, means[1], 4))
+L2 <- sum(dnorm(x, means[2], 4))
+L3 <- sum(dnorm(x, means[3], 4))
+L4 <- sum(dnorm(x, means[4], 4))
+L5 <- sum(dnorm(x, means[5], 4))
+logLiks <- c(L1, L2, L3, L4, L5)
+
+# Create a data frame of the results
+df <- data.frame(means, logLiks)
+df
+
+# Filter out the row with the maximum likelihood value:
+df %>% 
+  filter(logLiks == max(logLiks))
+
+# Plot the result:
+df %>% 
+  ggplot(aes(x = means, y = logLiks)) +
+  geom_line() +
+  geom_point() + 
+  theme_bw() + 
+  labs(x = "Mean Value", y = "Log-likelihood Values")
+```
+
+
+
+
+## Practice Questions 2
+
+Consider the following function:
+
+$$f(x) = x^2 - 6x$$
+
+The gradient is:
+
+$$\Delta f(x) = 2x - 6$$
+
+Using the starting point $x = 1$ and the step size $\gamma =  0.3$, apply the gradient descent method to compute the next **three** points in the search algorithm.
+
+```{r, fig.height=4, fig.width=6}
+# Define the step size and the starting point:
+step <- 0.3
+x0 <- 1
+
+# Compute the first three steps of the gradient descent method:
+x1 <- x0 - step*(2*x0 - 6)
+x2 <- x1 - step*(2*x1 - 6)
+x3 <- x2 - step*(2*x2 - 6)
+
+# Display results
+c(x0, x1, x2, x3)
+
+# Use the function to compute the next 20 steps:
+df <- data.frame(step = seq(1, 20), x = 0)
+step <- 0.3
+x0 <- 1
+for (i in 1:nrow(df)) {
+    x1 <- x0 - step*(2*x0 - 6)
+    df$x[i] <- x1
+    x0 <- x1
+}
+
+df
+
+# Plot the algorithm
+df %>% 
+  mutate(y = x^2 - 6*x) %>% 
+  ggplot(aes(x = x, y = y)) +
+  geom_line() + 
+  geom_point() + 
+  theme_bw()
+```
+
+
+
+## Practice Questions 3
+
+Consider the following function:
+
+$$
+f(\underline{x}) = x_1^2 + 4x_2^2
+$$
+
+The gradient is:
+
+$$
+\Delta f(\underline{x}) = 
+\begin{bmatrix}
+2x_1
+\\ 
+8x_2
+\end{bmatrix}
+$$
+
+Using the starting point $\underline{x}_0 = [1, 1]$ and the step size $\gamma =  0.15$, apply the gradient descent method to compute the next **three** points in the search algorithm.
+
+```{r, fig.height=4, fig.width=6}
+# Define the step size and the starting point:
+step <- 0.15
+x0 <- c(1, 1)
+
+# Compute the first three steps of the gradient descent method:
+x1 <- x0 - step*(c(2, 8)*x0)
+x2 <- x1 - step*(c(2, 8)*x1)
+x3 <- x2 - step*(c(2, 8)*x2)
+
+# Display results
+cbind(x0, x1, x2, x3)
+
+# Use a loop to compute the next 20 steps:
+df <- data.frame(stepNumber = seq(1, 20), x1 = 0, x2 = 0)
+x0 <- c(1, 1)
+step <- 0.15
+for (i in 1:nrow(df)) {
+    x1 <- x0 - step*(c(2, 8)*x0)
+    df[i, c('x1', 'x2')] <- x1
+    x0 <- x1
+}
+
+df
+
+# Plot the algorithm
+plot1 <- df %>% 
+  mutate(y = x1^2 + 4*x2^2) %>% 
+  ggplot(aes(x = x1, y = y)) +
+  geom_line() + 
+  geom_point() + 
+  theme_bw()
+
+plot2 <- df %>% 
+  mutate(y = x1^2 + 4*x2^2) %>% 
+  ggplot(aes(x = x2, y = y)) +
+  geom_line() + 
+  geom_point() + 
+  theme_bw()
+
+plot1 + plot2
+```
+
+
+
+
+## In Class Questions 1
+
+1. Write code to read in the `state_abbs.csv` and `state_regions.csv` data files in the "data" folder.
+
+```{r}
+regions <- read_csv(here::here('data', 'state_regions.csv'))
+abbs <- read_csv(here::here('data', 'state_abbs.csv'))
+```
+
+2. Create a new data frame called `states` by joining the two data frames `states_abbs` and `state_regions` together. The result should be a data frame with variables `region`, `name`, `abb`.
+
+```{r}
+states <- regions %>%
+    left_join(abbs, by = c('state' = 'state_name')) %>%
+    select(region, name = state, abb = state_abb)
+head(states)
+```
+
