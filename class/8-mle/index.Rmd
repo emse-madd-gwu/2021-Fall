@@ -282,7 +282,7 @@ $$f(x) = x^2 - 6x$$
 
 The gradient is:
 
-$$\Delta f(x) = 2x - 6$$
+$$\nabla f(x) = 2x - 6$$
 
 Using the starting point $x = 1$ and the step size $\gamma =  0.3$, apply the gradient descent method to compute the next **three** points in the search algorithm.
 ]
@@ -311,7 +311,7 @@ $$
 The gradient is:
 
 $$
-\Delta f(\underline{x}) =
+\nabla f(\underline{x}) =
 \begin{bmatrix}
 2x_1
 \\
