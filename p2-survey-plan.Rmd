@@ -16,16 +16,6 @@ params:
 ```{r child = "_knitr_setup.Rmd"}
 ```
 
-```{r echo=FALSE}
-library(tidyverse)
-
-due <- get_schedule() %>%
-  mutate(project_due = format(project_due, format = "%b %d")) %>%
-  filter(project_n == params$number) %>%
-  pull(project_due)
-due <- paste0(due, " by 11:59pm")
-```
-
 ```{r child = "_pheader.Rmd"}
 ```
 

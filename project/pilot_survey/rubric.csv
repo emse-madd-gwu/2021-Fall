@@ -1,0 +1,13 @@
+order,category,label,rating,maxPoints,points,description
+1,organization,Organization & Formatting,Excellent,5,5,All formatting guidelines are followed.
+1,organization,Organization & Formatting,Good,5,4,Most formatting guidelines are followed; only one or two components from the template are missing.
+1,organization,Organization & Formatting,Needs work,5,3,Most formatting guidelines are followed; several components from the template are missing or incomplete.
+2,targetPopulation,Survey Content,Excellent,10,10 / 9,Rmd files are complete and compile without error to html pages. All referenced files are on the web (not local).
+2,targetPopulation,Survey Content,Good,10,8 / 7 / 6,Rmd files are complete and compile to html pages mostly without error (may need one or two small fixeds). All referenced files are on the web (not local).
+2,targetPopulation,Survey Content,Needs work,10,5 / 4 / 3,"Rmd files are incomplete and / or missing, and they require multiple fixes to compile into html files. References local files that are not yet on the web."
+3,conjointQuestions,Conjoint Questions,Excellent,10,10 / 9,Randomized conjoint questions render on live formr survey without error.
+3,conjointQuestions,Conjoint Questions,Good,10,8 / 7 / 6,Randomized conjoint questions render on live formr survey with only one or two errors (e.g. image load fail). 
+3,conjointQuestions,Conjoint Questions,Needs work,10,5 / 4 / 3,Randomized conjoint questions have major issues rendering on the live formr survey. Page load fails or content is displayed in an unintelligle manner.
+4,formr,formr,Excellent,10,10 / 9,"Entire survey renders on live survey without errors, user can get to end and questions are clear and understandable."
+4,formr,formr,Good,10,8 / 7 / 6,"The survey contains one or two errors when rendering in formr, but the user can still get to the end of the survey."
+4,formr,formr,Needs work,10,5 / 4 / 3,"An error page displays preventing continuation in the survey, or multiple major errors exist in the survey making it difficult to understand the questions."
