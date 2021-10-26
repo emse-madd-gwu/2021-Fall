@@ -3,9 +3,40 @@ title: "Design of Experiment"
 output:
   html_document:
     toc: false
+    number_sections: false
 params:
   number: 7
-  purpose: 'purpose'
+  purpose: "The purpose of this assignment is to introduce the concept of design of experiments and to understand how experiment design can impact the amount of information available about different model effects."
 ---
 
-Coming soon!
+```{r child = "_knitr_setup.Rmd"}
+```
+
+```{r child = "_aheader.Rmd"}
+```
+
+# 1. Getting Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment. Notice that this week's template is a .Rmd file.
+
+# 2. Readings
+
+Last week we discussed how we quantify parameter uncertainty from maximizing the log-likelihood. This week, we'll begin considering the relationship between parameter uncertainty and how we design our experiment.
+
+**Take notes** as you watch the video. At the end of the video, I ask one practice question - you should answer this questions as part of your reflection. You may submit your answers however you wish, e.g. hand-write them on paper and take a picture and / or type answers in your reflection .Rmd file.
+
+Click [here](content/slides_doe.pdf) to download the slides in the video as a PDF.
+
+<center>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/xmlGINu0_k8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+
+# 3. Reflect, Knit, & Submit
+
+Reflect on what you've learned and any questions or points of confusion you have about design of experiment. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? After reflecting, do the following:
+
+- Write a few sentences in the template you downloaded for this assignment.
+- Click the "knit" button to compile your .Rmd file into a html web page.
+- Open up the resulting `reflection7.html` file in your web browser and see how it looks!
+- Create a zip file of everything in your R Project folder and submit the zip file in the "Assignment Submission" page on Blackboard.
+
