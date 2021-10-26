@@ -46,9 +46,15 @@ x <- c(65, 69, 66, 67, 68, 72, 68, 69, 63, 70)
 # Compute the value of f(x) for each x
 f_x <- dnorm(x, 68, 4)
 
-# Sum the values in f_x together to get the log-likelihoo
-L <- sum(f_x)
-L
+# The likelihood is just the product of the probabilities in f_x
+prod(f_x)
+
+# But this is a really tiny number, so computing the log-likelihood is helpful
+log(prod(f_x))
+
+# Of course, the way we typically compute the log-likelihood is by summing up 
+# the log of the values in f_x 
+sum(log(f_x))
 ```
 
 b) Compute the log-likelihood function using the same standard deviation $(\sigma = 4)$ but with the following different values for the mean, $\mu: 66, 67, 68, 69, 70$. How do the results compare? Which value for $\mu$ produces the highest log-likelihood?
@@ -60,11 +66,11 @@ library(tidyverse)
 means <- c(66, 67, 68, 69, 70)
 
 # Compute the likelihood using different values for the mean:
-L1 <- sum(dnorm(x, means[1], 4))
-L2 <- sum(dnorm(x, means[2], 4))
-L3 <- sum(dnorm(x, means[3], 4))
-L4 <- sum(dnorm(x, means[4], 4))
-L5 <- sum(dnorm(x, means[5], 4))
+L1 <- sum(log(dnorm(x, means[1], 4)))
+L2 <- sum(log(dnorm(x, means[2], 4)))
+L3 <- sum(log(dnorm(x, means[3], 4)))
+L4 <- sum(log(dnorm(x, means[4], 4)))
+L5 <- sum(log(dnorm(x, means[5], 4)))
 logLiks <- c(L1, L2, L3, L4, L5)
 
 # Create a data frame of the results
@@ -219,4 +225,3 @@ states <- regions %>%
     select(region, name = state, abb = state_abb)
 head(states)
 ```
-
