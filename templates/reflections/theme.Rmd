@@ -1,0 +1,23 @@
+---
+title: "title"
+author: "author"
+output:
+  html_document:
+    toc: no
+    toc_float: no
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+```
+
+This week (and all following weeks) you'll be writing your reflection in RMarkdown files (files that end in .Rmd). These files allow you to include both text and code in a single file that can then be compiled into different output formats. For the most part, we'll almost always be compiling things into html web pages. Try it out - click the "knit" button to turn this into a web page!
+
+You can change a lot about the way your output file looks by just changing the `theme` argument in the YAML above (the lines between the `---` symbols. Try changing the text "flatly" to a different theme - you can use any of the theme names on https://bootswatch.com/

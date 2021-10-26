@@ -1,0 +1,22 @@
+---
+title: "title"
+author: "author"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: no
+    toc_float: no
+    theme: cosmo
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+```
+
+Did you know you can use in-line R code even in the YAML content? Take a look at the `date:` entry. What I've written there is in-line R code to grab today's date from your computer using `Sys.time()` and then formatted it to display as day-month-year. This is a way of automatically updating the date based on when you knit the .Rmd file! You can modify this a bunch of ways - see [here](https://bookdown.org/yihui/rmarkdown-cookbook/update-date.html) for more details!
