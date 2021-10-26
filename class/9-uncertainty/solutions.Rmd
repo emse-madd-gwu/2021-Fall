@@ -1,0 +1,183 @@
+---
+title: "Practice Questions"
+date: October 27, 2021
+week: 9
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+# Basic knit settings
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+
+library(tidyverse)
+library(here)
+```
+
+
+
+## Practice Questions 1
+
+Suppose we estimate a model and get the following results:
+
+$$
+\hat{\beta} =
+\begin{bmatrix}
+-0.4
+\\ 
+0.5
+\end{bmatrix}
+$$
+
+$$
+\nabla_{\beta}^2 \ln(\mathcal{L}) =
+\begin{bmatrix}
+-6000 & 60
+\\ 
+60 & -700
+\end{bmatrix}
+$$
+
+a) Use the hessian to compute the standard errors for $\hat{\beta}$
+
+```{r}
+hessian <- matrix(c(-6000, 60, 60, -700), ncol = 2, byrow = TRUE)
+covariance <- -1*solve(hessian)
+se <- sqrt(diag(covariance))
+sigma1 <- se[1]
+sigma2 <- se[2]
+sigma1
+sigma2
+```
+
+b) Use the standard errors to compute a 95% confidence interval around $\hat{\beta}$
+
+```{r}
+beta1 <- -0.4
+beta2 <- 0.5
+ci1 <- c(beta1 - 2*sigma1, beta1 + 2*sigma1)
+ci2 <- c(beta2 - 2*sigma2, beta2 + 2*sigma2)
+ci1
+ci2
+```
+
+
+
+## Practice Questions 2
+
+Suppose we estimate the following utility model describing preferences for cars:
+
+$$
+u_j = \alpha p_j + \beta_1 x_j^{mpg} + \beta_2 x_j^{elec} + \varepsilon_j
+$$
+
+The estimated model produces the following results:
+
+Parameter | Coefficient
+----------|------------
+$\alpha$ | -0.7
+$\beta_1$ | 0.1
+$\beta_2$ | -0.4
+
+Hessian:
+
+$$
+\begin{bmatrix}
+-6000 & 50 & 60
+\\ 
+50 & -700 & 50
+\\
+60 & 50 & -300
+\end{bmatrix}
+$$
+
+a) Generate 10,000 draws of the model coefficients using the estimated coefficients and hessian. Use the `mvrnorm()` function from the `MASS` library.
+
+```{r}
+beta <- c(-0.7, 0.1, -4.0)
+
+hessian <- matrix(c(
+    -6000,   50,   60,
+       50, -700,   50,
+       60,   50, -300),
+    ncol = 3, byrow = TRUE)
+
+covariance <- -1*solve(hessian)
+
+draws <- MASS::mvrnorm(10^5, beta, covariance)
+head(draws)
+```
+
+b) Use the draws to compute the mean and 95% confidence intervals of each parameter estimate.
+
+```{r}
+# Mean and CI for par 1
+mean(draws[, 1])
+quantile(draws[, 1], c(0.025, 0.975))
+
+# Compare to computed CI
+sigma <- sqrt(diag(covariance))
+c(beta[1] - 2*sigma[1], beta[1] + 2*sigma[1])
+
+# Mean and CI for par 2 & 3
+mean(draws[, 2])
+quantile(draws[, 2], c(0.025, 0.975))
+mean(draws[, 3])
+quantile(draws[, 3], c(0.025, 0.975))
+
+# Solution using the class package ci() function:
+maddTools::ci(draws, ci = 0.95)
+```
+
+
+
+# In Class Question 1: Long <--> Wide
+
+Write code to read in the following two files:
+
+- `pv_cells.csv`: Data on solar photovoltaic cell production by country
+- `milk_production.csv`: Data on milk production by state
+
+```{r}
+milk_production <- read_csv(here('data', 'milk_production.csv'))
+pv_cells <- read_csv(here('data', 'pv_cells.csv'))
+```
+
+Now modify the format of each:
+
+- If the data are in "wide" format, convert it to "long" with `pivot_longer()`
+- If the data are in "long" format, convert it to "wide" with `pivot_wider()`
+
+```{r}
+# milk_production is in long format - convert to wide
+milk_wide <- milk_production %>%
+    pivot_wider(
+        names_from = state, 
+        values_from = milk_produced)
+head(milk_wide)
+
+# pv_cells is in wide format - convert to long
+pv_cells_long <- pv_cells %>%
+    pivot_longer(
+        cols = China:World,
+        names_to = "country", 
+        values_to = "numCells")
+
+# Could also do this
+pv_cells_long <- pv_cells %>%
+    pivot_longer(
+        cols = -Year,
+        names_to = "country", 
+        values_to = "numCells")
+
+head(pv_cells_long)
+```

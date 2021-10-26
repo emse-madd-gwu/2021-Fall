@@ -1,0 +1,124 @@
+---
+title: "Practice Questions"
+date: October 27, 2021
+week: 9
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+# Basic knit settings
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+
+library(tidyverse)
+library(here)
+```
+
+
+
+## Practice Questions 1
+
+Suppose we estimate a model and get the following results:
+
+$$
+\hat{\beta} =
+\begin{bmatrix}
+-0.4
+\\ 
+0.5
+\end{bmatrix}
+$$
+
+$$
+\nabla_{\beta}^2 \ln(\mathcal{L}) =
+\begin{bmatrix}
+-6000 & 60
+\\ 
+60 & -700
+\end{bmatrix}
+$$
+
+a) Use the hessian to compute the standard errors for $\hat{\beta}$
+
+```{r}
+# Write code here
+```
+
+b) Use the standard errors to compute a 95% confidence interval around $\hat{\beta}$
+
+```{r}
+# Write code here
+```
+
+
+
+## Practice Questions 2
+
+Suppose we estimate the following utility model describing preferences for cars:
+
+$$
+u_j = \alpha p_j + \beta_1 x_j^{mpg} + \beta_2 x_j^{elec} + \varepsilon_j
+$$
+
+The estimated model produces the following results:
+
+Parameter | Coefficient
+----------|------------
+$\alpha$ | -0.7
+$\beta_1$ | 0.1
+$\beta_2$ | -0.4
+
+Hessian:
+
+$$
+\begin{bmatrix}
+-6000 & 50 & 60
+\\ 
+50 & -700 & 50
+\\
+60 & 50 & -300
+\end{bmatrix}
+$$
+
+a) Generate 10,000 draws of the model coefficients using the estimated coefficients and hessian. Use the `mvrnorm()` function from the `MASS` library.
+
+```{r}
+# Write code here
+```
+
+b) Use the draws to compute the mean and 95% confidence intervals of each parameter estimate.
+
+```{r}
+# Write code here
+```
+
+
+
+# In Class Question 1: Long <--> Wide
+
+Write code to read in the following two files:
+
+- `pv_cells.csv`: Data on solar photovoltaic cell production by country
+- `milk_production.csv`: Data on milk production by state
+
+```{r}
+# Write code here
+```
+
+Now modify the format of each:
+
+- If the data are in "wide" format, convert it to "long" with `pivot_longer()`
+- If the data are in "long" format, convert it to "wide" with `pivot_wider()`
+
+```{r}
+# Write code here
+```
