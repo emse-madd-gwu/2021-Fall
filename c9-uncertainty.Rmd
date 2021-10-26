@@ -44,6 +44,8 @@ path_notes <- paste0(root, params$class, ".zip")
 
 <a href=`r path_notes` class="btn-notes"><i class="fas fa-download"></i> Download zip file</a>
 
+<a href="https://github.com/emse-madd-gwu/logitr-cars/archive/refs/heads/main.zip" class="btn-notes"><i class="fas fa-download"></i> Download logitr-cars</a>
+
 <a href="https://github.com/jhelvy/formr4conjoint/archive/refs/heads/master.zip" class="btn-notes"><i class="fas fa-download"></i> Download formr4conjoint</a>
 
 </div></div>

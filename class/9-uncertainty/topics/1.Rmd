@@ -1,0 +1,12 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. .orange[Computing uncertainty]
+### 2. Reshaping data
+
+### BREAK
+
+### 3. Cleaning pilot data
+### 4. Estimating pilot data models
