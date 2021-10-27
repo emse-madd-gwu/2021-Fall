@@ -28,6 +28,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -325,6 +328,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -332,6 +398,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -634,7 +710,112 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<blockquote>
+<p><strong>Due</strong>: Nov 07 by 11:59pm</p>
+<p><strong>Weight</strong>: This assignment is worth 9% of your final grade.</p>
+<p><strong>Purpose</strong>: purpose</p>
+<p><strong>Assessment</strong>: Your pilot analysis will be assessed using <a href="project/pilot_analysis/rubric.html" target="_blank">this rubric</a>.</p>
+</blockquote>
+<p>As a team, analyze your pilot survey data, and write a report of your findings. The course instructor will review and grade your analysis and report and provide feedback. The primary purpose of the report is to 1) lay some initial groundwork for analyzing your survey data (you will be able to re-use this code for your final analysis), and 2) gain insights to improve your final survey.</p>
+<p>Your report should include three main components:</p>
+<ul>
+<li>A detailed description of your pilot survey (e.g., how it was designed, what it contained, etc.).</li>
+<li>A detailed description of the results from analyzing your pilot survey data.</li>
+<li>A detailed description of planned changes you will include in your final survey.</li>
+</ul>
+<p>Follow the guidelines below to prepare your analysis and report.</p>
+<div id="report-guidelines" class="section level2">
+<h2>1. Report Guidelines</h2>
+<p>Download and unzip <a href="templates/project_pilot_analysis.zip">this template</a> for your report. You should write your report in the <code>report.Rmd</code>.Rmd` file. The template comes with some text and code explaining how to use it - you should delete this code &amp; text as it is only for explanatory purposes. Be sure to adjust the content in the YAML:</p>
+<ul>
+<li>Write your project title in the <code>title</code> field (and provide a subtitle if you wish, or delete the <code>subtitle</code> field).</li>
+<li>In the <code>author</code> field, list the names of all teammates, e.g. <code>author: Luke Skywalker, Leia Organa, and Han Solo</code>.</li>
+</ul>
+<p>Your report should be written in a clear, concise, and logically-structured manner so that a reader can easily understand the ideas presented. The report should be proof-read before submission to correct any grammatical or spelling errors. Spell checking can be automated by installing the <code>spelling</code> package and running this in the R console:</p>
+<pre class="r"><code>spelling::spell_check_files(&quot;report.Rmd&quot;)</code></pre>
+<p>All figures, tables, and equations should be referenced in the text.</p>
+</div>
+<div id="pilot-data-analysis" class="section level2">
+<h2>2. Pilot Data Analysis</h2>
+<p>Before writing your report, you should first analyze your pilot data by following these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Download the data files from formr.org for your surveys and put them in the “data” folder in the report template.</li>
+<li>Open the <code>clean_data.R</code> file and write code to clean your pilot data and prepare it for modeling. Your cleaned choice data should be in a “long” format similar to the <a href="https://github.com/jhelvy/formr4conjoint/blob/master/data/choiceData.csv">example choice data here</a>.</li>
+<li>Save your cleaned data file as a .csv file in the “data” folder.</li>
+<li>Open the <code>modeling.R</code> file and write code to estimate preliminary models using your cleaned choice data.</li>
+<li>Open the <code>power_analysis.R</code> file and write code to conduct a power analysis to inform the sample size requirements for your final survey.</li>
+</ol>
+</div>
+<div id="pilot-analysis-report" class="section level2">
+<h2>3. Pilot Analysis Report</h2>
+<p>Your report should contain the following items listed as separate sections.</p>
+<blockquote>
+<p>NOTE: You may re-use content from earlier project assignments in this report, such as introductory paragraphs, images, etc.</p>
+</blockquote>
+<div id="abstract" class="section level3">
+<h3>Abstract</h3>
+<p>A few sentences summarizing the project and what you found from your pilot analysis. Include:</p>
+<ol style="list-style-type: decimal">
+<li>What is the product / policy you are studying?</li>
+<li>What were the product attributes and design decisions you were interested in?</li>
+<li>At least one key insight you gained from your pilot analysis (e.g., a modeling result, a design change you will make for your final survey, etc.).</li>
+</ol>
+</div>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>Provide a brief description and background of the product / policy that motivates the study of it. Include a picture or diagram of the product. You should also discuss the key product attributes and decisions variables you chose to study in your pilot survey. This section can be largely similar to your proposal introduction.</p>
+</div>
+<div id="survey-design" class="section level3">
+<h3>Survey Design</h3>
+<p>This section should discuss the design choices you made in creating your pilot survey. Include the following:</p>
+<ul>
+<li>Describe the eligibility requirements you chose and why you chose them.</li>
+<li>What information about your respondents did you collect (e.g. critical information questions, demographics, etc.)?</li>
+<li>Describe any educational material presented to the respondents.</li>
+<li>Define and justify the attributes and levels chosen for your conjoint choice questions. Indicate the number of alternatives per choice question and the number of choice questions per respondent.</li>
+<li>If you included a “no-choice” option, define its meaning and state how that was communicated to the respondent.</li>
+<li>Include an example figure of a random conjoint question (this can be a screen shot).</li>
+</ul>
+<p>You should include a full copy of your survey in an appendix (see the <a href="#Appendix">Appendix section below</a>)</p>
+</div>
+<div id="pilot-data-analysis-1" class="section level3">
+<h3>Pilot Data Analysis</h3>
+<p>This section should describe the analysis you carried out using your pilot data, including the following subsections:</p>
+<div id="sample-description" class="section level4">
+<h4>Sample Description</h4>
+<p>Describe your respondent sample, including the total sample size, the total number of choice question responses, and summary statistics of how your sample varies across critical information questions, demographics, etc. You should also include a description of what your target demographics should look like and compare these to your pilot sample (obviously your pilot sample was your classmates, so it may not be too representative of the target).</p>
+</div>
+<div id="data-cleaning" class="section level4">
+<h4>Data Cleaning</h4>
+<p>Describe any filtering process you applied to your data. Summarize how many acceptable vs. rejected responses you kept in your analysis and justify how you made that determination.</p>
+</div>
+<div id="modeling" class="section level4">
+<h4>Modeling</h4>
+<p>Write out the specific utility model you estimated and include a summary table of your utility coefficient estimates with standard errors. You should also include summary figures of the estimated consumer willingness to pay for all attributes (except price). <strong>Your figures should include uncertainty bounds</strong>. Interpret and discuss the implications of your findings.</p>
+</div>
+<div id="power-analysis" class="section level4">
+<h4>Power Analysis</h4>
+<p>You should also include a description of conclusions from your power analysis, including a summary figure of your power analysis results (standard errors versus sample size).</p>
+</div>
+</div>
+<div id="changes-to-final-survey" class="section level3">
+<h3>Changes to Final Survey</h3>
+<p>Based on your analyses, write a description of any changes you plan on making to your final survey (which should be based on your pilot survey). Consider the following:</p>
+<ul>
+<li>Did you make any changes to the product attributes and / or levels?</li>
+<li>Do you expect to be able to obtain the necessary sample size for your analysis?</li>
+<li>Other useful feedback did you receive from respondents / classmates that informed a design change.</li>
+</ul>
+</div>
+<div id="appendix" class="section level3">
+<h3>Appendix</h3>
+<p>You should include a full copy of your conjoint survey in an appendix (i.e., the same information and questions respondents saw when taking the survey). This can be the same content used in your Rmd files from your survey plan (updated to match what you actually included in your pilot survey). For the conjoint choice questions, include just one example since the specific levels were different for each choice question.</p>
+</div>
+</div>
+<div id="knit-and-submit" class="section level2">
+<h2>4. Knit and submit</h2>
+<p>Click the “knit” button to compile your <code>report.Rmd</code> file into a html web page, then create a zip file of everything in your pilot analysis folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file under “Project: Pilot Analysis”. <strong>Only one person from your team should submit the report.</strong></p>
+</div>
 
 
 <hr>
@@ -663,6 +844,8 @@ $(document).ready(function () {
 <script src="js/external-link.js"></script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -695,6 +878,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
