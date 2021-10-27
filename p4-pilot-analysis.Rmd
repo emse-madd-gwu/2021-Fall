@@ -2,11 +2,123 @@
 title: "Pilot Analysis"
 output:
   html_document:
+    toc: true
+    toc_float: true
+    toc_level: 2
     number_sections: false
-    toc: no
+params:
+  number: 4
+  weight: '9%'
+  purpose: 'purpose'
+  assessment: 'Your pilot analysis will be assessed using [this rubric](project/pilot_analysis/rubric.html){target="_blank"}.'
 ---
 
 ```{r child = "_knitr_setup.Rmd"}
 ```
 
-Coming soon!
+```{r child = "_pheader.Rmd"}
+```
+
+As a team, analyze your pilot survey data, and write a report of your findings. The course instructor will review and grade your analysis and report and provide feedback. The primary purpose of the report is to 1) lay some initial groundwork for analyzing your survey data (you will be able to re-use this code for your final analysis), and 2) gain insights to improve your final survey.
+
+Your report should include three main components:
+
+- A detailed description of your pilot survey (e.g., how it was designed, what it contained, etc.).
+- A detailed description of the results from analyzing your pilot survey data.
+- A detailed description of planned changes you will include in your final survey.
+
+Follow the guidelines below to prepare your analysis and report.
+
+## 1. Report Guidelines
+
+Download and unzip [this template](templates/project_pilot_analysis.zip) for your report. You should write your report in the `report.Rmd`.Rmd` file. The template comes with some text and code explaining how to use it - you should delete this code & text as it is only for explanatory purposes. Be sure to adjust the content in the YAML:
+
+- Write your project title in the `title` field (and provide a subtitle if you wish, or delete the `subtitle` field).
+ - In the `author` field, list the names of all teammates, e.g. `author: Luke Skywalker, Leia Organa, and Han Solo`.
+
+Your report should be written in a clear, concise, and logically-structured manner so that a reader can easily understand the ideas presented. The report should be proof-read before submission to correct any grammatical or spelling errors. Spell checking can be automated by installing the `spelling` package and running this in the R console:
+
+```{r, eval=FALSE}
+spelling::spell_check_files("report.Rmd")
+```
+
+All figures, tables, and equations should be referenced in the text.
+
+## 2. Pilot Data Analysis
+
+Before writing your report, you should first analyze your pilot data by following these steps:
+
+1. Download the data files from formr.org for your surveys and put them in the "data" folder in the report template.
+2. Open the `clean_data.R` file and write code to clean your pilot data and prepare it for modeling. Your cleaned choice data should be in a "long" format similar to the [example choice data here](https://github.com/jhelvy/formr4conjoint/blob/master/data/choiceData.csv). 
+3. Save your cleaned data file as a .csv file in the "data" folder.
+4. Open the `modeling.R` file and write code to estimate preliminary models using your cleaned choice data.
+5. Open the `power_analysis.R` file and write code to conduct a power analysis to inform the sample size requirements for your final survey. 
+
+## 3. Pilot Analysis Report
+
+Your report should contain the following items listed as separate sections.
+
+> NOTE: You may re-use content from earlier project assignments in this report, such as introductory paragraphs, images, etc.
+
+### Abstract
+
+A few sentences summarizing the project and what you found from your pilot analysis. Include:
+
+1. What is the product / policy you are studying?
+2. What were the product attributes and design decisions you were interested in?
+3. At least one key insight you gained from your pilot analysis (e.g., a modeling result, a design change you will make for your final survey, etc.).
+
+### Introduction
+
+Provide a brief description and background of the product / policy that motivates the study of it. Include a picture or diagram of the product. You should also discuss the key product attributes and decisions variables you chose to study in your pilot survey. This section can be largely similar to your proposal introduction.
+
+### Survey Design
+
+This section should discuss the design choices you made in creating your pilot survey. Include the following:
+
+- Describe the eligibility requirements you chose and why you chose them.
+- What information about your respondents did you collect (e.g. critical information
+questions, demographics, etc.)?
+- Describe any educational material presented to the respondents.
+- Define and justify the attributes and levels chosen for your conjoint choice
+questions. Indicate the number of alternatives per choice question and the number of choice questions per respondent.
+- If you included a "no-choice" option, define its meaning and state how that was communicated to the respondent.
+- Include an example figure of a random conjoint question (this can be a screen shot).
+
+You should include a full copy of your survey in an appendix (see the [Appendix section below](#Appendix))
+
+### Pilot Data Analysis
+
+This section should describe the analysis you carried out using your pilot data, including the following subsections:
+
+#### Sample Description
+
+Describe your respondent sample, including the total sample size, the total number of choice question responses, and summary statistics of how your sample varies across critical information questions, demographics, etc. You should also include a description of what your target demographics should look like and compare these to your pilot sample (obviously your pilot sample was your classmates, so it may not be too representative of the target).
+
+#### Data Cleaning
+
+Describe any filtering process you applied to your data. Summarize how many acceptable vs. rejected responses you kept in your analysis and justify how you made that determination. 
+
+#### Modeling
+
+Write out the specific utility model you estimated and include a summary table of your utility coefficient estimates with standard errors. You should also include summary figures of the estimated consumer willingness to pay for all attributes (except price). **Your figures should include uncertainty bounds**. Interpret and discuss the implications of your findings. 
+
+#### Power Analysis
+
+You should also include a description of conclusions from your power analysis, including a summary figure of your power analysis results (standard errors versus sample size). 
+
+### Changes to Final Survey
+
+Based on your analyses, write a description of any changes you plan on making to your final survey (which should be based on your pilot survey). Consider the following:
+
+- Did you make any changes to the product attributes and / or levels? 
+- Do you expect to be able to obtain the necessary sample size for your analysis? 
+- Other useful feedback did you receive from respondents / classmates that informed a design change.
+
+### Appendix
+
+You should include a full copy of your conjoint survey in an appendix (i.e., the same information and questions respondents saw when taking the survey). This can be the same content used in your Rmd files from your survey plan (updated to match what you actually included in your pilot survey). For the conjoint choice questions, include just one example since the specific levels were different for each choice question.
+
+## 4. Knit and submit
+
+Click the "knit" button to compile your `report.Rmd` file into a html web page, then create a zip file of everything in your pilot analysis folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file under "Project: Pilot Analysis". **Only one person from your team should submit the report.**
