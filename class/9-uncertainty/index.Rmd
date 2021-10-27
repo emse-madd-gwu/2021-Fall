@@ -107,6 +107,14 @@ class: middle, inverse
 
 ---
 
+# Pilot Analysis Report 
+
+### Assignment is now [posted](https://madd.seas.gwu.edu/2021-Fall/p4-pilot-analysis.html)
+
+### Due 11/07 (that's 10 days from now)
+
+---
+
 # Quick correction from last week
 
 **Observations** - Height of students (inches):
