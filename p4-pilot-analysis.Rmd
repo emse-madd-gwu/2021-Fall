@@ -101,7 +101,7 @@ Describe any filtering process you applied to your data. Summarize how many acce
 
 #### Modeling
 
-Write out the specific utility model you estimated. [This online LaTeX equation editor](https://www.codecogs.com/latex/eqneditor.php) might come in handy for this (also, some example LaTeX equations are provided in the `solutions.Rmd` files from previous classes). Include a summary table of your utility coefficient estimates with standard errors. You should also include summary figures of the estimated consumer willingness to pay for all attributes (except price). **Your figures should include uncertainty bounds**. Interpret and discuss the implications of your findings.
+Write out the specific utility model you estimated. [This online LaTeX equation editor](https://www.codecogs.com/latex/eqneditor.php) might come in handy for this (also, some example LaTeX equations are provided in the `solutions.Rmd` files from previous classes). Include a summary table of your utility coefficient estimates with standard errors. You should also include summary figures of the estimated coefficients for all attributes. **Your figures should include uncertainty bounds**. Interpret and discuss the implications of your findings.
 
 #### Power Analysis
 
