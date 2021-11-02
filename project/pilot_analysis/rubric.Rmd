@@ -24,7 +24,7 @@ rubric <- read_csv("rubric.csv") %>%
   select(-order)
 ```
 
-### Rubric: Pilot Survey
+### Rubric: Pilot Survey Analysis 
 #### EMSE 6035: Marketing Analytics for Design Decisions, Fall 2021
 #### `r sum(rubric$maxPoints)` Total Points
 
