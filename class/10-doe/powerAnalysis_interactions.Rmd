@@ -47,16 +47,10 @@ survey <- makeSurvey(
 )
 head(survey)
 
-# Simulate choices according to a utility model with a strong interaction 
-# between meat and wine
+# Simulate random choices
 data <- simulateChoices(
     survey = survey,
-    obsID  = "obsID",
-    pars = list(
-        price = -0.05,
-        meat  = 1.5,
-        wine  = -0.5, 
-        `meat*wine` = 2.5)
+    obsID  = "obsID"
 )
 head(data)
 
@@ -90,13 +84,6 @@ ggplot(results) +
 Full power analysis using full-factorial design:
 
 ```{r}
-# Set levels
-levels <- list(
-  price = c(10, 15, 20, 25),
-  meat  = c("steak", "fish"),
-  wine  = c("red", "white")
-)
-
 # Full factorial design
 doe <- makeDoe(levels)
 doe <- recodeDoe(doe, levels)
@@ -111,16 +98,10 @@ survey <- makeSurvey(
 )
 head(survey)
 
-# Simulate choices according to a utility model with a strong interaction 
-# between meat and wine
+# Simulate random choices
 data <- simulateChoices(
     survey = survey,
-    obsID  = "obsID",
-    pars = list(
-        price = -0.05,
-        meat  = 1.5,
-        wine  = -0.5, 
-        `meat*wine` = 2.5)
+    obsID  = "obsID"
 )
 head(data)
 
