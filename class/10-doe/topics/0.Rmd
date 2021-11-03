@@ -1,0 +1,12 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Design of Experiment
+
+### BREAK
+
+### 2. Design Efficiency
+### 3. Power Analysis
+### 4. Interactions
