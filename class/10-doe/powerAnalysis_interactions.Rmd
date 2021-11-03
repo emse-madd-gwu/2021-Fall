@@ -23,8 +23,6 @@ library(tidyverse)
 library(conjointTools)
 ```
 
-Full power analysis using D-optimal design: 
-
 ```{r}
 # Set levels
 levels <- list(
@@ -33,59 +31,13 @@ levels <- list(
   wine  = c("red", "white")
 )
 
-# D-optimal fractional factorial design
-doe <- makeDoe(levels, type = "D", nTrials = 16, search = T)
+# Full factorial design
+doe <- makeDoe(levels)
 doe <- recodeDoe(doe, levels)
 evaluateDoe(doe)
 
-# Make the survey
-survey <- makeSurvey(
-    doe       = doe,  # Design of experiment
-    nResp     = 2000, # Total number of respondents (upper bound)
-    nAltsPerQ = 3,    # Number of alternatives per question
-    nQPerResp = 6     # Number of questions per respondent
-)
-head(survey)
-
-# Simulate random choices
-data <- simulateChoices(
-    survey = survey,
-    obsID  = "obsID"
-)
-head(data)
-
-# Estimate models
-models <- estimateModels(
-    nbreaks = 10,
-    data    = data,
-    pars    = c("price", "meat", "wine", "meat*wine"),
-    outcome = "choice",
-    obsID   = "obsID"
-)
-
-# Extract results
-results <- getModelResults(models)
-head(results)
-
-# Plot results
-ggplot(results) +
-  geom_hline(yintercept = 0.05, color = "red", linetype = 2) +
-  geom_point(aes(x = sampleSize, y = se, color = coef)) +
-  expand_limits(y = 0) +
-  theme_bw() + 
-  labs(
-    x = "Sample size", 
-    y = "Standard error", 
-    color = "Coefficient"
-  )
-```
-
-
-Full power analysis using full-factorial design:
-
-```{r}
-# Full factorial design
-doe <- makeDoe(levels)
+# D-optimal fractional factorial design
+doe <- makeDoe(levels, type = "D", nTrials = 16, search = T)
 doe <- recodeDoe(doe, levels)
 evaluateDoe(doe)
 
