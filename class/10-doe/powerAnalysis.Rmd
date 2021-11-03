@@ -42,14 +42,11 @@ doe <- recodeDoe(doe, levels)
 evaluateDoe(doe)
 
 # D-optimal fractional factorial design
-# doe <- makeDoe(levels, type = "D", nTrials = 25, search = T)
-# doe <- recodeDoe(doe, levels)
-# evaluateDoe(doe)
-```
+doe <- makeDoe(levels, type = "D", nTrials = 25, search = T)
+doe <- recodeDoe(doe, levels)
+evaluateDoe(doe)
 
-Now sample that doe to create a survey:
-
-```{r}
+# Now sample the doe to create a survey
 survey <- makeSurvey(
     doe       = doe,  # Design of experiment
     nResp     = 2000, # Total number of respondents (upper bound)
@@ -68,18 +65,6 @@ You can simulate choices for a given `survey` using the `simulateChoices()` func
 data <- simulateChoices(
     survey = survey,
     obsID  = "obsID"
-)
-head(data)
-
-# Choices according to a utility model
-data <- simulateChoices(
-    survey = survey,
-    obsID  = "obsID",
-    pars = list(
-        price       = -0.6,
-        fuelEconomy = 0.15,
-        accelTime   = -0.3,
-        electric    = -1.0)
 )
 head(data)
 ```
@@ -112,8 +97,6 @@ head(results)
 Here is a summary of the standard errors for each sample size:
 
 ```{r}
-library(ggplot2)
-
 ggplot(results) +
   geom_hline(yintercept = 0.05, color = "red", linetype = 2) +
   geom_point(aes(x = sampleSize, y = se, color = coef)) +
