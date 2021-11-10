@@ -3,9 +3,39 @@ title: "Heterogeneity"
 output:
   html_document:
     toc: false
+    number_sections: false
 params:
   number: 9
-  purpose: 'purpose'
+  purpose: "The purpose of this assignment is to introduce the concept of preference heterogeneity - that is, not everyone has the same preferences. We will see two ways to account for this: 1) specify preference parameters as distributions, and 2) estimate fixed parameter models on different sub-groups in your data."
 ---
 
-Coming soon!
+```{r child = "_knitr_setup.Rmd"}
+```
+
+```{r child = "_aheader.Rmd"}
+```
+
+# 1. Getting Organized
+
+Download and edit [this template](`r url_template`) when working through this assignment. Notice that this week's template is a .Rmd file.
+
+# 2. Readings
+
+Up until this point in the class, we have only estimated relatively simple models that assume everyone in our sample has the same preferences. That is, we only estimate a "fixed parameter" model that reflects the average preferences for the whole sample. In reality, preferences are usually _heterogeneous_ (different people have different preferences).
+
+One way to account for this is to estimated a "mixed" logit model where we assume the preference parameters in our utility models follow some distribution across the sample (usually a normal distribution). Another way is to estimate a fixed parameter model on different sub-groups in our data. Each of these approaches are discussed in this week's video on heterogeneity. **Take notes** as you watch the video and answer the practice questions in the video as part of your reflection. You may submit your answers however you wish, e.g. hand-write them on paper and take a picture and / or type answers in your reflection .Rmd file.
+
+Click [here](content/slides_heterogeneity.pdf) to download the slides in the video as a PDF.
+
+<center>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/A24eDCZeQd4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+
+# 3. Reflect, Knit, & Submit
+
+Reflect on what you've learned and any questions or points of confusion you have about introducing preference heterogeneity into utility models. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? After reflecting, do the following:
+
+- Write a few sentences in the template you downloaded for this assignment.
+- Click the "knit" button to compile your .Rmd file into a html web page.
+- Open up the resulting html file in your web browser and see how it looks!
+- Create a zip file of everything in your R Project folder and submit the zip file in the "Assignment Submission" page on Blackboard.
