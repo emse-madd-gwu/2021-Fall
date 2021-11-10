@@ -29,7 +29,7 @@ Project Proposal      | 7 %    | Sep. 26
 Survey Plan           | 4 %    | Oct. 05
 Pilot Survey          | 4 %    | Oct. 15
 Pilot Analysis        | 9 %    | Nov. 07
-Final Survey          | 5 %    | Nov. 21
+Final Survey          | 5 %    | Nov. 19
 Final Analysis Report | 14 %   | Dec. 13
 Final Presentation    | 8 %    | Dec. 15
 </div>
