@@ -28,6 +28,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -325,6 +328,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -332,6 +398,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -634,7 +710,53 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<blockquote>
+<p><strong>Due</strong>: Nov 19 by 11:59pm</p>
+<p><strong>Weight</strong>: This assignment is worth 5% of your final grade.</p>
+<p><strong>Purpose</strong>: purpose</p>
+<p><strong>Assessment</strong>: Your final survey will be assessed using <a href="project/final_survey/rubric.html" target="_blank">this rubric</a>.</p>
+</blockquote>
+<p>As a team, create your <strong>final survey</strong> by building on your initial pilot survey. You should incorporate any changes you wrote about in your pilot analysis report. The course instructor will review and grade your survey and will provide written feedback. Follow the instructions below to prepare your pilot survey.</p>
+<div id="get-organized" class="section level2">
+<h2>1. Get Organized</h2>
+<p>Download and unzip <a href="templates/project_final_survey.zip">this template</a> for your survey. The folder contains the following files:</p>
+<ul>
+<li><code>final_survey.Rproj</code>: An R Project file for staying organized.</li>
+<li><code>p1-intro.Rmd</code>: The code for creating part 1 of your survey, which should include a welcome page, content form, and eligibility questions for screening our ineligible respondents.</li>
+<li><code>p2-choice-questions.Rmd</code>: The code for creating part 2 of your survey, which should include your education content and randomized conjoint choice questions.</li>
+<li><code>p3-demos.Rmd</code>: The code for creating part 3 of your survey, which should include any other questions (e.g. demographics) you wish to ask your survey respondents.</li>
+<li><code>make_choice_questions.R</code>: The code to generate the <code>choice_questions.csv</code> file.</li>
+<li><code>choice_questions.csv</code>: The survey choice question design file.</li>
+<li><code>images</code>: A folder of images you’re using in your survey.</li>
+</ul>
+</div>
+<div id="write-your-survey-content" class="section level2">
+<h2>2. Write your survey content</h2>
+<p>The files included in the zip file are taken directly from the example <a href="https://github.com/jhelvy/formr4conjoint">apples conjoint repo</a> on GitHub associated with the <a href="https://www.jhelvy.com/posts/2021-09-18-choice-based-conjoint-surveys-in-r-with-formr/">blog post</a> on building conjoint surveys in R. <strong>This is just placeholder content - you need to replace it with your survey content</strong>.</p>
+<p>Follow these guidelines in inserting your content:</p>
+<ul>
+<li>You may directly copy and paste any content you wish from your <a href="p2-survey-plan.html">Survey Plan</a> and <a href="p3-pilot-survey.html">Pilot Survey</a> assignments.</li>
+<li>In your <code>p2-choice-questions.Rmd</code> file, you should include at least one example choice question (e.g. the first choice question for the first respondent) using your choice question design file (the <code>choice_questions.csv</code> file).</li>
+<li>Your code should <strong>not</strong> reference any local files - all files should be hosted online somewhere (e.g. uploaded to a formr run, github.com, etc.), and your code should use the urls to those locations. This includes your <code>choice_questions.csv</code> file as well as any images used in your survey.</li>
+</ul>
+<blockquote>
+<p>Be sure to knit each file often - you should knit each part to html files so you can preview that everything is displaying as expected.</p>
+</blockquote>
+</div>
+<div id="upload-your-content-to-formr.org" class="section level2">
+<h2>3. Upload your content to formr.org</h2>
+<p>Using your team google and formr accounts:</p>
+<ol style="list-style-type: decimal">
+<li>Create a new Google Sheet for each of your survey .Rmd files. You may directly copy and edit from your pilot survey sheets.</li>
+<li>Upload each sheet as a separate Survey in formr, then create a Run linking the surveys together. Be sure to carefully edit the Run settings such that respondents are appropriately screened out as desired.</li>
+<li>When you are confident that the Run is ready, turn the “volume” settings to the third setting (“People who have the link can access”).</li>
+</ol>
+</div>
+<div id="submit" class="section level2">
+<h2>4. Submit</h2>
+<p>Create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file under “Project: Final Survey”. <strong>Include the link to your survey in the Blackboard submission</strong>.</p>
+<p><strong>Only one person from your team should submit the report.</strong></p>
+</div>
 
 
 <hr>
@@ -663,6 +785,8 @@ $(document).ready(function () {
 <script src="js/external-link.js"></script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -695,6 +819,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
