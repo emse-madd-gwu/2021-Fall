@@ -49,6 +49,7 @@ fa <- list(
 quizUrl <- "https://quiz10.formr.org/"
 schedule <- get_schedule() %>%
   mutate(
+    date_raw = date,
     date = format(date, format = "%b %d"),
     assign_due = format(assign_due, format = "%b %d"),
     project_due = format(project_due, format = "%b %d"),
@@ -81,16 +82,20 @@ schedule <- get_schedule() %>%
         project_name, "**<br>Due ", project_due))
   )
 
+highlight <- which(Sys.Date() > schedule$date_raw)
+
 # Make the final schedule
 names(schedule) <- str_to_title(names(schedule))
 schedule %>%
+  select(-Date_raw) %>% 
   rename(` ` = Project) %>%
   select(Week, Date, Quiz, Class, Projects, Assignments, ` `) %>%
   kable(format = 'html', escape = FALSE,
         align = c('c', 'c', 'c', 'l', 'l', 'l', 'l')) %>%
-  kable_styling(full_width = F) %>%
+  kable_styling(full_width = F, bootstrap_options = c("striped", "hover")) %>%
   column_spec(column = 4, width = '16em') %>% 
   column_spec(column = 5, width = '16em') %>% 
   column_spec(column = 6, width = '10em') %>% 
-  column_spec(column = 7, width = '10em')
+  column_spec(column = 7, width = '10em') %>% 
+  row_spec(highlight, background = "#e1e1e1")
 ```
