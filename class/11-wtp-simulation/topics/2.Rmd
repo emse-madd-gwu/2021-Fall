@@ -1,0 +1,12 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. Computing "Willingness to Pay" (WTP)
+### 2. .orange[Incorporating Uncertainty via Simulation]
+### 3. Directly Estimating WTP
+
+### BREAK
+
+### 4. Simulating Market Shares
