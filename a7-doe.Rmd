@@ -37,6 +37,6 @@ Reflect on what you've learned and any questions or points of confusion you have
 
 - Write a few sentences in the template you downloaded for this assignment.
 - Click the "knit" button to compile your .Rmd file into a html web page.
-- Open up the resulting `reflection7.html` file in your web browser and see how it looks!
+- Open up the resulting html file in your web browser and see how it looks!
 - Create a zip file of everything in your R Project folder and submit the zip file in the "Assignment Submission" page on Blackboard.
 
