@@ -28,7 +28,7 @@ One way to account for this is to estimated a "mixed" logit model where we assum
 Click [here](content/slides_heterogeneity.pdf) to download the slides in the video as a PDF.
 
 <center>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/A24eDCZeQd4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/Anvu0cNfa_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 
 # 3. Reflect, Knit, & Submit
