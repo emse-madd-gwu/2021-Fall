@@ -28,6 +28,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -325,6 +328,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -332,6 +398,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -634,7 +710,138 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<blockquote>
+<p><strong>Due</strong>: Dec 13 by 11:59pm</p>
+<p><strong>Weight</strong>: This assignment is worth 14% of your final grade.</p>
+<p><strong>Purpose</strong>: purpose</p>
+<p><strong>Assessment</strong>: Your final analysis will be assessed using <a href="project/final_analysis/rubric.html" target="_blank">this rubric</a>.</p>
+</blockquote>
+<p>As a team, analyze your final survey data, and write a report of your findings. The course instructor will review and grade your analysis and report and provide feedback.</p>
+<p>Your report should include three main components:</p>
+<ul>
+<li>A detailed description of your survey (e.g., how it was designed, what it contained, etc.).</li>
+<li>A detailed description of your analysis of your survey data and the results you found.</li>
+<li>A detailed description of the key insights you obtained from your experiment and your design recommendations based on those insights.</li>
+</ul>
+<p>Follow the guidelines below to prepare your analysis and report.</p>
+<div id="report-guidelines" class="section level2">
+<h2>1. Report Guidelines</h2>
+<p>Download and unzip <a href="templates/project_final_analysis.zip">this template</a> for your report. You should write your report in the <code>report.Rmd</code>.Rmd` file. The template comes with some text and code explaining how to use it - you should delete this code &amp; text as it is only for explanatory purposes. Be sure to adjust the content in the YAML:</p>
+<ul>
+<li>Write your project title in the <code>title</code> field (and provide a subtitle if you wish, or delete the <code>subtitle</code> field).</li>
+<li>In the <code>author</code> field, list the names of all teammates, e.g. <code>author: Luke Skywalker, Leia Organa, and Han Solo</code>.</li>
+</ul>
+<p>Your report should be written in a clear, concise, and logically-structured manner so that a reader can easily understand the ideas presented. The report should be proof-read before submission to correct any grammatical or spelling errors. Spell checking can be automated by installing the <code>spelling</code> package and running this in the R console:</p>
+<pre class="r"><code>spelling::spell_check_files(&quot;report.Rmd&quot;)</code></pre>
+<p>All figures, tables, and equations should be referenced in the text.</p>
+</div>
+<div id="data-analysis" class="section level2">
+<h2>2. Data Analysis</h2>
+<p>Before writing your report, you should first analyze your data by following these steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Download the data files from formr.org for your surveys and put them in the “data” folder in the report template.</p></li>
+<li><p>Open the <code>clean_data.R</code> file and write code to clean your data and prepare it for modeling. Your cleaned choice data should be in a “long” format similar to the <a href="https://github.com/jhelvy/formr4conjoint/blob/master/data/choiceData.csv">example choice data here</a>. Save your cleaned data file as a .csv file in the “data” folder.</p></li>
+<li><p>Open the <code>modeling.R</code> file and write code to estimate any models you will use in your analysis. At a minimum, you should estimate:</p>
+<ul>
+<li>A simple logit model that includes all of the attributes in your survey.</li>
+<li>A mixed logit model that allows at least some of those attributes to vary randomly according to assumed distributions.</li>
+<li>At least one sub-group analysis where you compare a logit model on different sub-groups in your sample.</li>
+</ul></li>
+<li><p>Open the <code>analysis.R</code> file and write code to conduct further analyses using the results from your estimated models. At a minimum, you should include:</p>
+<ul>
+<li>Estimates of consumer WTP for each attribute in your survey, along with corresponding plots of WTP. Your estimates and plots should include both the mean estimates and a 95% confidence interval. (Policy projects may omit estimates of WTP and instead should report utility coefficients).</li>
+<li>At least one market simulation comparing your product against competitors along with an accompanying plot. (Policy projects should compare different policies).</li>
+<li>A sensitivity analysis showing your product’s market share sensitivity to changes in <em>price</em> as well as changes in other attributes in your survey along with accompanying plots.</li>
+</ul></li>
+</ol>
+</div>
+<div id="final-analysis-report" class="section level2">
+<h2>3. Final Analysis Report</h2>
+<p>Your report should contain the following items listed as separate sections.</p>
+<blockquote>
+<p>NOTE: You may re-use content from earlier project assignments in this report, such as introductory paragraphs, images, etc.</p>
+</blockquote>
+<div id="abstract" class="section level3">
+<h3>Abstract</h3>
+<p>A few sentences summarizing your experiment and your main findings along with design recommendations. Include:</p>
+<ol style="list-style-type: decimal">
+<li>What is the product / policy you are studying?</li>
+<li>What were the product attributes and design decisions you were interested in?</li>
+<li>What are the key insights and recommendations you are making based on those insights?</li>
+</ol>
+</div>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>Provide a brief description and background of the product / policy that motivates the study of it. Include a picture or diagram of the product. You should also discuss the key product attributes and decisions variables you chose to study in your survey. This section can be largely similar to your proposal introduction.</p>
+</div>
+<div id="survey-design" class="section level3">
+<h3>Survey Design</h3>
+<p>This section should discuss the design choices you made in creating your survey. Include the following:</p>
+<ul>
+<li>Describe the eligibility requirements you chose and why you chose them. These should be the question(s) you used to filter respondents in or out of your survey.</li>
+<li>What information about your respondents did you collect (e.g. critical information questions, demographics, etc.)?</li>
+<li>Describe any educational material presented to the respondents.</li>
+<li>Define and justify the attributes and levels chosen for your conjoint choice questions. Indicate the number of alternatives per choice question and the number of choice questions per respondent.</li>
+<li>Include table summarizing the attributes and levels you included in your survey.</li>
+<li>Describe any major changes you made between your pilot survey and final survey.</li>
+<li>Include an example figure of a random conjoint question (this can be a screen shot or you can use Rmarkdown code to generate an example).</li>
+</ul>
+<p>You should include a full copy of your survey in an appendix (see the <a href="#Appendix">Appendix section below</a>)</p>
+</div>
+<div id="data-analysis-1" class="section level3">
+<h3>Data Analysis</h3>
+<p>This section should describe the analysis you carried out using your final survey data, including the following subsections:</p>
+<div id="sample-description" class="section level4">
+<h4>Sample Description</h4>
+<p>Describe your respondent sample, including the total sample size, the total number of choice question responses, and summary statistics of how your sample varies across critical information questions, demographics, etc. Include a summary table showing the breakdown of different demographic questions you asked on your survey. Tables should be formatted (e.g., using <code>kable()</code>), not just print outs from code chunks.</p>
+</div>
+<div id="data-cleaning" class="section level4">
+<h4>Data Cleaning</h4>
+<p>Describe any filtering process you applied to your data. Summarize how many acceptable vs. rejected responses you kept in your analysis and justify how you made that determination.</p>
+</div>
+<div id="modeling" class="section level4">
+<h4>Modeling</h4>
+<p>Write out the specific utility model you estimated for your baseline logit model (you don’t need to include descriptions of the other models as they are derivative from the baseline model). <a href="https://www.codecogs.com/latex/eqneditor.php">This online LaTeX equation editor</a> might come in handy for this (also, some example LaTeX equations are provided in the <code>solutions.Rmd</code> files from previous classes). Include a summary table of your utility coefficient estimates with standard errors.</p>
+</div>
+</div>
+<div id="results" class="section level3">
+<h3>Results</h3>
+<p>Show your plots</p>
+<p>Insert and discuss your plot(s) of WTP for product attributes with simulated 95% confidence intervals, using a common scale for the y-axis across plots (policy projects, show plots of utility coefficients). Interpret the results and identify key attributes that drive consumer choice.</p>
+<p>Clearly define and justify your simulated market scenario(s) using a table listing the attributes of your product(s) and competitor products. Report simulated market shares with simulated 95% confidence intervals. Discuss key insights from these simulations. Discuss opportunities for increasing demand – what attributes drive market adoption, and what ranges of values for your product attributes result in more competitive outcomes?</p>
+<p>Discuss the sensitivity of market demand predictions to product attributes and include at least one “tornado” plot as well as plots of market share vs. price. Identify the best price point and design decisions in terms of maximizing revenue for your product and state the uncertainty of these estimates.</p>
+<p>Explain the limitations of your analysis (e.g. survey sample representativeness, issues outside the scope of your model that could influence your assessment and recommendations, etc.).</p>
+</div>
+<div id="final-recommendations-and-conclusions" class="section level3">
+<h3>Final Recommendations and Conclusions</h3>
+<p>Describe your key insights and resulting recommendations:</p>
+<ul>
+<li>Does the product have the potential to be competitive against current competitors? At what price ranges? How confident are you? What key unknowns or uncertainties could most influence profitability? (For policy projects, discuss comparisons of policy interventions).</li>
+<li>What are your recommendations for key decisions on price and other decision variables, and how robust are these recommendations?</li>
+<li>What are the top opportunities you identified for increasing demand / market success of your product?</li>
+</ul>
+</div>
+<div id="limitations" class="section level3">
+<h3>Limitations</h3>
+<p>Describe limitations:</p>
+<ul>
+<li>Identify what information would be most valuable to collect next in order to address limitations of the analysis and support decision-making.</li>
+<li>Describe the most important unknowns that could affect your findings.</li>
+</ul>
+</div>
+<div id="appendix" class="section level3">
+<h3>Appendix</h3>
+<p>Your appendix should include:</p>
+<ul>
+<li>A full copy of your conjoint survey (for the conjoint choice questions, include just one example since the specific levels were different for each choice question).</li>
+<li>Any other supplementary information that could not be included into the main report.</li>
+</ul>
+</div>
+</div>
+<div id="knit-and-submit" class="section level2">
+<h2>4. Knit and submit</h2>
+<p>Click the “knit” button to compile your <code>report.Rmd</code> file into a html web page, then create a zip file of everything in your pilot analysis folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file under “Project: Final Analysis”. <strong>Only one person from your team should submit the report.</strong></p>
+</div>
 
 
 <hr>
@@ -663,6 +870,8 @@ $(document).ready(function () {
 <script src="js/external-link.js"></script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -695,6 +904,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
