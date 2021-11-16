@@ -2,11 +2,149 @@
 title: "Final Analysis"
 output:
   html_document:
+    toc: true
+    toc_float: true
+    toc_level: 2
     number_sections: false
-    toc: no
+params:
+  number: 6
+  weight: '14%'
+  purpose: 'purpose'
+  assessment: 'Your final analysis will be assessed using [this rubric](project/final_analysis/rubric.html){target="_blank"}.'
 ---
 
 ```{r child = "_knitr_setup.Rmd"}
 ```
 
-Coming soon!
+```{r child = "_pheader.Rmd"}
+```
+
+As a team, analyze your final survey data, and write a report of your findings. The course instructor will review and grade your analysis and report and provide feedback.
+
+Your report should include three main components:
+
+- A detailed description of your survey (e.g., how it was designed, what it contained, etc.).
+- A detailed description of your analysis of your survey data and the results you found.
+- A detailed description of the key insights you obtained from your experiment and your design recommendations based on those insights.
+
+Follow the guidelines below to prepare your analysis and report.
+
+## 1. Report Guidelines
+
+Download and unzip [this template](templates/project_final_analysis.zip) for your report. You should write your report in the `report.Rmd`.Rmd` file. The template comes with some text and code explaining how to use it - you should delete this code & text as it is only for explanatory purposes. Be sure to adjust the content in the YAML:
+
+- Write your project title in the `title` field (and provide a subtitle if you wish, or delete the `subtitle` field).
+ - In the `author` field, list the names of all teammates, e.g. `author: Luke Skywalker, Leia Organa, and Han Solo`.
+
+Your report should be written in a clear, concise, and logically-structured manner so that a reader can easily understand the ideas presented. The report should be proof-read before submission to correct any grammatical or spelling errors. Spell checking can be automated by installing the `spelling` package and running this in the R console:
+
+```{r, eval=FALSE}
+spelling::spell_check_files("report.Rmd")
+```
+
+All figures, tables, and equations should be referenced in the text.
+
+## 2. Data Analysis
+
+Before writing your report, you should first analyze your data by following these steps:
+
+1. Download the data files from formr.org for your surveys and put them in the "data" folder in the report template.
+2. Open the `clean_data.R` file and write code to clean your data and prepare it for modeling. Your cleaned choice data should be in a "long" format similar to the [example choice data here](https://github.com/jhelvy/formr4conjoint/blob/master/data/choiceData.csv). Save your cleaned data file as a .csv file in the "data" folder.
+3. Open the `modeling.R` file and write code to estimate any models you will use in your analysis. At a minimum, you should estimate:
+
+    - A simple logit model that includes all of the attributes in your survey.
+    - A mixed logit model that allows at least some of those attributes to vary randomly according to assumed distributions.
+    - At least one sub-group analysis where you compare a logit model on different sub-groups in your sample.
+
+4. Open the `analysis.R` file and write code to conduct further analyses using the results from your estimated models. At a minimum, you should include:
+
+    - Estimates of consumer WTP for each attribute in your survey, along with corresponding plots of WTP. Your estimates and plots should include both the mean estimates and a 95% confidence interval. (Policy projects may omit estimates of WTP and instead should report utility coefficients).
+    - At least one market simulation comparing your product against competitors along with an accompanying plot. (Policy projects should compare different policies).
+    - A sensitivity analysis showing your product's market share sensitivity to changes in _price_ as well as changes in other attributes in your survey along with accompanying plots.
+
+## 3. Final Analysis Report
+
+Your report should contain the following items listed as separate sections.
+
+> NOTE: You may re-use content from earlier project assignments in this report, such as introductory paragraphs, images, etc.
+
+### Abstract
+
+A few sentences summarizing your experiment and your main findings along with design recommendations. Include:
+
+1. What is the product / policy you are studying?
+2. What were the product attributes and design decisions you were interested in?
+3. What are the key insights and recommendations you are making based on those insights?
+
+### Introduction
+
+Provide a brief description and background of the product / policy that motivates the study of it. Include a picture or diagram of the product. You should also discuss the key product attributes and decisions variables you chose to study in your survey. This section can be largely similar to your proposal introduction.
+
+### Survey Design
+
+This section should discuss the design choices you made in creating your survey. Include the following:
+
+- Describe the eligibility requirements you chose and why you chose them. These should be the question(s) you used to filter respondents in or out of your survey.
+- What information about your respondents did you collect (e.g. critical information questions, demographics, etc.)?
+- Describe any educational material presented to the respondents.
+- Define and justify the attributes and levels chosen for your conjoint choice
+questions. Indicate the number of alternatives per choice question and the number of choice questions per respondent.
+- Include table summarizing the attributes and levels you included in your survey.
+- Describe any major changes you made between your pilot survey and final survey.
+- Include an example figure of a random conjoint question (this can be a screen shot or you can use Rmarkdown code to generate an example).
+
+You should include a full copy of your survey in an appendix (see the [Appendix section below](#Appendix))
+
+### Data Analysis
+
+This section should describe the analysis you carried out using your final survey data, including the following subsections:
+
+#### Sample Description
+
+Describe your respondent sample, including the total sample size, the total number of choice question responses, and summary statistics of how your sample varies across critical information questions, demographics, etc. Include a summary table showing the breakdown of different demographic questions you asked on your survey. Tables should be formatted (e.g., using `kable()`), not just print outs from code chunks.
+
+#### Data Cleaning
+
+Describe any filtering process you applied to your data. Summarize how many acceptable vs. rejected responses you kept in your analysis and justify how you made that determination.
+
+#### Modeling
+
+Write out the specific utility model you estimated for your baseline logit model (you don't need to include descriptions of the other models as they are derivative from the baseline model). [This online LaTeX equation editor](https://www.codecogs.com/latex/eqneditor.php) might come in handy for this (also, some example LaTeX equations are provided in the `solutions.Rmd` files from previous classes). Include a summary table of your utility coefficient estimates with standard errors.
+
+### Results
+
+Show your plots
+
+Insert and discuss your plot(s) of WTP for product attributes with simulated 95% confidence intervals, using a common scale for the y-axis across plots (policy projects, show plots of utility coefficients). Interpret the results and identify key attributes that drive consumer choice.
+
+Clearly define and justify your simulated market scenario(s) using a table listing the attributes of your product(s) and competitor products. Report simulated market shares with simulated 95% confidence intervals. Discuss key insights from these simulations. Discuss opportunities for increasing demand – what attributes drive market adoption, and what ranges of values for your product attributes result in more competitive outcomes?
+
+Discuss the sensitivity of market demand predictions to product attributes and include at least one "tornado" plot as well as plots of market share vs. price. Identify the best price point and design decisions in terms of maximizing revenue for your product and state the uncertainty of these estimates.
+
+Explain the limitations of your analysis (e.g. survey sample representativeness, issues outside the scope of your model that could influence your assessment and recommendations, etc.).
+
+### Final Recommendations and Conclusions
+
+Describe your key insights and resulting recommendations:
+
+- Does the product have the potential to be competitive against current competitors? At what price ranges? How confident are you? What key unknowns or uncertainties could most influence profitability? (For policy projects, discuss comparisons of policy interventions).
+- What are your recommendations for key decisions on price and other decision variables, and how robust are these recommendations?
+- What are the top opportunities you identified for increasing demand / market success of your product?
+
+### Limitations
+
+Describe limitations:
+
+- Identify what information would be most valuable to collect next in order to address limitations of the analysis and support decision-making.
+- Describe the most important unknowns that could affect your findings.
+
+### Appendix
+
+Your appendix should include:
+
+- A full copy of your conjoint survey (for the conjoint choice questions, include just one example since the specific levels were different for each choice question).
+- Any other supplementary information that could not be included into the main report.
+
+## 4. Knit and submit
+
+Click the "knit" button to compile your `report.Rmd` file into a html web page, then create a zip file of everything in your pilot analysis folder. Go to the "Assignment Submission" page on Blackboard and submit your zip file under "Project: Final Analysis". **Only one person from your team should submit the report.**
