@@ -11,4 +11,12 @@ params:
 ```{r child = "_knitr_setup.Rmd"}
 ```
 
-Coming soon!
+```{r child = "_aheader.Rmd"}
+```
+
+The exam for this class is a take home exam. You will be sent exam instructions after class on December 1, and you must submit your response on Blackboard by midnight on December 5.
+
+Rules:
+
+- You must work **on your own** for this exam - you may not work with, ask questions, or otherwise collaborate with anyone else on the exam.
+- The exam is open note, meaning you can use any of the course materials we have used throughout the semester.
