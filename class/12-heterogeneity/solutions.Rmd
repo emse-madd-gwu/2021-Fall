@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 
 library(tidyverse)
 library(logitr)
+library(maddTools)
 ```
 
 ## Practice Questions 1
@@ -93,29 +94,30 @@ draws <- as.data.frame(MASS::mvrnorm(10^5, beta, covariance))
 b) Use the draws to compute the mean WTP and 95% confidence intervals of the effects of $x_j^{\mathrm{price}}$ and $x_j^{\mathrm{cacao}}$ for each group (A & B).
 
 ```{r}
-# First, compute the effects for each group
-df <- draws %>%
+# First, separate draws for each group
+draws_A <- draws %>% 
+    select(
+      price = b1,
+      cacao = b2)
+draws_B <- draws %>% 
     mutate(
-        price_A = b1, 
-        cacao_A = b2,
-        price_B = b1 + b3, 
-        cacao_B = b2 + b4) %>% 
-    # I only need to keep the effects (I can drop b1, b2, b3, b4)
-    select(starts_with("price"), starts_with("cacao"))
-head(df)
+        price = b1 + b3, 
+        cacao = b2 + b4) %>% 
+    select(price, cacao)
+
+head(draws_A)
+head(draws_B)
 
 # Compute WTP
-wtp <- df %>% 
-    mutate(
-        wtp_cacao_A = cacao_A / (-1*price_A),
-        wtp_cacao_B = cacao_B / (-1*price_B)) %>% 
-    # I only need to keep the WTP values
-    select(starts_with("wtp"))
-head(wtp)
+wtp_A <- draws_A / (-1*draws_A$price)
+wtp_B <- draws_B / (-1*draws_B$price)
+
+head(wtp_A)
+head(wtp_B)
 
 # Get a confidence interval
-wtp_ci <- maddTools::ci(wtp)
-wtp_ci
+ci(wtp_A)
+ci(wtp_B)
 ```
 
 
