@@ -325,44 +325,62 @@ draws &lt;- as.data.frame(MASS::mvrnorm(10^5, beta, covariance))</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Use the draws to compute the mean WTP and 95% confidence intervals of the effects of <span class="math inline">\(x_j^{\mathrm{price}}\)</span> and <span class="math inline">\(x_j^{\mathrm{cacao}}\)</span> for each group (A &amp; B).</li>
 </ol>
-<pre class="r"><code># First, compute the effects for each group
-df &lt;- draws %&gt;%
+<pre class="r"><code># First, separate draws for each group
+draws_A &lt;- draws %&gt;% 
+    select(
+      price = b1,
+      cacao = b2)
+draws_B &lt;- draws %&gt;% 
     mutate(
-        price_A = b1, 
-        cacao_A = b2,
-        price_B = b1 + b3, 
-        cacao_B = b2 + b4) %&gt;% 
-    # I only need to keep the effects (I can drop b1, b2, b3, b4)
-    select(starts_with(&quot;price&quot;), starts_with(&quot;cacao&quot;))
-head(df)</code></pre>
-<pre><code>#&gt;      price_A    price_B    cacao_A   cacao_B
-#&gt; 1 -0.7108842 -0.4269192 0.12351505 0.9314048
-#&gt; 2 -0.7278102 -0.4567174 0.09979622 0.8927177
-#&gt; 3 -0.7045753 -0.3863619 0.10759429 0.8991946
-#&gt; 4 -0.6907559 -0.5721322 0.08186414 0.8914646
-#&gt; 5 -0.7129816 -0.4984853 0.06633500 0.8666662
-#&gt; 6 -0.6806034 -0.5123270 0.04525491 0.8496527</code></pre>
+        price = b1 + b3, 
+        cacao = b2 + b4) %&gt;% 
+    select(price, cacao)
+
+head(draws_A)</code></pre>
+<pre><code>#&gt;        price        cacao
+#&gt; 1 -0.7103629  0.098974739
+#&gt; 2 -0.6745787  0.140467828
+#&gt; 3 -0.7080966  0.143054548
+#&gt; 4 -0.7221457  0.110694519
+#&gt; 5 -0.6648105 -0.001851373
+#&gt; 6 -0.6820227  0.153294795</code></pre>
+<pre class="r"><code>head(draws_B)</code></pre>
+<pre><code>#&gt;        price     cacao
+#&gt; 1 -0.6121547 0.9114146
+#&gt; 2 -0.5288541 0.9348620
+#&gt; 3 -0.5550391 0.9629691
+#&gt; 4 -0.5400009 0.9266010
+#&gt; 5 -0.5059122 0.8043792
+#&gt; 6 -0.5446152 0.9636818</code></pre>
 <pre class="r"><code># Compute WTP
-wtp &lt;- df %&gt;% 
-    mutate(
-        wtp_cacao_A = cacao_A / (-1*price_A),
-        wtp_cacao_B = cacao_B / (-1*price_B)) %&gt;% 
-    # I only need to keep the WTP values
-    select(starts_with(&quot;wtp&quot;))
-head(wtp)</code></pre>
-<pre><code>#&gt;   wtp_cacao_A wtp_cacao_B
-#&gt; 1  0.17374848    2.181688
-#&gt; 2  0.13711846    1.954639
-#&gt; 3  0.15270801    2.327337
-#&gt; 4  0.11851385    1.558145
-#&gt; 5  0.09303887    1.738599
-#&gt; 6  0.06649233    1.658419</code></pre>
+wtp_A &lt;- draws_A / (-1*draws_A$price)
+wtp_B &lt;- draws_B / (-1*draws_B$price)
+
+head(wtp_A)</code></pre>
+<pre><code>#&gt;   price        cacao
+#&gt; 1    -1  0.139329835
+#&gt; 2    -1  0.208230451
+#&gt; 3    -1  0.202026877
+#&gt; 4    -1  0.153285579
+#&gt; 5    -1 -0.002784813
+#&gt; 6    -1  0.224764941</code></pre>
+<pre class="r"><code>head(wtp_B)</code></pre>
+<pre><code>#&gt;   price    cacao
+#&gt; 1    -1 1.488863
+#&gt; 2    -1 1.767712
+#&gt; 3    -1 1.734957
+#&gt; 4    -1 1.715925
+#&gt; 5    -1 1.589958
+#&gt; 6    -1 1.769473</code></pre>
 <pre class="r"><code># Get a confidence interval
-wtp_ci &lt;- maddTools::ci(wtp)
-wtp_ci</code></pre>
-<pre><code>#&gt;                  mean      lower     upper
-#&gt; wtp_cacao_A 0.1428018 0.03563805 0.2497056
-#&gt; wtp_cacao_B 1.8282211 1.41327414 2.4065968</code></pre>
+ci(wtp_A)</code></pre>
+<pre><code>#&gt;             mean       lower     upper
+#&gt; price -1.0000000 -1.00000000 -1.000000
+#&gt; cacao  0.1429716  0.03711834  0.250247</code></pre>
+<pre class="r"><code>ci(wtp_B)</code></pre>
+<pre><code>#&gt;            mean     lower     upper
+#&gt; price -1.000000 -1.000000 -1.000000
+#&gt; cacao  1.828346  1.412967  2.403132</code></pre>
 </div>
 <div id="practice-question-3" class="section level1">
 <h1>Practice Question 3</h1>
@@ -400,7 +418,7 @@ summary(model)</code></pre>
 #&gt; Model Space:          Preference
 #&gt; Model Run:                1 of 1
 #&gt; Iterations:                   19
-#&gt; Elapsed Time:        0h:0m:0.11s
+#&gt; Elapsed Time:         0h:0m:0.1s
 #&gt; Algorithm:        NLOPT_LD_LBFGS
 #&gt; Weights Used?:             FALSE
 #&gt; Robust?                    FALSE
@@ -454,7 +472,7 @@ summary(model_mxl)</code></pre>
 #&gt; Model Space:       Preference
 #&gt; Model Run:             1 of 1
 #&gt; Iterations:                27
-#&gt; Elapsed Time:        0h:0m:1s
+#&gt; Elapsed Time:        0h:0m:2s
 #&gt; Algorithm:     NLOPT_LD_LBFGS
 #&gt; Weights Used?:          FALSE
 #&gt; Robust?                 FALSE
