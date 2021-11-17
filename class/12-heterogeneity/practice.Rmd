@@ -1,0 +1,106 @@
+---
+title: "Practice Questions"
+date: November 17, 2021
+week: 12
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+# Basic knit settings
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+
+library(tidyverse)
+library(logitr)
+```
+
+## Practice Questions 1
+
+Suppose we estimate the following utility model describing preferences for cars:
+
+$$
+\tilde{u}_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{mpg}} + \beta_3 x_j^{\mathrm{elec}} + \varepsilon_j
+$$
+
+a) Using interactions, write out a model that accounts for differences in the effects of $x_j^{\mathrm{price}}$, $x_j^{\mathrm{mpg}}$, and $x_j^{\mathrm{elec}}$ between two groups: A and B.
+
+**Solution**:
+
+
+b) Write out the effects of $x_j^{\mathrm{price}}$, $x_j^{\mathrm{mpg}}$, and $x_j^{\mathrm{elec}}$ for each group.
+
+**Solution**:
+
+
+
+# Practice Question 2
+
+Suppose we estimate the following utility model describing preferences for chocolate bars between two groups: A & B
+
+$$
+\tilde{u}_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{caco}} + \beta_3 x_j^{\mathrm{price}}\delta_j^{\mathrm{B}} + \beta_4 x_j^{\mathrm{cacao}}\delta_j^{\mathrm{B}} + \varepsilon_j
+$$
+
+The estimated model produces the following coefficients and hessian:
+
+$\beta$ = [-0.7, 0.1, 0.2, 0.8]
+
+$$
+H =
+\begin{bmatrix}
+-6000 & 50 & 60 & 70
+\\
+50 & -700 & 50 & 100
+\\
+60 & 50 & -300 & 20
+\\
+70 & 100 & 20 & -6000
+\end{bmatrix}
+$$
+
+a) Use the `mvrnorm()` function from the `MASS` library to generate 10,000 draws of the model coefficients.
+
+```{r}
+# Write code here
+```
+
+b) Use the draws to compute the mean WTP and 95% confidence intervals of the effects of $x_j^{\mathrm{price}}$ and $x_j^{\mathrm{cacao}}$ for each group (A & B).
+
+```{r}
+# Write code here
+```
+
+
+
+# Practice Question 3
+
+a) Use the `logitr` package to estimate the following homogeneous model:
+
+$$
+\tilde{u}_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 \delta_j^{\mathrm{feat}} + \beta_3 \delta_j^{\mathrm{dannon}} + \beta_4 \delta_j^{\mathrm{hiland}} +
+\beta_5 \delta_j^{\mathrm{weight}} + \varepsilon_j
+$$
+
+where the three $\delta$ coefficients are dummy variables for Dannon, Hiland, and Weight Watchers brands (Yoplait is the reference level).
+
+```{r}
+# Write code here
+```
+
+b) Use the `logitr` package to estimate the same model but with the following mixing distributions:
+
+- $\beta_1 \sim \mathcal{N} (\mu_1, \sigma_1)$
+- $\beta_2 \sim \mathcal{N} (\mu_2, \sigma_2)$
+
+```{r}
+# Write code here
+```
