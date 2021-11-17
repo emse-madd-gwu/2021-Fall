@@ -1,0 +1,10 @@
+
+class: inverse, middle
+
+# Week `r rmarkdown::metadata$week`: .fancy[`r rmarkdown::metadata$title`]
+
+### 1. .orange[Mixed logit (unobserved heterogeneity)]
+
+### BREAK
+
+### 2. Sub-group modeling (observed heterogeneity)

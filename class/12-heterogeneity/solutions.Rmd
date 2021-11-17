@@ -1,0 +1,163 @@
+---
+title: "Practice Question Solutions"
+date: November 17, 2021
+week: 12
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+# Basic knit settings
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+
+library(tidyverse)
+library(logitr)
+```
+
+## Practice Questions 1
+
+Suppose we estimate the following utility model describing preferences for cars:
+
+$$
+\tilde{u}_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{mpg}} + \beta_3 x_j^{\mathrm{elec}} + \varepsilon_j
+$$
+
+a) Using interactions, write out a model that accounts for differences in the effects of $x_j^{\mathrm{price}}$, $x_j^{\mathrm{mpg}}$, and $x_j^{\mathrm{elec}}$ between two groups: A and B.
+
+**Solution**:
+
+$$
+\tilde{u}_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{mpg}} + \beta_3 x_j^{\mathrm{elec}} + \beta_4 x_j^{\mathrm{price}}\delta^\mathrm{B} + \beta_5 x_j^{\mathrm{mpg}}\delta^\mathrm{B} + \beta_6 x_j^{\mathrm{elec}}\delta^\mathrm{B} + \varepsilon_j
+$$
+
+b) Write out the effects of $x_j^{\mathrm{price}}$, $x_j^{\mathrm{mpg}}$, and $x_j^{\mathrm{elec}}$ for each group.
+
+**Solution**:
+
+Effect |Group A | Group B 
+-------|--------|--------
+$x_j^\mathrm{price}$ | $\beta_1$ | $\beta_1 + \beta_4$ 
+$x_j^\mathrm{mpg}$ | $\beta_2$ | $\beta_2 + \beta_5$ 
+$\delta_j^\mathrm{elec}$ | $\beta_3$ | $\beta_3 + \beta_6$ 
+
+
+
+# Practice Question 2
+
+Suppose we estimate the following utility model describing preferences for chocolate bars between two groups: A & B
+
+$$
+\tilde{u}_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{caco}} + \beta_3 x_j^{\mathrm{price}}\delta_j^{\mathrm{B}} + \beta_4 x_j^{\mathrm{cacao}}\delta_j^{\mathrm{B}} + \varepsilon_j
+$$
+
+The estimated model produces the following coefficients and hessian:
+
+$\beta$ = [-0.7, 0.1, 0.2, 0.8]
+
+$$
+H =
+\begin{bmatrix}
+-6000 & 50 & 60 & 70
+\\
+50 & -700 & 50 & 100
+\\
+60 & 50 & -300 & 20
+\\
+70 & 100 & 20 & -6000
+\end{bmatrix}
+$$
+
+a) Use the `mvrnorm()` function from the `MASS` library to generate 10,000 draws of the model coefficients.
+
+```{r}
+beta <- c(b1 = -0.7, b2 = 0.1, b3 = 0.2, b4 = 0.8) 
+hessian <- matrix(c(
+    -6000, 50, 60, 70,
+    50, -700, 50, 100,
+    60, 50, -300, 20,
+    70, 100, 20, -6000), 
+    ncol = 4, byrow = TRUE)
+covariance <- -1*(solve(hessian))
+draws <- as.data.frame(MASS::mvrnorm(10^5, beta, covariance))
+```
+
+b) Use the draws to compute the mean WTP and 95% confidence intervals of the effects of $x_j^{\mathrm{price}}$ and $x_j^{\mathrm{cacao}}$ for each group (A & B).
+
+```{r}
+# First, compute the effects for each group
+df <- draws %>%
+    mutate(
+        price_A = b1, 
+        cacao_A = b2,
+        price_B = b1 + b3, 
+        cacao_B = b2 + b4) %>% 
+    # I only need to keep the effects (I can drop b1, b2, b3, b4)
+    select(starts_with("price"), starts_with("cacao"))
+head(df)
+
+# Compute WTP
+wtp <- df %>% 
+    mutate(
+        wtp_cacao_A = cacao_A / (-1*price_A),
+        wtp_cacao_B = cacao_B / (-1*price_B)) %>% 
+    # I only need to keep the WTP values
+    select(starts_with("wtp"))
+head(wtp)
+
+# Get a confidence interval
+wtp_ci <- maddTools::ci(wtp)
+wtp_ci
+```
+
+
+
+# Practice Question 3
+
+a) Use the `logitr` package to estimate the following homogeneous model:
+
+$$
+\tilde{u}_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 \delta_j^{\mathrm{feat}} + \beta_3 \delta_j^{\mathrm{dannon}} + \beta_4 \delta_j^{\mathrm{hiland}} + 
+\beta_5 \delta_j^{\mathrm{weight}} + \varepsilon_j
+$$
+
+where the three $\delta$ coefficients are dummy variables for Dannon, Hiland, and Weight Watchers brands (Yoplait is the reference level).
+
+```{r}
+# First, need to make some dummy coefficients for "brand"
+yogurt <- fastDummies::dummy_cols(yogurt, "brand")
+
+model <- logitr(
+    data = yogurt, 
+    obsID = "obsID", 
+    outcome = "choice",
+    pars = c("price", "feat", "brand_dannon", "brand_hiland", "brand_weight")
+)
+
+summary(model)
+```
+
+b) Use the `logitr` package to estimate the same model but with the following mixing distributions:
+
+- $\beta_1 \sim \mathcal{N} (\mu_1, \sigma_1)$
+- $\beta_2 \sim \mathcal{N} (\mu_2, \sigma_2)$
+
+```{r}
+model_mxl <- logitr(
+    data = yogurt, 
+    obsID = "obsID", 
+    outcome = "choice",
+    pars = c("price", "feat", "brand_dannon", "brand_hiland", "brand_weight"),
+    randPars = c(price = "n", feat = "n")
+)
+
+summary(model_mxl)
+```
