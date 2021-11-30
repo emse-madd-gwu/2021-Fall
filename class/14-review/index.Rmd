@@ -1,0 +1,1237 @@
+---
+title: "Class Review"
+subtitle: "EMSE 6035: Marketing Analytics for Design Decisions"
+date: December 01, 2021
+week: 14
+class: "14-review"
+author: "John Paul Helveston"
+institute: "The George Washington University | Dept. of Engineering Management and Systems Engineering"
+output:
+  xaringan::moon_reader:
+    css:
+      - default
+      - css/lexis.css
+      - css/lexis-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r, child="../setup.Rmd"}
+```
+
+---
+
+```{r child="topics/0.Rmd"}
+```
+
+---
+
+```{r child="topics/1.Rmd"}
+```
+
+---
+
+class: middle 
+
+.leftcol[
+# .center[Analysis]
+
+## 1. Clean data 
+## 2. Modeling
+
+- Simple logit
+- Mixed logit
+- One sub-group model
+
+## 3. Analysis
+
+- WTP for key features
+- Market simulation
+- Sensitivity analysis
+]
+
+--
+
+.rightcol[
+# .center[Report]
+
+## 1. Introduction
+## 2. Survey Design
+## 3. Data Analysis
+## 4. Results (plots / text)
+## 5. Recommendations
+]
+
+---
+
+# Final Presentation 
+
+## - In class, 12/15
+
+--
+
+## - 10 minutes (strict)
+
+--
+
+## - External Panel of Reviewers
+
+--
+
+## - Slides due on Blackboard by midnight on 12/14
+
+---
+
+class: center, middle 
+
+# How to design good slides
+
+---
+
+class: inverse, middle, center
+
+# Hitchcock's rule
+
+<center>
+<img src="images/Visual-Storytelling-Rules-The-Hitchcock-Rule-1.png" width=900>
+</center>
+
+---
+
+class: middle
+
+## .center[Hitchcock's rule]
+
+> # The size of any object in your frame should be proportional to its importance to the story at that moment
+
+## .center[[Watch this example](https://youtu.be/E1LzhiCcOY0?t=174)]
+
+---
+
+class: middle
+
+## .center[Hitchcock's rule]
+
+> # The size of any object in your ~~frame~~ **slide** should be proportional to its importance to the story at that moment
+
+---
+
+...and finally you will read this
+
+<br><br>
+<div style='font-size: 70pt; text-align: center;'>You will read this first</div>
+
+<br><br>
+<div style='font-size: 40pt; text-align: center;'>and then you will read this</div>
+
+---
+
+class: center
+
+# .font120[Main point at top and use a big font!]
+
+</br>
+</br>
+
+## (see Stephanie Evergreen's blog post ["So What?"](https://stephanieevergreen.com/so-what/))
+
+---
+
+class: center
+
+# Except for Tesla, EV adoption in the U.S. is **flat**
+
+<center>
+<img src="images/pevSales3.png" width=950>
+</center>
+
+---
+
+class: center
+
+# Tesla's Model 3 is a Game Changer for EVs
+
+<center>
+<img src="images/pevSales3.png" width=950>
+</center>
+
+---
+
+class: center
+
+<p style="font-size:40pt;">> 40pt font for titles</p>
+<p style="font-size:24pt;">> 24pt font for all other text</p>
+
+(Exception: footer text can be small)
+
+<div class="footer-small"><span>Footer text</span></div>
+
+---
+
+class: center, middle
+
+# Avoid fonts like
+
+</br>
+<div style='font-family: "Comic Sans MS"; font-size: 40pt'>Comic Sans</div>
+</br>
+<div style='font-family: "Papyrus"; font-size: 40pt'>Papyrus</div>
+</br>
+</br>
+
+# They make your work look amateurish
+
+---
+
+class: middle, center
+
+# Consider using a light-colored background<br>(tan / gray)
+
+---
+
+class: center
+
+# Use high contrast between font and background color
+
+</br>
+
+.leftcol[
+<center>
+<div style="background-color: #FFF; padding: 50px; margin: 0px; width: 300px; font-size: 28pt;">
+Dark text on a light background works well
+</div>
+</center>
+]
+
+.rightcol[
+<center>
+<div style="background-color: #000; color: #FFF; padding: 50px; margin: 0px; width: 300px; font-size: 28pt;">
+Light text on a dark background also works well
+</div>
+</center>
+]
+
+---
+
+class: center
+
+# Use high contrast between font and background color
+
+</br>
+
+.leftcol[
+<center>
+<div style="background-color: #FFF; color: #ffef01; padding: 50px; margin: 0px; width: 350px; font-size: 28pt;">
+Yellow text on a white background is horrible
+</center>
+]
+
+.rightcol[
+<center>
+<div style="background-color: #000; color: #0000ff; padding: 50px; margin: 0px; width: 350px; font-size: 28pt;">
+Blue text on a black background is horrible
+</center>
+]
+
+---
+
+class: middle, center
+
+# 1 slide, 1 idea
+
+## Break up main points into multiple slides
+
+---
+
+class: middle, center
+
+# Number your slides!
+
+---
+
+class: middle, center
+
+<center>
+<img src="images/slide_junk.png">
+</center>
+
+---
+
+class: center
+
+</br></br></br></br></br></br>
+
+# Example of an acceptable slide footer
+
+# </br></br></br>&darr;
+
+<div class="footer-small"><span>Data source: http://somesourceofdata.com &emsp;&emsp; © John Paul Helveston, GWU, Apr. 2021</span></div>
+
+---
+
+class: middle, center
+
+# If you are in person, consider using handouts<br>(1-2 pages)
+
+???
+
+1. They can preview your results
+2. They're more likely to remember your main points
+
+---
+
+# How to design good slides
+
+- **Hitchcock's rule**: The size of any object on your slide should be proportional to its importance to the story at that moment
+- **Slide titles**: A single statement about what slide means (in big font!)
+- **Use large font sizes** (>40 titles, >24 text)
+- Consider using a **light-colored background** (tan / gray) 
+- Use **high contrast** between font and background color
+- **Don't use silly fonts** like Comic Sans, Papyrus, etc.
+- **1 slide, 1 idea**: Break up main points into multiple slides
+- **Slide numbers**: bottom-left or bottom-right
+- **Remove "chart junk"**: logos, etc. (exception: small footers)
+- **Consider using handouts**
+
+--
+
+- **Don't pack the slide with bullet lists** (see what I did there?)
+
+---
+
+```{r child="topics/2.Rmd"}
+```
+
+---
+
+.leftcol[
+### .center[**Market share** sensitivity to price]
+<center>
+<img src="images/share_price_plot.png" width=100%>
+</center>
+]
+
+--
+
+.rightcol[
+### .center[**Revenue** sensitivity to price]
+<center>
+<img src="images/rev_price_plot.png" width=100%>
+</center>
+$$R = Q*P$$
+]
+
+---
+
+.leftcol[
+### .center[**Market share** sensitivity to price]
+<center>
+<img src="images/share_price_plot.png" width=100%>
+</center>
+]
+
+.rightcol[
+### .center[**Observations**]
+
+- Solid line reflects _interpolation_ (attribute range in survey)
+- Dashed line reflects _extrapolation_ (beyond attribute range in survey)
+- Ribbon reflects _parameter uncertainty_
+]
+
+---
+
+
+
+<center>
+<img src="images/tornado_plot.png" width=800>
+</center>
+
+---
+
+.leftcol[
+### .center[Market share sensitivity to all attributes]
+<center>
+<img src="images/tornado_plot.png" width=100%>
+</center>
+]
+
+.rightcol[
+### .center[**Observations**]
+
+- Middle point reflects baseline market share: 
+    - **Price**: $25,000 
+    - **Fuel Economy**: 100 mpg 
+    - **0-60 mph Accel. time**: 6 sec
+    
+- Boundaries on each attribute should reflect max feasible attribute bounds
+]
+
+---
+
+# .center[Sensitivity analyses]
+
+<br>
+
+## 1. Open `logitr-cars`
+
+## 2. Open `code/9.1-compute-sensitivity.R`
+## 3. Open `code/9.2-plot-sensitivity.R`
+
+---
+
+class: inverse, center
+
+# .fancy[Break]
+
+```{r, echo=FALSE}
+countdown(
+  minutes = 5,
+  warn_when = 30,
+  update_every = 1,
+  left = 0, right = 0, top = 1, bottom = 0,
+  margin = "5%",
+  font_size = "8em"
+)
+```
+
+---
+
+```{r child="topics/3.Rmd"}
+```
+
+---
+
+.leftcol[
+## .center[Things I'm covering]
+
+- Data wrangling in R 
+- Utility models 
+- Maximum likelihood estimation
+- Optimization
+- Uncertainty 
+- Design of experiment
+- WTP 
+- Market simulations
+- Using R for all of the above<br>(e.g., estimating models wiht `logitr`)
+]
+
+--
+
+.rightcol[
+## .center[Things I'm **not** covering]
+
+- formr.org
+- Heterogeneity<br>(mixed logit, sub-groups)
+]
+
+---
+
+class: inverse, middle, center 
+
+# Data wrangling in R
+
+---
+
+# Steps to importing external data files
+
+## 1. Create a path to the data
+
+```{r}
+library(here)
+path_to_data <- here('data', 'data.csv') #<<
+path_to_data
+```
+
+--
+
+## 2. Import the data
+
+```{r, eval=FALSE}
+library(tidyverse)
+data <- read_csv(path_to_data) #<<
+```
+
+---
+
+# Steps to importing external data files
+
+```{r, eval=FALSE}
+library(tidyverse)
+
+data <- read_csv(here::here('data', 'data.csv'))
+```
+
+---
+
+# .center[The main `dplyr` "verbs"]
+
+<br>
+
+"Verb"        | What it does
+--------------|--------------------
+`select()`    | Select columns by name
+`filter()`    | Keep rows that match criteria
+`arrange()`   | Sort rows based on column(s)
+`mutate()`    | Create new columns 
+
+---
+
+# Example data frame
+
+```{r}
+beatles <- tibble(
+    firstName   = c("John", "Paul", "Ringo", "George"),
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison"),
+    instrument  = c("guitar", "bass", "drums", "guitar"),
+    yearOfBirth = c(1940, 1942, 1940, 1943),
+    deceased    = c(TRUE, FALSE, FALSE, TRUE)
+)
+
+beatles
+```
+
+---
+
+# `filter()` and `select()`:
+
+Get the **first & last name** of members born after 1941 & are still living
+
+```{r}
+beatles %>% 
+  filter(yearOfBirth > 1941, deceased == FALSE) %>% 
+  select(firstName, lastName)
+```
+
+---
+
+# Create new variables with `mutate()`
+
+Use the `yearOfBirth` variable to compute the age of each band member
+
+```{r}
+beatles %>%
+    mutate(age = 2021 - yearOfBirth) %>% 
+    arrange(age)
+```
+
+---
+
+# .center[Handling if/else conditions]
+
+### .center[`ifelse(<condition>, <if TRUE>, <else>)`]
+
+```{r}
+beatles %>%
+    mutate(playsGuitar = ifelse(instrument == "guitar", TRUE, FALSE))
+```
+
+---
+
+class: inverse, center, middle
+
+# Utility models 
+
+---
+
+class: center 
+
+# Random utility model 
+
+<br>
+
+## The utility for alternative $j$ is
+# $$\tilde{u}_j = v_j + \tilde{\varepsilon}_j$$
+
+## $v_j$ = Things we observe (non-random variables)
+## $\tilde{\varepsilon}_j$ = Things we _don't_ observe (random variable)
+
+---
+
+class: center
+
+## **Logit model**: Assume that $\tilde{\varepsilon}_j$ ~ [Gumbel Distribution](https://en.wikipedia.org/wiki/Gumbel_distribution)
+
+.leftcol[
+## $$\tilde{u}_j = v_j + \tilde{\varepsilon}_j$$
+
+<center>
+<img src="images/utility.png" width=450>
+</center>
+]
+
+.rightcol[
+## Probability of choosing alternative $j$: 
+
+# $$P_j = \frac{e^{v_j}}{\sum_k{e^{v_k}}}$$
+]
+
+---
+
+#.center[Notation Convention]
+
+.leftcol[
+
+## Continuous: $x_j$
+
+## $$u_j = \beta_1 x_{j}^{\mathrm{price}} + \dots$$
+
+```{r, echo=FALSE}
+data.frame(price = c(1, 2, 3))
+```
+]
+
+.rightcol[
+
+## Discrete: $\delta_j$
+
+## $$u_j = \beta_1 \delta_{j}^{\mathrm{ford}} + \beta_2 \delta_{j}^{\mathrm{gm}} \dots$$
+
+```{r, echo=FALSE}
+fastDummies::dummy_cols(data.frame(brand = c("Ford", "GM", "BMW")))
+```
+]
+
+---
+
+# .center[Dummy-coded variables]
+
+.center[**Dummy coding**: 1 = "Yes", 0 = "No"]
+
+--
+
+.leftcol[
+Data frame with one variable: _brand_
+```{r}
+data <- data.frame(
+    brand = c("Ford", "GM", "BMW"))
+
+data
+```
+]
+
+--
+
+.rightcol[
+Add dummy columns for each brand
+```{r}
+library(fastDummies)
+
+dummy_cols(data, "brand")
+```
+]
+
+---
+
+.leftcol[
+
+.center[
+### Modeling _continuous_ variable
+
+$v_j = \beta_1 x^\mathrm{price}$
+
+]
+```{r, eval=FALSE}
+model <- logitr(
+    data   = data,
+    choice = "choice",
+    obsID  = "obsID",
+    pars   = "price"
+)
+```
+
+<br>
+
+Coef. | Interpretation
+------|------------------
+β1 | how utility changes with increasing _price_
+
+]
+
+--
+
+.rightcol[
+
+.center[
+### Modeling _discrete_ variable
+
+$v_j = \beta_1 \delta_{j}^{\mathrm{ford}} + \beta_2 \delta_{j}^{\mathrm{gm}}$
+]
+
+```{r, eval=FALSE}
+model <- logitr(
+    data   = data,
+    choice = "choice",
+    obsID  = "obsID",
+    pars   = c("brand_Ford", "brand_GM")
+)
+```
+
+.center[Reference level: _price=10_]
+
+Coef. | Interpretation
+------|------------------
+β1 | utility for _Ford_ relative to _BMW_
+β2 | utility for _GM_ relative to _BMW_
+
+]
+
+---
+
+# .center[Estimating utility models]
+
+<br>
+
+.rightcol80[
+## 1. Open `logitr-cars.Rproj`
+
+## 2. Open `code/3.1-model-mnl.R`
+]
+
+---
+
+.leftcol[
+
+# `mnl_dummy`
+
+All dummy-code variables 
+```{r, eval=FALSE}
+pars = c(
+  "price_20", "price_25",
+  "fuelEconomy_25", "fuelEconomy_30",
+  "accelTime_7", "accelTime_8",
+  "powertrain_Electric")
+```
+
+Reference Levels:
+
+- Price: 15
+- Fuel Economy: 20
+- Accel. Time: 6
+- Powertrain: "Gasoline"
+]
+
+--
+
+.rightcol[
+# `mnl_linear`
+
+All continuous (linear), except for `powertrain_Electric` 
+```{r, eval=FALSE}
+pars = c(
+  'price', 'fuelEconomy', 'accelTime', 
+  'powertrain_Electric')
+```
+
+Reference Levels:
+
+- Powertrain: "Gasoline"
+]
+
+---
+
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+    minutes = 20,
+    warn_when = 15,
+    update_every = 1,
+    top = 0,
+    right = 0,
+    font_size = '2em'
+)
+```
+
+# Practice Question 1
+
+.leftcol[
+
+Let's say our utility function is:
+
+.font80[$$v_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{cacao}} + \beta_3 \delta_j^{\mathrm{hershey}} + \beta_4 \delta_j^{\mathrm{lindt}}$$]
+
+And we estimate the following coefficients:
+
+Parameter | Coefficient 
+----------|-----------
+$\beta_1$ | -0.1
+$\beta_2$ | 0.1
+$\beta_3$ | -2.0
+$\beta_4$ | -0.1
+]
+
+.rightcol[
+What are the expected probabilities of choosing each of these bars using a logit model? 
+
+```{r, echo=FALSE}
+tibble(
+  Attribute = c("Price", "% Cacao", "Brand"),
+  `Bar 1` = c("$1.20", "10%", "Hershey"),
+  `Bar 2` = c("$1.50", "60%", "Lindt"),
+  `Bar 3` = c("$3.00", "80%", "Ghirardelli"),
+) %>%
+  kable() %>% 
+  kable_styling(
+      bootstrap_options = c("hover", "condensed"), 
+      full_width = FALSE)
+```
+]
+
+---
+
+class: inverse, center, middle
+
+# Maximum likelihood estimation
+
+---
+
+# Maximum likelihood estimation
+
+<center>
+<img src="images/mle1.png" width=100%>
+</center>
+
+---
+
+## .center[Computing the likelihood]
+
+.leftcol[
+<center>
+<img src="images/pdf.png" width=100%>
+</center>
+]
+
+.rightcol[
+$x$: an observation
+
+$f(x)$: probability of observing $x$
+]
+
+---
+
+## .center[Computing the likelihood]
+
+.leftcol[
+<center>
+<img src="images/pdf.png" width=100%>
+</center>
+]
+
+.rightcol[
+$x$: an observation
+
+$f(x)$: probability of observing $x$
+
+$\mathcal{L}(\theta | x)$: probability that $\theta$ are the true parameters, given that observed $x$
+
+$\mathcal{L}(\theta | x) = f(x_1) f(x_2) \dots f(x_n)$
+
+Log-likelihood converts multiplication to summation:
+
+$\ln \mathcal{L}(\theta | x) = \ln f(x_1) + \ln f(x_2) \dots \ln f(x_n)$
+]
+
+---
+
+class: inverse
+
+# Practice Question 2
+
+**Observations** - Height of students (inches):
+
+```{r, echo=FALSE}
+x <- c(65, 69, 66, 67, 68, 72, 68, 69, 63, 70)
+x
+```
+
+a) Let's say we know that the height of students, $\tilde{x}$, in a classroom follows a normal distribution. A professor obtains the above height measurements students in her classroom. What is the log-likelihood that $\tilde{x} \sim \mathcal{N} (68, 4)$? In other words, compute $\ln \mathcal{L} (\mu = 68, \sigma = 4)$.
+
+b) Compute the log-likelihood function using the same standard deviation $(\sigma = 4)$ but with the following different values for the mean, $\mu: 66, 67, 68, 69, 70$. How do the results compare? Which value for $\mu$ produces the highest log-likelihood?
+
+---
+
+class: inverse, center, middle
+
+# Optimization
+
+---
+
+class: center, middle 
+
+## Optimality conditions
+
+.leftcol40[
+<center>
+<img src="images/second_order.png" width=100%>
+</center>
+]
+
+.rightcol60[
+<center>
+<img src="images/fx.png" width=550>
+</center>
+]
+
+---
+
+class: center, middle 
+
+<center>
+<img src="images/algorithms.png" width=1200>
+</center>
+
+---
+
+class: inverse, center, middle
+
+# Uncertainty
+
+---
+
+<center>
+<img src="images/mle2.png" width=90%>
+</center>
+
+---
+
+class: middle, center
+
+## The _curvature_ of the log-likelihood function is<br>inversely related to the hessian
+
+<center>
+<img src="images/covariance.png" width=500>
+</center>
+
+---
+
+class: middle, center
+
+## The _curvature_ of the log-likelihood function is<br>inversely related to the hessian
+
+<center>
+<img src="images/covariance2.png" width=900>
+</center>
+
+---
+
+class: middle, center
+
+### Usually report parameter uncertainty ("standard errors") with $\sigma$ values
+
+<center>
+<img src="images/uncertainty.png" width=1100>
+</center>
+
+---
+
+## .center[Two approaches for obtaining confidence interval]
+
+## Using Standard Errors
+
+1. Get coefficients, `beta`
+2. Get covariance matrix, `covariance` 
+3. `se = sqrt(diag(covariance))`
+4. `coef_ci = c(beta - 2*se, beta + 2*se)`
+
+## Using Simulated Draws
+
+1. Get coefficients, `beta`
+2. Get covariance matrix, `covariance`  
+3. `draws <- as.data.frame(MASS::mvrnorm(10^5, beta, covariance))`
+4. `coef_ci <- ci(draws, ci = 0.95)`
+
+---
+
+.leftcol[
+## In-class example
+
+```{r, eval=FALSE}
+# 1. Get coefficients
+beta <- c(
+    price = -0.7, mpg = 0.1, elec = -4.0)
+
+# 2. Get covariance matrix
+hessian <- matrix(c(
+    -6000,   50,   60,
+       50, -700,   50,
+       60,   50, -300),
+    ncol = 3, byrow = TRUE)
+
+covariance <- -1*solve(hessian)
+```
+]
+
+.rightcol[
+## Model from `logitr`
+
+```{r, eval=FALSE}
+beta <- coef(model)
+covariance <- vcov(model)
+```
+]
+
+---
+
+class: inverse
+
+# Practice Question 3
+
+.leftcol[
+
+Suppose we estimate the following utility model describing preferences for cars:
+
+$$
+u_j = \alpha p_j + \beta_1 x_j^{mpg} + \beta_2 x_j^{elec} + \varepsilon_j
+$$
+
+Compute a 95% confidence interval around the coefficients using:
+
+a) Standard errors 
+b) Simulated draws
+
+]
+
+.rightcol[
+The estimated model produces the following results:
+
+Parameter | Coefficient
+----------|------------
+$\alpha$ | -0.7
+$\beta_1$ | 0.1
+$\beta_2$ | -0.4
+
+Hessian:
+
+$$
+\begin{bmatrix}
+-6000 & 50 & 60
+\\ 
+50 & -700 & 50
+\\
+60 & 50 & -300
+\end{bmatrix}
+$$
+]
+
+---
+
+class: inverse, center, middle
+
+# Design of experiment
+
+---
+
+# .center[Wine Pairings Example]
+
+.leftcol40[
+
+meat | wine
+-----|------
+fish | white 
+fish | red
+steak | white 
+steak | red
+
+]
+
+--
+
+.rightcol60[
+
+## Main Effects
+
+1. **Fish** or **Steak**?
+2. **Red** or **White** wine?
+
+## Interaction Effects
+
+1. **Red** or **White** wine _with **Steak**_?
+2. **Red** or **White** wine _with **Fish**_?
+]
+
+---
+
+class: center
+
+## "D-optimal" designs maximize **main** effect information<br>but confound **interaction** effect information
+
+## $$D = \left( \frac{|\boldsymbol{I}(\boldsymbol{\beta})|}{n^p} \right)^{1/p}$$
+
+where $p$ is the number of coefficients in the model and $n$ is the total sample size
+
+---
+
+class: inverse, center, middle
+
+# WTP 
+
+---
+
+class: center 
+
+## Willingness to Pay (WTP)
+
+<br>
+
+## $$\tilde{u}_j = \alpha p_j + \boldsymbol{\beta} x_j + \tilde{\varepsilon_j}$$
+
+<br>
+
+## $$\boldsymbol{\omega} = \frac{\boldsymbol{\beta}}{-\alpha}$$
+
+---
+
+# .center[Computing WTP with draws]
+
+## $$\hat{\boldsymbol{\omega}} = \frac{\hat{\boldsymbol{\beta}}}{-\hat{\alpha}}$$
+
+```{r, echo=FALSE}
+beta <- c(-0.7, 0.1, -4.0)
+hessian <- matrix(c(
+    -6000,   50,   60,
+       50, -700,   50,
+       60,   50, -300),
+    ncol = 3, byrow = TRUE)
+covariance <- -1*solve(hessian)
+draws <- MASS::mvrnorm(10^4, beta, covariance)
+```
+
+.leftcol55[
+```{r}
+draws_other <- draws[,2:ncol(draws)]
+draws_price <- draws[,1]
+draws_wtp <- draws_other / (-1*draws_price)
+head(draws_wtp)
+```
+]
+
+.rightcol45[
+Mean WTP with confidence interval
+```{r}
+maddTools::ci(draws_wtp)
+```
+]
+
+---
+
+class: center 
+
+## Willingness to Pay (WTP)
+
+.leftcol[
+## "Preference Space"
+
+## $$\tilde{u}_j = \alpha p_j + \boldsymbol{\beta} x_j + \tilde{\varepsilon_j}$$
+]
+
+--
+
+.rightcol[
+## "WTP Space"
+
+## $$\boldsymbol{\omega} = \frac{\boldsymbol{\beta}}{-\alpha}$$
+## $$\lambda = - \alpha$$
+## $$\tilde{u}_j = \lambda (\boldsymbol{\omega} x_j - p_j) + \tilde{\varepsilon_j}$$
+]
+
+---
+
+class: center 
+
+# WTP space models have non-convex<br>log-likelihood functions!
+
+--
+
+<br>
+
+# **Use multi-start loop with<br>random starting points**
+
+---
+
+class: inverse, center, middle
+
+# Market simulations
+
+---
+
+# .center[Simulate Market Shares]
+
+## 1. Define a market, $X$
+
+## 2. Compute shares:
+
+## $$\hat{P}_j = \frac{e^{\hat{\boldsymbol{\beta}}'\boldsymbol{X}_j}}{\sum_{k=1}^J e^{\hat{\boldsymbol{\beta}}'\boldsymbol{X}_k}}$$
+
+---
+
+# .center[Simulate Market Shares]
+
+<center>
+<img src="images/matrixmath.png" width=700>
+</center>
+
+---
+
+# .center[Simulate Market Shares]
+
+.leftcol70[
+<center>
+<img src="images/matrixmath.png" width=700>
+</center>
+]
+
+.rightcol30[
+In R:
+```{r, eval=FALSE}
+X %*% beta
+```
+]
+
+---
+
+# .center[Simulating Market Shares with Uncertainty]
+
+Rely on the `predict()` function to compute shares with uncertainty. 
+
+Internally, it:
+
+1. Takes draws of $\boldsymbol{\beta}$
+2. Computes $P_j$ for each draw 
+3. Returns mean and confidence interval computed from draws
+
+---
+
+class: center, middle
+
+# Review the `logitr-cars` examples
+
+---
+
+class: inverse
+
+```{r, echo=FALSE}
+countdown(
+  minutes = 15,
+  warn_when = 15,
+  update_every = 1,
+  top = 0,
+  right = 0,
+  font_size = '2em'
+)
+```
+
+## Your Turn
+
+### As a team: 
+
+.leftcol80[.font120[
+- Read in and clean your final data. 
+- Estimate a baseline model. 
+- Set your baseline market simulation case. 
+- Compute sensitivities to price and other attributes. 
+]]

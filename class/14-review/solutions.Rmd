@@ -1,0 +1,225 @@
+---
+title: "Practice Questions"
+date: December 01, 2021
+week: 14
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+# Basic knit settings
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  fig.retina = 3,
+  fig.path = "figs/"
+)
+
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(here)
+library(logitr)
+library(fastDummies)
+```
+
+## Practice Questions 1
+
+Let's say our utility function is:
+
+$$v_j = \beta_1 x_j^{\mathrm{price}} + \beta_2 x_j^{\mathrm{cacao}} + \beta_3 \delta_j^{\mathrm{hershey}} + \beta_4 \delta_j^{\mathrm{lindt}}$$
+
+And we estimate the following coefficients:
+
+<center>
+<div style="width:200px">
+Parameter | Coefficient
+----------|-----------
+$\beta_1$ | -0.1
+$\beta_2$ | 0.1
+$\beta_3$ | -2.0
+$\beta_4$ | -0.1
+</div>
+</center>
+
+What are the expected probabilities of choosing each of these bars using a logit model?
+
+```{r, echo=FALSE}
+tibble(
+  Attribute = c("Price", "% Cacao", "Brand"),
+  `Bar 1` = c("$1.20", "10%", "Hershey"),
+  `Bar 2` = c("$1.50", "60%", "Lindt"),
+  `Bar 3` = c("$3.00", "80%", "Ghirardelli"),
+) %>%
+  kable() %>%
+  kable_styling(
+      bootstrap_options = c("hover", "condensed"),
+      full_width = FALSE)
+```
+
+```{r}
+# Create the model coefficient variables
+b1 <- -0.1
+b2 <- 0.1
+b3 <- -2.0
+b4 <- -0.1
+
+# Compute the observed utility for each chocolate bar
+v1 <- b1*1.2 + b2*0.1 + b3
+v2 <- b1*1.5 + b2*0.6 + b4
+v3 <- b1*3 + b2*0.8
+
+# Compute the probabilities using the logit fraction
+denom <- exp(v1) + exp(v2) + exp(v3)
+p1 <- exp(v1) / denom
+p2 <- exp(v2) / denom
+p3 <- exp(v3) / denom
+p1
+p2
+p3
+```
+
+
+
+
+
+## Practice Questions 2
+
+**Observations** - Height of students (inches):
+
+```{r, echo=FALSE}
+x <- c(65, 69, 66, 67, 68, 72, 68, 69, 63, 70)
+x
+```
+
+a) Let's say we know that the height of students, $\tilde{x}$, in a classroom follows a normal distribution. A professor obtains the above height measurements students in her classroom. What is the log-likelihood that $\tilde{x} \sim \mathcal{N} (68, 4)$? In other words, compute $\ln \mathcal{L} (\mu = 68, \sigma = 4)$.
+
+```{r}
+# Load the data
+x <- c(65, 69, 66, 67, 68, 72, 68, 69, 63, 70)
+
+# Compute the value of f(x) for each x
+f_x <- dnorm(x, 68, 4)
+
+# The likelihood is just the product of the probabilities in f_x
+prod(f_x)
+
+# But this is a really tiny number, so computing the log-likelihood is helpful
+log(prod(f_x))
+
+# Of course, the way we typically compute the log-likelihood is by summing up
+# the log of the values in f_x
+sum(log(f_x))
+```
+
+b) Compute the log-likelihood function using the same standard deviation $(\sigma = 4)$ but with the following different values for the mean, $\mu: 66, 67, 68, 69, 70$. How do the results compare? Which value for $\mu$ produces the highest log-likelihood?
+
+```{r, fig.height=4, fig.width=6}
+library(tidyverse)
+
+# Create a vectors of values for the mean
+means <- c(66, 67, 68, 69, 70)
+
+# Compute the likelihood using different values for the mean:
+L1 <- sum(log(dnorm(x, means[1], 4)))
+L2 <- sum(log(dnorm(x, means[2], 4)))
+L3 <- sum(log(dnorm(x, means[3], 4)))
+L4 <- sum(log(dnorm(x, means[4], 4)))
+L5 <- sum(log(dnorm(x, means[5], 4)))
+logLiks <- c(L1, L2, L3, L4, L5)
+
+# Create a data frame of the results
+df <- data.frame(means, logLiks)
+df
+
+# Filter out the row with the maximum likelihood value:
+df %>%
+  filter(logLiks == max(logLiks))
+
+# Plot the result:
+df %>%
+  ggplot(aes(x = means, y = logLiks)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  labs(x = "Mean Value", y = "Log-likelihood Values")
+```
+
+
+
+
+## Practice Questions 3
+
+Suppose we estimate the following utility model describing preferences for cars:
+
+$$
+u_j = \alpha p_j + \beta_1 x_j^{mpg} + \beta_2 x_j^{elec} + \varepsilon_j
+$$
+
+The estimated model produces the following results:
+
+Parameter | Coefficient
+----------|------------
+$\alpha$ | -0.7
+$\beta_1$ | 0.1
+$\beta_2$ | -0.4
+
+Hessian:
+
+$$
+\begin{bmatrix}
+-6000 & 50 & 60
+\\
+50 & -700 & 50
+\\
+60 & 50 & -300
+\end{bmatrix}
+$$
+
+Compute a 95% confidence interval around the coefficients using:
+
+a) Standard errors
+b) Simulated draws
+
+```{r}
+# 1. Get coefficients
+beta <- c(price = -0.7, mpg = 0.1, elec = -4.0)
+
+# 2. Get covariance matrix
+hessian <- matrix(c(
+    -6000,   50,   60,
+       50, -700,   50,
+       60,   50, -300),
+    ncol = 3, byrow = TRUE)
+
+covariance <- -1*solve(hessian)
+```
+
+a) Solution using standard errors
+
+```{r}
+se <- sqrt(diag(covariance))
+lower <- beta - 2*se
+upper <- beta + 2*se
+
+coef_ci <- data.frame(
+    mean = beta, 
+    lower = lower, 
+    upper = upper
+)
+
+coef_ci
+```
+
+b) Solution using simulated draws
+
+```{r}
+draws <- as.data.frame(MASS::mvrnorm(10^4, beta, covariance))
+coef_ci <- maddTools::ci(draws, ci = 0.95)
+
+coef_ci
+```
