@@ -11,4 +11,4 @@ params:
 ```{r child = "_knitr_setup.Rmd"}
 ```
 
-Coming soon!
+All we're doing today is going over the exam and then spending the rest of class working on your final analysis, report, and presentation!
