@@ -1,5 +1,5 @@
 ---
-title: "Class Review"
+title: "Exam Review & Final Analysis Overview"
 subtitle: "EMSE 6035: Marketing Analytics for Design Decisions"
 date: December 01, 2021
 week: 14
@@ -345,7 +345,7 @@ $$R = Q*P$$
 
 ---
 
-
+## .center[Market share sensitivity to all attributes]
 
 <center>
 <img src="images/tornado_plot.png" width=800>
@@ -417,6 +417,7 @@ countdown(
 - Design of experiment
 - WTP 
 - Market simulations
+- Sub-group models
 - Using R for all of the above<br>(e.g., estimating models wiht `logitr`)
 ]
 
@@ -426,7 +427,7 @@ countdown(
 ## .center[Things I'm **not** covering]
 
 - formr.org
-- Heterogeneity<br>(mixed logit, sub-groups)
+- Mixed logit
 ]
 
 ---
@@ -671,7 +672,7 @@ model <- logitr(
 )
 ```
 
-.center[Reference level: _price=10_]
+.center[Reference level: _BMW_]
 
 Coef. | Interpretation
 ------|------------------
@@ -698,7 +699,7 @@ Coef. | Interpretation
 
 # `mnl_dummy`
 
-All dummy-code variables 
+All discrete (dummy-code) variables 
 ```{r, eval=FALSE}
 pars = c(
   "price_20", "price_25",
@@ -935,15 +936,15 @@ class: middle, center
 
 1. Get coefficients, `beta`
 2. Get covariance matrix, `covariance` 
-3. `se = sqrt(diag(covariance))`
-4. `coef_ci = c(beta - 2*se, beta + 2*se)`
+3. `se <- sqrt(diag(covariance))`
+4. `coef_ci <- c(beta - 2*se, beta + 2*se)`
 
 ## Using Simulated Draws
 
 1. Get coefficients, `beta`
 2. Get covariance matrix, `covariance`  
 3. `draws <- as.data.frame(MASS::mvrnorm(10^5, beta, covariance))`
-4. `coef_ci <- ci(draws, ci = 0.95)`
+4. `coef_ci <- maddTools::ci(draws, ci = 0.95)`
 
 ---
 
@@ -1194,7 +1195,7 @@ X %*% beta
 
 ---
 
-# .center[Simulating Market Shares with Uncertainty]
+# .center[Simulating Market Shares **with Uncertainty**]
 
 Rely on the `predict()` function to compute shares with uncertainty. 
 
