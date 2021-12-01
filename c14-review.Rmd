@@ -5,7 +5,7 @@ output:
     number_sections: false
     toc: no
 params:
-  class: "12-heterogeneity"
+  class: "14-review"
 ---
 
 ```{r child = "_knitr_setup.Rmd"}
