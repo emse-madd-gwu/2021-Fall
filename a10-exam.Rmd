@@ -5,14 +5,29 @@ output:
     toc: false
 params:
   number: 10
-  purpose: 'purpose'
 ---
 
 ```{r child = "_knitr_setup.Rmd"}
 ```
 
-```{r child = "_aheader.Rmd"}
+```{r echo=FALSE}
+library(tidyverse)
+library(fontawesome)
+
+due <- get_schedule() %>%
+  mutate(assign_due = format(assign_due, format = "%b %d")) %>%
+  filter(assign_n == params$number) %>%
+  pull(assign_due)
+due <- paste0(due, " by 11:59pm")
+
+url_template <- paste0(
+  'https://madd.seas.gwu.edu/2021-Fall/templates/reflection',
+  params$number, '.zip')
 ```
+
+> **Due**: `r due`
+>
+> **Weight**: This assignment is worth 10% of your final grade.
 
 The exam for this class is a take home exam. You will be sent exam instructions after class on December 1, and you must submit your response on Blackboard by **midnight on December 5**.
 
