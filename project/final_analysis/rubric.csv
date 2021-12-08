@@ -1,0 +1,13 @@
+order,category,label,rating,maxPoints,points,description
+1,organization,Organization & Formatting,Excellent,5,5,All formatting guidelines are followed.
+1,organization,Organization & Formatting,Good,5,4,Most formatting guidelines are followed; only one or two components from the template are missing.
+1,organization,Organization & Formatting,Needs work,5,3,Most formatting guidelines are followed; several components from the template are missing or incomplete.
+2,pilotAnalysis,Data Analysis,Excellent,15,15 / 14,"All analysis requirements are followed, including data cleaning, modeling, and analysis, and all modeling and analysis is correctly specified. Code runs without error and results can be fully reproduced."
+2,pilotAnalysis,Data Analysis,Good,15,13 / 12 / 11,"Most analysis requirements are followed, including data cleaning, modeling, and analysis. There may be some small errors in modeling or interpretation, but these errors do not have a strong effect on outcomes or conclusions. Code might contain a few errors, but the results can still be reproduced with a few fixes."
+2,pilotAnalysis,Data Analysis,Needs work,15,10 / 9 / 8 / 7 / 6 / 5,"Some of the analysis requirements components are incomplete or missing, including data cleaning, modeling, and analysis. Interpretation or modeling is incorrect or mis-specified, leading to errors in conclusions. Code contains multiple significant errors and results cannot be reproduced, even with efforts to correct errors."
+3,report,Report Contents,Excellent,15,15 / 14,"All report guidelines are followed, including the introduction, descriptions of the survey and modeling / analysis, and results and recommendations / conclusions are clear and justified by results."
+3,report,Report Contents,Good,15,13 / 12 / 11,"Most report guidelines are followed, including the introduction, descriptions of the survey and modeling / analysis; results and recommendations / conclusions are perhaps unclear or missing important details, but are still largely supported by the modeling results."
+3,report,Report Contents,Needs work,15,10 / 9 / 8 / 7 / 6 / 5,"Several report guidelines are not followed, including the introduction, descriptions of the survey and modeling / analysis; results and recommendations / conclusions are unclear or missing, or are not supported by the modeling results. Some components are incomplete or missing."
+4,appendix,Appendix,Excellent,5,5,Appendix of the full survey is included.
+4,appendix,Appendix,Good,5,4,"Appendix of the full survey is included, but some parts of the survey may be missing."
+4,appendix,Appendix,Needs work,5,3,No appendix of survey included
