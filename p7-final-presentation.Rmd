@@ -1,0 +1,50 @@
+---
+title: "Final Presentation"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_level: 2
+    number_sections: false
+params:
+  number: 7
+  weight: '8%'
+  purpose: 'I guarantee you one day you will need to present the results of a project you have worked on to someone in a professional settings, so this is an opportunity to practice that before stakes are higher.'
+  assessment: 'Your final presentation will be assessed using [this rubric](project/final_presentation/rubric.html){target="_blank"}.'
+---
+
+```{r child = "_knitr_setup.Rmd"}
+```
+
+```{r child = "_pheader.Rmd"}
+```
+
+
+Prepare a 10-minute presentation of your findings in your final report. **You may choose to either present your presentation live in class on December 15, 2021 or pre-record your video to watch in class**. Each team should prepare to answer questions from the audience during class. As always, you may call in to class on Zoom if you cannot be present in person, but I do expect everyone to be present (in person or virtually) for your presentation. Below is a list of specific items your presentation should include.
+
+## 1. Format
+
+- Your presentation should be no longer than 10 minutes in length.
+- Each team member must present at least one slide.
+- You may use as many slides as you feel helps you communicate your ideas (but keep the 10 minute limit in mind).
+- Your title slide should include the project title, team member names, and the presentation date: December 15, 2021.
+- All slides should be numbered in the bottom-left or bottom-right corners.
+- Review the [slide design guidelines](https://madd.seas.gwu.edu/2021-Fall/class/14-review/index.html#28) I discussed in class as a check list when designing your slides.
+
+## 2. Content
+
+Your slides do not need to include the detailed code used to conduct your analysis - that should be accessible from your report. Rather, the purpose of your presentation is to present the "big picture" overview and results from your project. You should discuss:
+
+1. An introduction of your product / policy (similar to the introduction in your report).
+2. A brief overview of your survey:
+    - At least one slide depicting an example choice question
+    - At least one slide with some summary stats about your sample (e.g., sample size, etc.)
+3. Your main findings:
+    - Polished charts of WTP, market simulations, sensitivity analyses. 
+    - Your recommendations based on your findings.
+
+## 3. Publish and submit
+
+If you chose to pre-record your video, publish it somewhere on the web (e.g. via Youtube, Vimeo, etc.). This will make it easier to share your presentation video during class presentations. Only one team member needs to publish the video.
+
+Go to the "Assignment Submission" page on Blackboard and submit your slides as a pdf or pptx file under "Final Project: Presentation". **If you recorded your video, also include a link to the published video in your Blackboard submission.** Only one person from your team should submit on Blackboard.

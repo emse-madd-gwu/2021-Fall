@@ -87,6 +87,8 @@ navbar:
           href: p5-final-survey.html
         - text: "Final Analysis (Due 12/13)"
           href: p6-final-analysis.html
+        - text: "Final Presentation (Due 12/15)"
+          href: p7-final-presentation.html
     - text: "References"
       icon: fa fa-bookmark
       menu:
