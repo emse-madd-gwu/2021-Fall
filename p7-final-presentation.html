@@ -11,7 +11,7 @@
 
 
 
-<title>Optimization &amp; MLE</title>
+<title>Final Presentation</title>
 
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,10 +28,12 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
@@ -326,6 +328,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -333,6 +398,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -633,41 +708,50 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Optimization &amp; MLE</h1>
+<h1 class="title toc-ignore">Final Presentation</h1>
 
 </div>
 
 
-<div class = "row">
-<div class="col-md-5">
-<p><strong>KEYBOARD SHORTCUTS FOR SLIDES:</strong></p>
+<blockquote>
+<p><strong>Due</strong>: Dec 15 by 11:59pm</p>
+<p><strong>Weight</strong>: This assignment is worth 8% of your final grade.</p>
+<p><strong>Purpose</strong>: I guarantee you one day you will need to present the results of a project you have worked on to someone in a professional settings, so this is an opportunity to practice that before stakes are higher.</p>
+<p><strong>Assessment</strong>: Your final presentation will be assessed using <a href="project/final_presentation/rubric.html" target="_blank">this rubric</a>.</p>
+</blockquote>
+<p>Prepare a 10-minute presentation of your findings in your final report. <strong>You may choose to either present your presentation live in class on December 15, 2021 or pre-record your video to watch in class</strong>. Each team should prepare to answer questions from the audience during class. As always, you may call in to class on Zoom if you cannot be present in person, but I do expect everyone to be present (in person or virtually) for your presentation. Below is a list of specific items your presentation should include.</p>
+<div id="format" class="section level2">
+<h2>1. Format</h2>
 <ul>
-<li>Use <kbd>←</kbd> and <kbd>→</kbd> to navigate through the slides.</li>
-<li>Use <kbd>f</kbd> to toggle full screen.</li>
-<li>Use <kbd>o</kbd> to view an overview of all slides.</li>
-<li>Use <kbd>h</kbd> to see a list of other shortcuts.</li>
+<li>Your presentation should be no longer than 10 minutes in length.</li>
+<li>Each team member must present at least one slide.</li>
+<li>You may use as many slides as you feel helps you communicate your ideas (but keep the 10 minute limit in mind).</li>
+<li>Your title slide should include the project title, team member names, and the presentation date: December 15, 2021.</li>
+<li>All slides should be numbered in the bottom-left or bottom-right corners.</li>
+<li>Review the <a href="https://madd.seas.gwu.edu/2021-Fall/class/14-review/index.html#28">slide design guidelines</a> I discussed in class as a check list when designing your slides.</li>
 </ul>
 </div>
-<div class="row">
-<div class="col-md-3">
-<div class="class-buttons">
-<p><strong>SLIDES</strong></p>
-<p><a href=class/8-mle/index.html class="btn-slides" target="_blank"><i class="fas fa-external-link-alt"></i> View in new window</a></p>
-<p><a href=class/8-mle/8-mle.pdf class="btn-slides"><i class="fas fa-file-pdf"></i> Download as PDF</a></p>
+<div id="content" class="section level2">
+<h2>2. Content</h2>
+<p>Your slides do not need to include the detailed code used to conduct your analysis - that should be accessible from your report. Rather, the purpose of your presentation is to present the “big picture” overview and results from your project. You should discuss:</p>
+<ol style="list-style-type: decimal">
+<li>An introduction of your product / policy (similar to the introduction in your report).</li>
+<li>A brief overview of your survey:
+<ul>
+<li>At least one slide depicting an example choice question</li>
+<li>At least one slide with some summary stats about your sample (e.g., sample size, etc.)</li>
+</ul></li>
+<li>Your main findings:
+<ul>
+<li>Polished charts of WTP, market simulations, sensitivity analyses.</li>
+<li>Your recommendations based on your findings.</li>
+</ul></li>
+</ol>
 </div>
-</div>
-<div class="col-md-3">
-<div class="class-buttons">
-<p><strong>CLASS PRACTICE</strong></p>
-<p><a href=class/8-mle/8-mle.zip class="btn-notes"><i class="fas fa-download"></i> Download zip file</a></p>
-<p><a href="https://github.com/emse-madd-gwu/logitr-cars/archive/refs/heads/main.zip" class="btn-notes"><i class="fas fa-download"></i> Download logitr-cars</a></p>
-<p><a href="https://github.com/jhelvy/formr4conjoint/archive/refs/heads/master.zip" class="btn-notes"><i class="fas fa-download"></i> Download formr4conjoint</a></p>
-</div>
-</div>
-</div>
-<div class="shareagain" style="min-width:300px;margin:1em auto;">
-<iframe src="class/8-mle/index.html" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
-<script>fitvids('.shareagain', {players: 'iframe'});</script>
+<div id="publish-and-submit" class="section level2">
+<h2>3. Publish and submit</h2>
+<p>If you chose to pre-record your video, publish it somewhere on the web (e.g. via Youtube, Vimeo, etc.). This will make it easier to share your presentation video during class presentations. Only one team member needs to publish the video.</p>
+<p>Go to the “Assignment Submission” page on Blackboard and submit your slides as a pdf or pptx file under “Final Project: Presentation”. <strong>If you recorded your video, also include a link to the published video in your Blackboard submission.</strong> Only one person from your team should submit on Blackboard.</p>
 </div>
 
 
@@ -697,6 +781,8 @@ $(document).ready(function () {
 <script src="js/external-link.js"></script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -729,6 +815,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
