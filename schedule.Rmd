@@ -96,6 +96,6 @@ schedule %>%
   column_spec(column = 4, width = '16em') %>% 
   column_spec(column = 5, width = '16em') %>% 
   column_spec(column = 6, width = '10em') %>% 
-  column_spec(column = 7, width = '10em') %>% 
-  row_spec(highlight, background = "#e1e1e1")
+  column_spec(column = 7, width = '10em')
+  # row_spec(highlight, background = "#e1e1e1")
 ```
