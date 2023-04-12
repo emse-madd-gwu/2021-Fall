@@ -13,6 +13,7 @@
 
 <title>Project Overview</title>
 
+<script src="site_libs/header-attrs-2.21.2/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
@@ -34,8 +35,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -170,6 +171,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -190,6 +192,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -247,11 +252,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -280,8 +289,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -289,16 +298,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -415,7 +417,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -446,7 +448,7 @@ div.tocify {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -496,7 +498,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Assignments
@@ -540,7 +542,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Project
@@ -575,7 +577,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-bookmark"></span>
      
     References
@@ -628,7 +630,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -662,7 +664,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -715,16 +717,30 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>Throughout the semester, you will work in teams of 3-4 students towards a final project. The project will have three phases:</p>
+<p>Throughout the semester, you will work in teams of 3-4 students
+towards a final project. The project will have three phases:</p>
 <ol style="list-style-type: decimal">
 <li>Project proposal</li>
 <li>Pilot survey &amp; analysis</li>
 <li>Final survey &amp; analysis</li>
 </ol>
-<p>Teams will apply topics covered in class to develop quantitative models of consumer choice to inform design decisions for a novel product, technology, or policy. Each team will have somewhat different tasks and areas of emphasis, depending on the product selected; however, all projects will be expected to demonstrate mastery of the topics covered in class and to address the criteria and guidelines required for project assignments.</p>
-<p><strong>Summary of Deliverables</strong>: To make the overall project more manageable, it is broken down into separate “milestone” deliverables due throughout the semester, starting with a proposal.</p>
+<p>Teams will apply topics covered in class to develop quantitative
+models of consumer choice to inform design decisions for a novel
+product, technology, or policy. Each team will have somewhat different
+tasks and areas of emphasis, depending on the product selected; however,
+all projects will be expected to demonstrate mastery of the topics
+covered in class and to address the criteria and guidelines required for
+project assignments.</p>
+<p><strong>Summary of Deliverables</strong>: To make the overall project
+more manageable, it is broken down into separate “milestone”
+deliverables due throughout the semester, starting with a proposal.</p>
 <div style="width:400px">
 <table>
+<colgroup>
+<col width="25%" />
+<col width="43%" />
+<col width="31%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Item</th>
@@ -774,21 +790,68 @@ div.tocify {
 </div>
 <div id="project-selection" class="section level1">
 <h1>Project Selection</h1>
-<p>I want this project to be as useful for you and your future career as possible - you’ll hopefully want to show off your final project in a portfolio or during job interviews. Accordingly, you get to choose the topic for your project, but it must meet certain guidelines.</p>
-<p>Projects must be selected during the first two weeks of class. Projects much be an emerging technology, product, or policy with a clearly identified market that has not yet been introduced into the mass market, such as a new invention from a research laboratory at GWU or a new product being explored by a firm. Students have the option to choose a sponsored project or propose their own project if it is approved by the instructor and meets the following criteria:</p>
+<p>I want this project to be as useful for you and your future career as
+possible - you’ll hopefully want to show off your final project in a
+portfolio or during job interviews. Accordingly, you get to choose the
+topic for your project, but it must meet certain guidelines.</p>
+<p>Projects must be selected during the first two weeks of class.
+Projects much be an emerging technology, product, or policy with a
+clearly identified market that has not yet been introduced into the mass
+market, such as a new invention from a research laboratory at GWU or a
+new product being explored by a firm. Students have the option to choose
+a sponsored project or propose their own project if it is approved by
+the instructor and meets the following criteria:</p>
 <ul>
-<li><strong>Innovative / Emerging</strong>: The proposed project involves a new product or technology with attributes (e.g. price, efficiency, reliability, size, performance, color, etc.) that may be competitive in the marketplace but for which actual market adoption is still uncertain.</li>
-<li><strong>Well-Defined</strong>: This course focuses on mathematical modeling to support design decision-making. There is not sufficient time in the course for conceptual design of a new product.</li>
-<li><strong>Identified Target Market</strong>: A target market has been identified for this new product or technology. Competing products in that market are known, and the attributes on which new market entrants compete can be identified. Representative potential customers can be identified for survey solicitation. If the new product or technology is a component of a larger product sold to a consumer market, students may assess the market implications for the final consumer product.</li>
-<li><strong>Prior to Mass Commercialization</strong>: The new product or technology has only recently or has not yet been introduced to the mass market.</li>
-<li><strong>Moderate Scope and Complexity</strong>: The product or technology should involve moderate complexity. For example, a non-differentiated commodity, such as sugar, is too simple, and a complex product involving many components and manufacturing operations, such as a vehicle, is too complex.</li>
-<li><strong>Expertise</strong>: If the product involves a new technology that requires specialized knowledge about its attributes, the team should have reliable access to experts who can supply the requisite knowledge.</li>
-<li><strong>Decision Variables</strong>: The product should have several non-trivial design decisions. For example, choosing between two materials or topologies, setting dimensions of a component, or selecting among a set of alternative component configurations are suitable design decisions. The models developed in the project will be used to support decision-making along such dimensions.</li>
+<li><strong>Innovative / Emerging</strong>: The proposed project
+involves a new product or technology with attributes (e.g. price,
+efficiency, reliability, size, performance, color, etc.) that may be
+competitive in the marketplace but for which actual market adoption is
+still uncertain.</li>
+<li><strong>Well-Defined</strong>: This course focuses on mathematical
+modeling to support design decision-making. There is not sufficient time
+in the course for conceptual design of a new product.</li>
+<li><strong>Identified Target Market</strong>: A target market has been
+identified for this new product or technology. Competing products in
+that market are known, and the attributes on which new market entrants
+compete can be identified. Representative potential customers can be
+identified for survey solicitation. If the new product or technology is
+a component of a larger product sold to a consumer market, students may
+assess the market implications for the final consumer product.</li>
+<li><strong>Prior to Mass Commercialization</strong>: The new product or
+technology has only recently or has not yet been introduced to the mass
+market.</li>
+<li><strong>Moderate Scope and Complexity</strong>: The product or
+technology should involve moderate complexity. For example, a
+non-differentiated commodity, such as sugar, is too simple, and a
+complex product involving many components and manufacturing operations,
+such as a vehicle, is too complex.</li>
+<li><strong>Expertise</strong>: If the product involves a new technology
+that requires specialized knowledge about its attributes, the team
+should have reliable access to experts who can supply the requisite
+knowledge.</li>
+<li><strong>Decision Variables</strong>: The product should have several
+non-trivial design decisions. For example, choosing between two
+materials or topologies, setting dimensions of a component, or selecting
+among a set of alternative component configurations are suitable design
+decisions. The models developed in the project will be used to support
+decision-making along such dimensions.</li>
 </ul>
 </div>
 <div id="teamwork" class="section level1">
 <h1>Teamwork</h1>
-<p>The experience of working in teams on this project will serve as preparation for teamwork throughout your careers. Some teams may experience an imbalance in team member contributions, effort, or reliability. The instructor is available to provide advice and interact in resolving team inequity and conflict; however, students should view this as a learning experience. Such situations regularly occur in any career, and learning how to handle them is a valuable skill. If you experience challenges within your team, it is a good opportunity to develop strategies and figure out how you will address such challenges in the future. One common job interview question is, “Describe a time when you experienced difficulties working in a team or experienced a team failure. What did you do about it?” This is a good chance to build a strong answer to this question.</p>
+<p>The experience of working in teams on this project will serve as
+preparation for teamwork throughout your careers. Some teams may
+experience an imbalance in team member contributions, effort, or
+reliability. The instructor is available to provide advice and interact
+in resolving team inequity and conflict; however, students should view
+this as a learning experience. Such situations regularly occur in any
+career, and learning how to handle them is a valuable skill. If you
+experience challenges within your team, it is a good opportunity to
+develop strategies and figure out how you will address such challenges
+in the future. One common job interview question is, “Describe a time
+when you experienced difficulties working in a team or experienced a
+team failure. What did you do about it?” This is a good chance to build
+a strong answer to this question.</p>
 </div>
 
 

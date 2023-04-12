@@ -13,6 +13,7 @@
 
 <title>Course Schedule</title>
 
+<script src="site_libs/header-attrs-2.21.2/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
@@ -33,8 +34,8 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -166,6 +167,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="css/custom.css" type="text/css" />
 
 
@@ -190,6 +192,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -247,11 +252,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -280,8 +289,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -289,16 +298,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -342,7 +344,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -373,7 +375,7 @@ $(document).ready(function () {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -423,7 +425,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Assignments
@@ -467,7 +469,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Project
@@ -502,7 +504,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-bookmark"></span>
      
     References
@@ -555,7 +557,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -589,7 +591,7 @@ $(document).ready(function () {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -676,13 +678,17 @@ Sep 01
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c1-getting-started.html"><i class="fas fa-laptop-code"></i></a> <strong>Getting Started</strong><br>Class orientation, intro to R, workflow, packages
+<a href="c1-getting-started.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Getting Started</strong><br>Class orientation, intro to R,
+workflow, packages
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Introductions</strong><br>Introductions to each other and potential projects
+<strong>Introductions</strong><br>Introductions to each other and
+potential projects
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="a1-data-wrangling.html"><i class="fas fa-book-reader"></i></a> <strong>Data Wrangling</strong><br>Due Sep 07
+<a href="a1-data-wrangling.html"><i class="fas fa-book-reader"></i></a>
+<strong>Data Wrangling</strong><br>Due Sep 07
 </td>
 <td style="text-align:left;width: 10em; ">
 </td>
@@ -697,13 +703,17 @@ Sep 08
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c2-data-wrangling.html"><i class="fas fa-laptop-code"></i></a> <strong>Data Wrangling</strong><br>Importing, wrangling, and summarizing data in R
+<a href="c2-data-wrangling.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Data Wrangling</strong><br>Importing, wrangling, and summarizing
+data in R
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Decision Variables</strong><br>Distinguishing between decision variables and product attributes
+<strong>Decision Variables</strong><br>Distinguishing between decision
+variables and product attributes
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="a2-plotting.html"><i class="fas fa-book-reader"></i></a> <strong>Plotting</strong><br>Due Sep 14
+<a href="a2-plotting.html"><i class="fas fa-book-reader"></i></a>
+<strong>Plotting</strong><br>Due Sep 14
 </td>
 <td style="text-align:left;width: 10em; ">
 </td>
@@ -719,16 +729,21 @@ Sep 15
 <a href="https://quiz10.formr.org/"><i class="fas fa-edit"></i></a>
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c3-rmd-plotting.html"><i class="fas fa-laptop-code"></i></a> <strong>RMarkdown &amp; Plotting</strong><br>Intro to “literate programming” with RMarkdown and plotting with {ggplot2}
+<a href="c3-rmd-plotting.html"><i class="fas fa-laptop-code"></i></a>
+<strong>RMarkdown &amp; Plotting</strong><br>Intro to “literate
+programming” with RMarkdown and plotting with {ggplot2}
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Project Scope</strong><br>Defining attribute levels, target survey population, competitors
+<strong>Project Scope</strong><br>Defining attribute levels, target
+survey population, competitors
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="a3-formr.html"><i class="fas fa-book-reader"></i></a> <strong>formr</strong><br>Due Sep 21
+<a href="a3-formr.html"><i class="fas fa-book-reader"></i></a>
+<strong>formr</strong><br>Due Sep 21
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="p1-proposal"><i class="fas fa-pencil-ruler"></i></a> <strong>Project Proposal</strong><br>Due Sep 26
+<a href="p1-proposal"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Project Proposal</strong><br>Due Sep 26
 </td>
 </tr>
 <tr>
@@ -741,10 +756,13 @@ Sep 22
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c4-formr.html"><i class="fas fa-laptop-code"></i></a> <strong>Intro to formr</strong><br>Designing and implementing surveys in formr
+<a href="c4-formr.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Intro to formr</strong><br>Designing and implementing surveys in
+formr
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Survey Plan 1</strong><br>Overview of survey plan, work on proposals
+<strong>Survey Plan 1</strong><br>Overview of survey plan, work on
+proposals
 </td>
 <td style="text-align:left;width: 10em; ">
 </td>
@@ -764,12 +782,14 @@ Sep 29
 <strong>No Class</strong><br>
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Team meetings w/Prof. Helveston</strong><br>Feedback on proposals
+<strong>Team meetings w/Prof. Helveston</strong><br>Feedback on
+proposals
 </td>
 <td style="text-align:left;width: 10em; ">
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="p2-survey-plan"><i class="fas fa-pencil-ruler"></i></a> <strong>Survey Plan</strong><br>Due Oct 05
+<a href="p2-survey-plan"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Survey Plan</strong><br>Due Oct 05
 </td>
 </tr>
 <tr>
@@ -783,16 +803,22 @@ Oct 06
 <a href="https://quiz10.formr.org/"><i class="fas fa-edit"></i></a>
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c6-conjoint-questions.html"><i class="fas fa-laptop-code"></i></a> <strong>Conjoint Questions</strong><br>Generating conjoint questions in R, implementing in formr
+<a
+href="c6-conjoint-questions.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Conjoint Questions</strong><br>Generating conjoint questions in
+R, implementing in formr
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Survey Plan 2</strong><br>Begin implementing survey plan in formr
+<strong>Survey Plan 2</strong><br>Begin implementing survey plan in
+formr
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="a4-utility-models.html"><i class="fas fa-book-reader"></i></a> <strong>Utility Models</strong><br>Due Oct 12
+<a href="a4-utility-models.html"><i class="fas fa-book-reader"></i></a>
+<strong>Utility Models</strong><br>Due Oct 12
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="p3-pilot-survey"><i class="fas fa-pencil-ruler"></i></a> <strong>Pilot Survey</strong><br>Due Oct 15
+<a href="p3-pilot-survey"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Pilot Survey</strong><br>Due Oct 15
 </td>
 </tr>
 <tr>
@@ -805,13 +831,17 @@ Oct 13
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c7-utility.html"><i class="fas fa-laptop-code"></i></a> <strong>Utility Models</strong><br>Intro to utility models, discrete vs. continuous parameters, parameter coding
+<a href="c7-utility.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Utility Models</strong><br>Intro to utility models, discrete
+vs. continuous parameters, parameter coding
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Pilot Survey</strong><br>Finish implementing pilot survey in formr
+<strong>Pilot Survey</strong><br>Finish implementing pilot survey in
+formr
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="a5-estimation.html"><i class="fas fa-book-reader"></i></a> <strong>Estimation</strong><br>Due Oct 19
+<a href="a5-estimation.html"><i class="fas fa-book-reader"></i></a>
+<strong>Estimation</strong><br>Due Oct 19
 </td>
 <td style="text-align:left;width: 10em; ">
 </td>
@@ -827,13 +857,17 @@ Oct 20
 <a href="https://quiz10.formr.org/"><i class="fas fa-edit"></i></a>
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c8-mle.html"><i class="fas fa-laptop-code"></i></a> <strong>Optimization &amp; MLE</strong><br>Optimization, maximum likelihood estimation
+<a href="c8-mle.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Optimization &amp; MLE</strong><br>Optimization, maximum
+likelihood estimation
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Pilot Analysis 1</strong><br>Import &amp; clean pilot data, joins
+<strong>Pilot Analysis 1</strong><br>Import &amp; clean pilot data,
+joins
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="a6-uncertainty.html"><i class="fas fa-book-reader"></i></a> <strong>Uncertainty</strong><br>Due Oct 26
+<a href="a6-uncertainty.html"><i class="fas fa-book-reader"></i></a>
+<strong>Uncertainty</strong><br>Due Oct 26
 </td>
 <td style="text-align:left;width: 10em; ">
 </td>
@@ -848,16 +882,20 @@ Oct 27
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c9-uncertainty.html"><i class="fas fa-laptop-code"></i></a> <strong>Uncertainty</strong><br>Computing uncertainty in coefficient estimates
+<a href="c9-uncertainty.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Uncertainty</strong><br>Computing uncertainty in coefficient
+estimates
 </td>
 <td style="text-align:left;width: 16em; ">
 <strong>Pilot Analysis 2</strong><br>Reshaping data, estimating models
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="a7-doe.html"><i class="fas fa-book-reader"></i></a> <strong>Design of Experiment</strong><br>Due Nov 02
+<a href="a7-doe.html"><i class="fas fa-book-reader"></i></a>
+<strong>Design of Experiment</strong><br>Due Nov 02
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="p4-pilot-analysis"><i class="fas fa-pencil-ruler"></i></a> <strong>Pilot Analysis</strong><br>Due Nov 07
+<a href="p4-pilot-analysis"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Pilot Analysis</strong><br>Due Nov 07
 </td>
 </tr>
 <tr>
@@ -871,13 +909,17 @@ Nov 03
 <a href="https://quiz10.formr.org/"><i class="fas fa-edit"></i></a>
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c10-doe.html"><i class="fas fa-laptop-code"></i></a> <strong>DOE &amp; Power Analysis</strong><br>Designing your survey to reduce error
+<a href="c10-doe.html"><i class="fas fa-laptop-code"></i></a>
+<strong>DOE &amp; Power Analysis</strong><br>Designing your survey to
+reduce error
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Pilot Analysis 3</strong><br>Refine attributes &amp; levels, conduct power analysis, plot results
+<strong>Pilot Analysis 3</strong><br>Refine attributes &amp; levels,
+conduct power analysis, plot results
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="a8-wtp-simulation.html"><i class="fas fa-book-reader"></i></a> <strong>WTP &amp; Simulations</strong><br>Due Nov 09
+<a href="a8-wtp-simulation.html"><i class="fas fa-book-reader"></i></a>
+<strong>WTP &amp; Simulations</strong><br>Due Nov 09
 </td>
 <td style="text-align:left;width: 10em; ">
 </td>
@@ -892,16 +934,21 @@ Nov 10
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c11-wtp-simulation.html"><i class="fas fa-laptop-code"></i></a> <strong>WTP &amp; Simulations</strong><br>Computing WTP, WTP space models, market simulations
+<a href="c11-wtp-simulation.html"><i class="fas fa-laptop-code"></i></a>
+<strong>WTP &amp; Simulations</strong><br>Computing WTP, WTP space
+models, market simulations
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>WTP &amp; Simulations</strong><br>Compute WTP, define market simulations, finalize final survey
+<strong>WTP &amp; Simulations</strong><br>Compute WTP, define market
+simulations, finalize final survey
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="a9-heterogeneity.html"><i class="fas fa-book-reader"></i></a> <strong>Heterogeneity</strong><br>Due Nov 16
+<a href="a9-heterogeneity.html"><i class="fas fa-book-reader"></i></a>
+<strong>Heterogeneity</strong><br>Due Nov 16
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="p5-final-survey"><i class="fas fa-pencil-ruler"></i></a> <strong>Final Survey</strong><br>Due Nov 19
+<a href="p5-final-survey"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Final Survey</strong><br>Due Nov 19
 </td>
 </tr>
 <tr>
@@ -915,10 +962,13 @@ Nov 17
 <a href="https://quiz10.formr.org/"><i class="fas fa-edit"></i></a>
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c12-heterogeneity.html"><i class="fas fa-laptop-code"></i></a> <strong>Heterogeneity</strong><br>Modeling differences in preferences across sample population
+<a href="c12-heterogeneity.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Heterogeneity</strong><br>Modeling differences in preferences
+across sample population
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Heterogeneity</strong><br>Estimate mixed logit and subpopulation models on pilot data
+<strong>Heterogeneity</strong><br>Estimate mixed logit and subpopulation
+models on pilot data
 </td>
 <td style="text-align:left;width: 10em; ">
 </td>
@@ -938,7 +988,8 @@ Nov 24
 <strong>Thanksgiving - no class</strong><br>
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Final Survey Feilding</strong><br>Collecting data for final survey
+<strong>Final Survey Feilding</strong><br>Collecting data for final
+survey
 </td>
 <td style="text-align:left;width: 10em; ">
 </td>
@@ -955,16 +1006,19 @@ Dec 01
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c14-review.html"><i class="fas fa-laptop-code"></i></a> <strong>Class Review</strong><br>Overview of course concepts
+<a href="c14-review.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Class Review</strong><br>Overview of course concepts
 </td>
 <td style="text-align:left;width: 16em; ">
 <strong>Sensitivity Analyses</strong><br>Compute sensitivity analyses
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="a10-exam.html"><i class="fas fa-book-reader"></i></a> <strong>Exam</strong><br>Due Dec 05
+<a href="a10-exam.html"><i class="fas fa-book-reader"></i></a>
+<strong>Exam</strong><br>Due Dec 05
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="p6-final-analysis"><i class="fas fa-pencil-ruler"></i></a> <strong>Final Analysis</strong><br>Due Dec 13
+<a href="p6-final-analysis"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Final Analysis</strong><br>Due Dec 13
 </td>
 </tr>
 <tr>
@@ -977,10 +1031,12 @@ Dec 08
 <td style="text-align:center;">
 </td>
 <td style="text-align:left;width: 16em; ">
-<a href="c15-exam-solutions.html"><i class="fas fa-laptop-code"></i></a> <strong>Exam Solutions</strong><br>
+<a href="c15-exam-solutions.html"><i class="fas fa-laptop-code"></i></a>
+<strong>Exam Solutions</strong><br>
 </td>
 <td style="text-align:left;width: 16em; ">
-<strong>Final Analysis Lab</strong><br>In class time to work on final analysis
+<strong>Final Analysis Lab</strong><br>In class time to work on final
+analysis
 </td>
 <td style="text-align:left;width: 10em; ">
 </td>
@@ -1004,7 +1060,8 @@ Dec 15
 <td style="text-align:left;width: 10em; ">
 </td>
 <td style="text-align:left;width: 10em; ">
-<a href="p7-final-presentation"><i class="fas fa-pencil-ruler"></i></a> <strong>Final Presentation</strong><br>Due Dec 15
+<a href="p7-final-presentation"><i class="fas fa-pencil-ruler"></i></a>
+<strong>Final Presentation</strong><br>Due Dec 15
 </td>
 </tr>
 </tbody>

@@ -13,6 +13,7 @@
 
 <title>Final Presentation</title>
 
+<script src="site_libs/header-attrs-2.21.2/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
@@ -34,8 +35,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -170,6 +171,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -190,6 +192,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -247,11 +252,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -280,8 +289,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -289,16 +298,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -415,7 +417,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -446,7 +448,7 @@ div.tocify {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -496,7 +498,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Assignments
@@ -540,7 +542,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Project
@@ -575,7 +577,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-bookmark"></span>
      
     References
@@ -628,7 +630,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -662,7 +664,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -715,43 +717,76 @@ div.tocify {
 
 <blockquote>
 <p><strong>Due</strong>: Dec 15 by 5pm (before class)</p>
-<p><strong>Weight</strong>: This assignment is worth 8% of your final grade.</p>
-<p><strong>Purpose</strong>: I guarantee you one day you will need to present the results of a project you have worked on to someone in a professional settings, so this is an opportunity to practice that before stakes are higher.</p>
-<p><strong>Assessment</strong>: Your final presentation will be assessed using <a href="project/final_presentation/rubric.html" target="_blank">this rubric</a>.</p>
+<p><strong>Weight</strong>: This assignment is worth 8% of your final
+grade.</p>
+<p><strong>Purpose</strong>: I guarantee you one day you will need to
+present the results of a project you have worked on to someone in a
+professional settings, so this is an opportunity to practice that before
+stakes are higher.</p>
+<p><strong>Assessment</strong>: Your final presentation will be assessed
+using <a href="project/final_presentation/rubric.html"
+target="_blank">this rubric</a>.</p>
 </blockquote>
-<p>Prepare a 10-minute presentation of your findings in your final report. <strong>You may choose to either present your presentation live in class on December 15, 2021 or pre-record your video to watch in class</strong>. Each team should prepare to answer questions from the audience during class. As always, you may call in to class on Zoom if you cannot be present in person, but I do expect everyone to be present (in person or virtually) for your presentation. Below is a list of specific items your presentation should include.</p>
+<p>Prepare a 10-minute presentation of your findings in your final
+report. <strong>You may choose to either present your presentation live
+in class on December 15, 2021 or pre-record your video to watch in
+class</strong>. Each team should prepare to answer questions from the
+audience during class. As always, you may call in to class on Zoom if
+you cannot be present in person, but I do expect everyone to be present
+(in person or virtually) for your presentation. Below is a list of
+specific items your presentation should include.</p>
 <div id="format" class="section level2">
 <h2>1. Format</h2>
 <ul>
-<li>Your presentation should be no longer than 10 minutes in length.</li>
+<li>Your presentation should be no longer than 10 minutes in
+length.</li>
 <li>Each team member must present at least one slide.</li>
-<li>You may use as many slides as you feel helps you communicate your ideas (but keep the 10 minute limit in mind).</li>
-<li>Your title slide should include the project title, team member names, and the presentation date: December 15, 2021.</li>
-<li>All slides should be numbered in the bottom-left or bottom-right corners.</li>
-<li>Review the <a href="https://madd.seas.gwu.edu/2021-Fall/class/14-review/index.html#28">slide design guidelines</a> I discussed in class as a check list when designing your slides.</li>
+<li>You may use as many slides as you feel helps you communicate your
+ideas (but keep the 10 minute limit in mind).</li>
+<li>Your title slide should include the project title, team member
+names, and the presentation date: December 15, 2021.</li>
+<li>All slides should be numbered in the bottom-left or bottom-right
+corners.</li>
+<li>Review the <a
+href="https://madd.seas.gwu.edu/2021-Fall/class/14-review/index.html#28">slide
+design guidelines</a> I discussed in class as a check list when
+designing your slides.</li>
 </ul>
 </div>
 <div id="content" class="section level2">
 <h2>2. Content</h2>
-<p>Your slides do not need to include the detailed code used to conduct your analysis - that should be accessible from your report. Rather, the purpose of your presentation is to present the “big picture” overview and results from your project. You should discuss:</p>
+<p>Your slides do not need to include the detailed code used to conduct
+your analysis - that should be accessible from your report. Rather, the
+purpose of your presentation is to present the “big picture” overview
+and results from your project. You should discuss:</p>
 <ol style="list-style-type: decimal">
-<li>An introduction of your product / policy (similar to the introduction in your report).</li>
+<li>An introduction of your product / policy (similar to the
+introduction in your report).</li>
 <li>A brief overview of your survey:
 <ul>
 <li>At least one slide depicting an example choice question</li>
-<li>At least one slide with some summary stats about your sample (e.g., sample size, etc.)</li>
+<li>At least one slide with some summary stats about your sample (e.g.,
+sample size, etc.)</li>
 </ul></li>
 <li>Your main findings:
 <ul>
-<li>Polished charts of WTP, market simulations, sensitivity analyses.</li>
+<li>Polished charts of WTP, market simulations, sensitivity
+analyses.</li>
 <li>Your recommendations based on your findings.</li>
 </ul></li>
 </ol>
 </div>
 <div id="publish-and-submit" class="section level2">
 <h2>3. Publish and submit</h2>
-<p>If you chose to pre-record your video, publish it somewhere on the web (e.g. via Youtube, Vimeo, etc.). This will make it easier to share your presentation video during class presentations. Only one team member needs to publish the video.</p>
-<p>Go to the “Assignment Submission” page on Blackboard and submit your slides as a pdf or pptx file under “Final Project: Presentation”. <strong>If you recorded your video, also include a link to the published video in your Blackboard submission.</strong> Only one person from your team should submit on Blackboard.</p>
+<p>If you chose to pre-record your video, publish it somewhere on the
+web (e.g. via Youtube, Vimeo, etc.). This will make it easier to share
+your presentation video during class presentations. Only one team member
+needs to publish the video.</p>
+<p>Go to the “Assignment Submission” page on Blackboard and submit your
+slides as a pdf or pptx file under “Final Project: Presentation”.
+<strong>If you recorded your video, also include a link to the published
+video in your Blackboard submission.</strong> Only one person from your
+team should submit on Blackboard.</p>
 </div>
 
 

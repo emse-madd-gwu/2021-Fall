@@ -13,6 +13,7 @@
 
 <title>Heterogeneity</title>
 
+<script src="site_libs/header-attrs-2.21.2/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
@@ -31,8 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -167,6 +168,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -187,6 +189,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -244,11 +249,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -277,8 +286,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -286,16 +295,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -339,7 +341,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -370,7 +372,7 @@ $(document).ready(function () {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -420,7 +422,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Assignments
@@ -464,7 +466,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Project
@@ -499,7 +501,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-bookmark"></span>
      
     References
@@ -552,7 +554,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -586,7 +588,7 @@ $(document).ready(function () {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -639,25 +641,57 @@ $(document).ready(function () {
 
 <blockquote>
 <p><strong>Due</strong>: Nov 16 by 11:59pm</p>
-<p><strong>Weight</strong>: This assignment is worth 3% of your final grade.</p>
-<p><strong>Purpose</strong>: The purpose of this assignment is to introduce the concept of preference heterogeneity - that is, not everyone has the same preferences. We will see two ways to account for this: 1) specify preference parameters as distributions, and 2) estimate fixed parameter models on different sub-groups in your data.</p>
-<p><strong>Assessment</strong>: This assignment is graded using a check system:</p>
+<p><strong>Weight</strong>: This assignment is worth 3% of your final
+grade.</p>
+<p><strong>Purpose</strong>: The purpose of this assignment is to
+introduce the concept of preference heterogeneity - that is, not
+everyone has the same preferences. We will see two ways to account for
+this: 1) specify preference parameters as distributions, and 2) estimate
+fixed parameter models on different sub-groups in your data.</p>
+<p><strong>Assessment</strong>: This assignment is graded using a check
+system:</p>
 <ul>
-<li>✔+ (110%): Responses shows phenomenal thought and engagement with the course content. I will not assign these often.</li>
-<li>✔ (100%): Responses are thoughtful, well-written, and show engagement with the course content. This is the expected level of performance.</li>
-<li>✔− (50%): Responses are hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will <em>hopefully</em> not assign these often.</li>
+<li>✔+ (110%): Responses shows phenomenal thought and engagement with
+the course content. I will not assign these often.</li>
+<li>✔ (100%): Responses are thoughtful, well-written, and show
+engagement with the course content. This is the expected level of
+performance.</li>
+<li>✔− (50%): Responses are hastily composed, too short, and/or only
+cursorily engages with the course content. This grade signals that you
+need to improve next time. I will <em>hopefully</em> not assign these
+often.</li>
 </ul>
-<p>Notice that this is essentially a pass/fail system. I’m not grading your writing ability and I’m not counting the number of words you write - I’m looking for thoughtful engagement.</p>
+<p>Notice that this is essentially a pass/fail system. I’m not grading
+your writing ability and I’m not counting the number of words you write
+- I’m looking for thoughtful engagement.</p>
 </blockquote>
 <div id="getting-organized" class="section level1">
 <h1>1. Getting Organized</h1>
-<p>Download and edit <a href="https://madd.seas.gwu.edu/2021-Fall/templates/reflection9.zip">this template</a> when working through this assignment. Notice that this week’s template is a .Rmd file.</p>
+<p>Download and edit <a
+href="https://madd.seas.gwu.edu/2021-Fall/templates/reflection9.zip">this
+template</a> when working through this assignment. Notice that this
+week’s template is a .Rmd file.</p>
 </div>
 <div id="readings" class="section level1">
 <h1>2. Readings</h1>
-<p>Up until this point in the class, we have only estimated relatively simple models that assume everyone in our sample has the same preferences. That is, we only estimate a “fixed parameter” model that reflects the average preferences for the whole sample. In reality, preferences are usually <em>heterogeneous</em> (different people have different preferences).</p>
-<p>One way to account for this is to estimated a “mixed” logit model where we assume the preference parameters in our utility models follow some distribution across the sample (usually a normal distribution). Another way is to estimate a fixed parameter model on different sub-groups in our data. Each of these approaches are discussed in this week’s video on heterogeneity. <strong>Take notes</strong> as you watch the video and answer the practice questions in the video as part of your reflection. You may submit your answers however you wish, e.g. hand-write them on paper and take a picture and / or type answers in your reflection .Rmd file.</p>
-<p>Click <a href="content/slides_heterogeneity.pdf">here</a> to download the slides in the video as a PDF.</p>
+<p>Up until this point in the class, we have only estimated relatively
+simple models that assume everyone in our sample has the same
+preferences. That is, we only estimate a “fixed parameter” model that
+reflects the average preferences for the whole sample. In reality,
+preferences are usually <em>heterogeneous</em> (different people have
+different preferences).</p>
+<p>One way to account for this is to estimated a “mixed” logit model
+where we assume the preference parameters in our utility models follow
+some distribution across the sample (usually a normal distribution).
+Another way is to estimate a fixed parameter model on different
+sub-groups in our data. Each of these approaches are discussed in this
+week’s video on heterogeneity. <strong>Take notes</strong> as you watch
+the video and answer the practice questions in the video as part of your
+reflection. You may submit your answers however you wish,
+e.g. hand-write them on paper and take a picture and / or type answers
+in your reflection .Rmd file.</p>
+<p>Click <a href="content/slides_heterogeneity.pdf">here</a> to download
+the slides in the video as a PDF.</p>
 <center>
 <iframe width="640" height="360" src="https://www.youtube.com/embed/tOGKpeZ0AhE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
@@ -665,12 +699,20 @@ $(document).ready(function () {
 </div>
 <div id="reflect-knit-submit" class="section level1">
 <h1>3. Reflect, Knit, &amp; Submit</h1>
-<p>Reflect on what you’ve learned and any questions or points of confusion you have about introducing preference heterogeneity into utility models. Is there anything that jumped out at you? Anything you found particularly interesting or confusing? After reflecting, do the following:</p>
+<p>Reflect on what you’ve learned and any questions or points of
+confusion you have about introducing preference heterogeneity into
+utility models. Is there anything that jumped out at you? Anything you
+found particularly interesting or confusing? After reflecting, do the
+following:</p>
 <ul>
-<li>Write a few sentences in the template you downloaded for this assignment.</li>
-<li>Click the “knit” button to compile your .Rmd file into a html web page.</li>
-<li>Open up the resulting html file in your web browser and see how it looks!</li>
-<li>Create a zip file of everything in your R Project folder and submit the zip file in the “Assignment Submission” page on Blackboard.</li>
+<li>Write a few sentences in the template you downloaded for this
+assignment.</li>
+<li>Click the “knit” button to compile your .Rmd file into a html web
+page.</li>
+<li>Open up the resulting html file in your web browser and see how it
+looks!</li>
+<li>Create a zip file of everything in your R Project folder and submit
+the zip file in the “Assignment Submission” page on Blackboard.</li>
 </ul>
 </div>
 

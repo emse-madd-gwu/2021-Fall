@@ -13,6 +13,7 @@
 
 <title>Pilot Survey</title>
 
+<script src="site_libs/header-attrs-2.21.2/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
@@ -34,8 +35,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -170,6 +171,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -190,6 +192,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -247,11 +252,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -280,8 +289,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -289,16 +298,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -415,7 +417,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -446,7 +448,7 @@ div.tocify {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -496,7 +498,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Assignments
@@ -540,7 +542,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Project
@@ -575,7 +577,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-bookmark"></span>
      
     References
@@ -628,7 +630,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -662,7 +664,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -715,50 +717,100 @@ div.tocify {
 
 <blockquote>
 <p><strong>Due</strong>: Oct 15 by 11:59pm</p>
-<p><strong>Weight</strong>: This assignment is worth 4% of your final grade.</p>
+<p><strong>Weight</strong>: This assignment is worth 4% of your final
+grade.</p>
 <p><strong>Purpose</strong>: purpose</p>
-<p><strong>Assessment</strong>: Your pilot survey will be assessed using <a href="project/pilot_survey/rubric.html" target="_blank">this rubric</a>.</p>
+<p><strong>Assessment</strong>: Your pilot survey will be assessed using
+<a href="project/pilot_survey/rubric.html" target="_blank">this
+rubric</a>.</p>
 </blockquote>
-<p>As a team, create a <strong>pilot survey</strong> - an initial draft of your final survey for preliminary testing. Your fellow classmates will all take your survey and provide feedback. The course instructor will also review and grade your survey and will provide written feedback. Follow the instructions below to prepare your pilot survey.</p>
+<p>As a team, create a <strong>pilot survey</strong> - an initial draft
+of your final survey for preliminary testing. Your fellow classmates
+will all take your survey and provide feedback. The course instructor
+will also review and grade your survey and will provide written
+feedback. Follow the instructions below to prepare your pilot
+survey.</p>
 <div id="get-organized" class="section level2">
 <h2>1. Get Organized</h2>
-<p>Download and unzip <a href="templates/project_pilot_survey.zip">this template</a> for your pilot survey. The folder contains the following files:</p>
+<p>Download and unzip <a href="templates/project_pilot_survey.zip">this
+template</a> for your pilot survey. The folder contains the following
+files:</p>
 <ul>
-<li><code>pilot_survey.Rproj</code>: An R Project file for staying organized.</li>
-<li><code>p1-intro.Rmd</code>: The code for creating part 1 of your survey, which should include a welcome page, content form, and eligibility questions for screening our ineligible respondents.</li>
-<li><code>p2-choice-questions.Rmd</code>: The code for creating part 2 of your survey, which should include your education content and randomized conjoint choice questions.</li>
-<li><code>p3-demos.Rmd</code>: The code for creating part 3 of your survey, which should include any other questions (e.g. demographics) you wish to ask your survey respondents.</li>
-<li><code>make_choice_questions.R</code>: The code to generate the <code>choice_questions.csv</code> file.</li>
-<li><code>choice_questions.csv</code>: The survey choice question design file.</li>
-<li><code>images</code>: A folder of images you’re using in your survey.</li>
+<li><code>pilot_survey.Rproj</code>: An R Project file for staying
+organized.</li>
+<li><code>p1-intro.Rmd</code>: The code for creating part 1 of your
+survey, which should include a welcome page, content form, and
+eligibility questions for screening our ineligible respondents.</li>
+<li><code>p2-choice-questions.Rmd</code>: The code for creating part 2
+of your survey, which should include your education content and
+randomized conjoint choice questions.</li>
+<li><code>p3-demos.Rmd</code>: The code for creating part 3 of your
+survey, which should include any other questions (e.g. demographics) you
+wish to ask your survey respondents.</li>
+<li><code>make_choice_questions.R</code>: The code to generate the
+<code>choice_questions.csv</code> file.</li>
+<li><code>choice_questions.csv</code>: The survey choice question design
+file.</li>
+<li><code>images</code>: A folder of images you’re using in your
+survey.</li>
 </ul>
 </div>
 <div id="write-your-survey-content" class="section level2">
 <h2>2. Write your survey content</h2>
-<p>The files included in the zip file are taken directly from the example <a href="https://github.com/jhelvy/formr4conjoint">apples conjoint repo</a> on GitHub associated with the <a href="https://www.jhelvy.com/posts/2021-09-18-choice-based-conjoint-surveys-in-r-with-formr/">blog post</a> on building conjoint surveys in R. <strong>This is just placeholder content - you need to replace it with your survey content</strong>.</p>
+<p>The files included in the zip file are taken directly from the
+example <a href="https://github.com/jhelvy/formr4conjoint">apples
+conjoint repo</a> on GitHub associated with the <a
+href="https://www.jhelvy.com/posts/2021-09-18-choice-based-conjoint-surveys-in-r-with-formr/">blog
+post</a> on building conjoint surveys in R. <strong>This is just
+placeholder content - you need to replace it with your survey
+content</strong>.</p>
 <p>Follow these guidelines in inserting your content:</p>
 <ul>
-<li>You may directly copy and paste any content you wish from your <a href="https://madd.seas.gwu.edu/2021-Fall/p2-survey-plan.html">Survey Plan</a> assignment.</li>
-<li>In your <code>p2-choice-questions.Rmd</code> file, you should include at least one example choice question (e.g. the first choice question for the first respondent) using your choice question design file (the <code>choice_questions.csv</code> file).</li>
-<li>Your code should <strong>not</strong> reference any local files - all files should be hosted online somewhere (e.g. uploaded to a formr run, github.com, etc.), and your code should use the urls to those locations. This includes your <code>choice_questions.csv</code> file as well as any images used in your survey.</li>
+<li>You may directly copy and paste any content you wish from your <a
+href="https://madd.seas.gwu.edu/2021-Fall/p2-survey-plan.html">Survey
+Plan</a> assignment.</li>
+<li>In your <code>p2-choice-questions.Rmd</code> file, you should
+include at least one example choice question (e.g. the first choice
+question for the first respondent) using your choice question design
+file (the <code>choice_questions.csv</code> file).</li>
+<li>Your code should <strong>not</strong> reference any local files -
+all files should be hosted online somewhere (e.g. uploaded to a formr
+run, github.com, etc.), and your code should use the urls to those
+locations. This includes your <code>choice_questions.csv</code> file as
+well as any images used in your survey.</li>
 </ul>
 <blockquote>
-<p>Be sure to knit each file often - you should knit each part to html files so you can preview that everything is displaying as expected.</p>
+<p>Be sure to knit each file often - you should knit each part to html
+files so you can preview that everything is displaying as expected.</p>
 </blockquote>
 </div>
 <div id="upload-your-content-to-formr.org" class="section level2">
 <h2>3. Upload your content to formr.org</h2>
 <p>Using your team google and formr accounts:</p>
 <ol style="list-style-type: decimal">
-<li>Create a Google Sheet for each of your survey .Rmd files. You may directly copy and edit from the example survey parts <a href="https://docs.google.com/spreadsheets/d/1tnt7IBSmOOe0wOZ8F6qN152yHYZMCBCo7_KQ3N1e-t8/edit#gid=1611481919">1</a>, <a href="https://docs.google.com/spreadsheets/d/1Ih3Pt6uz-gp5vc0SBxBzl4K0aZoRLwI6dtdtZiXSLz0/edit#gid=1611481919">2</a>, and <a href="https://docs.google.com/spreadsheets/d/1t6DYMZsf6ZX6r5GVTBemZZhX1RlFTV6weM8w0LzwMK4/edit#gid=1611481919">3</a>.</li>
-<li>Upload each sheet as a separate Survey in formr, then create a Run linking the surveys together. Be sure to carefully edit the Run settings such that respondents are appropriately screened out as desired.</li>
-<li>When you are confident that the Run is ready, turn the “volume” settings to the third setting (“People who have the link can access”).</li>
+<li>Create a Google Sheet for each of your survey .Rmd files. You may
+directly copy and edit from the example survey parts <a
+href="https://docs.google.com/spreadsheets/d/1tnt7IBSmOOe0wOZ8F6qN152yHYZMCBCo7_KQ3N1e-t8/edit#gid=1611481919">1</a>,
+<a
+href="https://docs.google.com/spreadsheets/d/1Ih3Pt6uz-gp5vc0SBxBzl4K0aZoRLwI6dtdtZiXSLz0/edit#gid=1611481919">2</a>,
+and <a
+href="https://docs.google.com/spreadsheets/d/1t6DYMZsf6ZX6r5GVTBemZZhX1RlFTV6weM8w0LzwMK4/edit#gid=1611481919">3</a>.</li>
+<li>Upload each sheet as a separate Survey in formr, then create a Run
+linking the surveys together. Be sure to carefully edit the Run settings
+such that respondents are appropriately screened out as desired.</li>
+<li>When you are confident that the Run is ready, turn the “volume”
+settings to the third setting (“People who have the link can
+access”).</li>
 </ol>
 </div>
 <div id="submit" class="section level2">
 <h2>4. Submit</h2>
-<p>Create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file under “Project: Pilot Survey”. <strong>Include the link to your survey in the Blackboard submission</strong>.</p>
-<p><strong>Only one person from your team should submit the report.</strong></p>
+<p>Create a zip file of everything in your R Project folder. Go to the
+“Assignment Submission” page on Blackboard and submit your zip file
+under “Project: Pilot Survey”. <strong>Include the link to your survey
+in the Blackboard submission</strong>.</p>
+<p><strong>Only one person from your team should submit the
+report.</strong></p>
 </div>
 
 

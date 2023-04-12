@@ -13,6 +13,7 @@
 
 <title>EMSE 6035: Marketing Analytics for Design Decisions - Fall 2021</title>
 
+<script src="site_libs/header-attrs-2.21.2/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
@@ -50,8 +51,8 @@
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="article:author" content="John Paul Helveston"/>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -186,6 +187,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -206,6 +208,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -263,11 +268,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -296,8 +305,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -305,16 +314,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -358,7 +360,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -389,7 +391,7 @@ $(document).ready(function () {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -439,7 +441,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Assignments
@@ -483,7 +485,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Project
@@ -518,7 +520,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-bookmark"></span>
      
     References
@@ -571,7 +573,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -605,7 +607,7 @@ $(document).ready(function () {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -651,7 +653,8 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">EMSE 6035: Marketing Analytics for Design Decisions - Fall 2021</h1>
+<h1 class="title toc-ignore">EMSE 6035: Marketing Analytics for Design
+Decisions - Fall 2021</h1>
 
 </div>
 
@@ -661,17 +664,37 @@ $(document).ready(function () {
 <p><img src="images/madd_hex_sticker.png" width="200"></p>
 </div>
 <div class="col-md-9">
-<p><strong>Department</strong>: <a href="https://www.emse.seas.gwu.edu/">Engineering Management and Systems Engineering</a> @ <a href="https://www.gwu.edu/">GWU</a></p>
+<p><strong>Department</strong>: <a
+href="https://www.emse.seas.gwu.edu/">Engineering Management and Systems
+Engineering</a> @ <a href="https://www.gwu.edu/">GWU</a></p>
 <p><strong>Credits</strong>: 3</p>
 <p><strong>Description</strong>:</p>
-<p>This course provides students with data analysis techniques to inform design decisions in an uncertain, competitive market; topics include consumer choice modeling, programming in the <a href="https://www.r-project.org/">R programming language</a>, survey design, conjoint analysis, optimization, market simulation, and professional communication skills. Over the course of the semester, students will learn and apply theory and methods to a team project to assess the market competitiveness of an emerging product / technology and use marketing analytics to generate design insights. At the end of the semester, students will submit a final, reproducible report of their project along with a 10-minute presentation of their findings. This course has a “flipped” classroom structure. Students will spend the majority of class time working through guiding practice exercises or working on their projects. To prepare for class, students must complete weekly assignments that involve watching and reviewing recorded lecture materials and answering related practice questions.</p>
+<p>This course provides students with data analysis techniques to inform
+design decisions in an uncertain, competitive market; topics include
+consumer choice modeling, programming in the <a
+href="https://www.r-project.org/">R programming language</a>, survey
+design, conjoint analysis, optimization, market simulation, and
+professional communication skills. Over the course of the semester,
+students will learn and apply theory and methods to a team project to
+assess the market competitiveness of an emerging product / technology
+and use marketing analytics to generate design insights. At the end of
+the semester, students will submit a final, reproducible report of their
+project along with a 10-minute presentation of their findings. This
+course has a “flipped” classroom structure. Students will spend the
+majority of class time working through guiding practice exercises or
+working on their projects. To prepare for class, students must complete
+weekly assignments that involve watching and reviewing recorded lecture
+materials and answering related practice questions.</p>
 <p><strong>Learning Objectives</strong>:</p>
-<p>Having successfully completed this course, students will be able to:</p>
+<p>Having successfully completed this course, students will be able
+to:</p>
 <ul>
 <li>Import, wrangle, visualize, and export data in R.</li>
-<li>Design surveys to obtain informative data about consumer preferences for product features.</li>
+<li>Design surveys to obtain informative data about consumer preferences
+for product features.</li>
 <li>Build and estimate discrete choice models.</li>
-<li>Analyze consumer choice data to estimate consumer preferences for product features.</li>
+<li>Analyze consumer choice data to estimate consumer preferences for
+product features.</li>
 <li>Design and create effective charts and presentations.</li>
 <li>Communicate results in terms of design insights.</li>
 </ul>
@@ -683,9 +706,18 @@ $(document).ready(function () {
 <li>Linear algebra</li>
 <li>Regression</li>
 </ul>
-<p>Each of these concepts will be applied throughout the course, and no time will be spent reviewing the foundational elements of each concept.</p>
-<p>In addition, we will work in the <a href="https://www.r-project.org/">R programming language</a> throughout the course, but no prior programming experience is required. We will spend the first three weeks going through exercises to get up to speed in R.</p>
-<p>Students are encouraged to complete <a href="a0-self-assessment.html">this self assessment</a> prior to registering for the course to self-assess familiarity with these concepts.</p>
+<p>Each of these concepts will be applied throughout the course, and no
+time will be spent reviewing the foundational elements of each
+concept.</p>
+<p>In addition, we will work in the <a
+href="https://www.r-project.org/">R programming language</a> throughout
+the course, but no prior programming experience is required. We will
+spend the first three weeks going through exercises to get up to speed
+in R.</p>
+<p>Students are encouraged to complete <a
+href="a0-self-assessment.html">this self assessment</a> prior to
+registering for the course to self-assess familiarity with these
+concepts.</p>
 </div>
 </div>
 

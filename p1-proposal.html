@@ -13,6 +13,7 @@
 
 <title>Project Proposal</title>
 
+<script src="site_libs/header-attrs-2.21.2/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
@@ -34,8 +35,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.3.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
@@ -170,6 +171,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -190,6 +192,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -247,11 +252,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -280,8 +289,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -289,16 +298,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -415,7 +417,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -446,7 +448,7 @@ div.tocify {
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-laptop-code"></span>
      
     Class
@@ -496,7 +498,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book-reader"></span>
      
     Assignments
@@ -540,7 +542,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-pencil-ruler"></span>
      
     Project
@@ -575,7 +577,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-bookmark"></span>
      
     References
@@ -628,7 +630,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-tools"></span>
      
     Tools
@@ -662,7 +664,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-bars"></span>
      
      
@@ -715,111 +717,198 @@ div.tocify {
 
 <blockquote>
 <p><strong>Due</strong>: Sep 26 by 11:59pm</p>
-<p><strong>Weight</strong>: This assignment is worth 7% of your final grade.</p>
+<p><strong>Weight</strong>: This assignment is worth 7% of your final
+grade.</p>
 <p><strong>Purpose</strong>: purpose</p>
-<p><strong>Assessment</strong>: Your proposal will be assessed using <a href="project/proposal/rubric.html" target="_blank">this rubric</a>.</p>
+<p><strong>Assessment</strong>: Your proposal will be assessed using <a
+href="project/proposal/rubric.html" target="_blank">this rubric</a>.</p>
 </blockquote>
-<p>As a team, write a proposal defining the scope of your project plan. Your chosen project topic should follow the <a href="p0-overview.html#Project_Selection">project selection guidelines</a>.</p>
-<p>The course instructor will review and grade your proposal and provide feedback in team meetings the week following the due date. If your proposal is approved, you are done and can move on towards the next project task. In some cases, the instructor may ask you to submit a revised proposal, most likely by focusing / adjusting the proposal scope. Follow the guidelines below to prepare your proposal.</p>
+<p>As a team, write a proposal defining the scope of your project plan.
+Your chosen project topic should follow the <a
+href="p0-overview.html#Project_Selection">project selection
+guidelines</a>.</p>
+<p>The course instructor will review and grade your proposal and provide
+feedback in team meetings the week following the due date. If your
+proposal is approved, you are done and can move on towards the next
+project task. In some cases, the instructor may ask you to submit a
+revised proposal, most likely by focusing / adjusting the proposal
+scope. Follow the guidelines below to prepare your proposal.</p>
 <div id="get-organized" class="section level2">
 <h2>1. Get Organized</h2>
-<p>Download and unzip <a href="templates/project_proposal.zip">this template</a> for your proposal. Open the <code>proposal.Rproj</code> file and write your proposal in the <code>proposal.Rmd</code> file. The template comes with some text and code explaining how to use it - you should delete this code / text as it is only for explanatory purposes. Be sure to adjust the content in the YAML:</p>
+<p>Download and unzip <a href="templates/project_proposal.zip">this
+template</a> for your proposal. Open the <code>proposal.Rproj</code>
+file and write your proposal in the <code>proposal.Rmd</code> file. The
+template comes with some text and code explaining how to use it - you
+should delete this code / text as it is only for explanatory purposes.
+Be sure to adjust the content in the YAML:</p>
 <ul>
-<li>Write your project title in the <code>title</code> field (and provide a subtitle if you wish, or delete the <code>subtitle</code> field).</li>
-<li>In the <code>author</code> field, list the names of all teammates, e.g. <code>author: Luke Skywalker, Leia Organa, and Han Solo</code>.</li>
+<li>Write your project title in the <code>title</code> field (and
+provide a subtitle if you wish, or delete the <code>subtitle</code>
+field).</li>
+<li>In the <code>author</code> field, list the names of all teammates,
+e.g. <code>author: Luke Skywalker, Leia Organa, and Han Solo</code>.</li>
 </ul>
 </div>
 <div id="writing-quality" class="section level2">
 <h2>2. Writing Quality</h2>
-<p>Your proposal should be written in a clear, concise, and logically-structured manner so that a reader can easily understand the ideas presented. The proposal should be proof-read before submission to correct any grammatical or spelling errors. Spell checking can be automated by installing the <code>spelling</code> package and running this in the R console:</p>
+<p>Your proposal should be written in a clear, concise, and
+logically-structured manner so that a reader can easily understand the
+ideas presented. The proposal should be proof-read before submission to
+correct any grammatical or spelling errors. Spell checking can be
+automated by installing the <code>spelling</code> package and running
+this in the R console:</p>
 <pre class="r"><code>spelling::spell_check_files(&quot;proposal.Rmd&quot;)</code></pre>
 <p>All figures should be referenced in the text.</p>
 </div>
 <div id="proposal-contents" class="section level2">
 <h2>3. Proposal Contents</h2>
-<p>Your proposal should contain the following items listed as separate sections.</p>
+<p>Your proposal should contain the following items listed as separate
+sections.</p>
 <blockquote>
-<p>NOTE: If your team is working on a <em>policy</em> project rather than a product, see the <a href="#policy-proposal-contents">Policy Proposal Contents</a> section below.</p>
+<p>NOTE: If your team is working on a <em>policy</em> project rather
+than a product, see the <a href="#policy-proposal-contents">Policy
+Proposal Contents</a> section below.</p>
 </blockquote>
 <div id="abstract" class="section level3">
 <h3>Abstract</h3>
-<p>A few sentences summarizing the overall proposal and convincing the reader why it is important. Specifically, tell the reader:</p>
+<p>A few sentences summarizing the overall proposal and convincing the
+reader why it is important. Specifically, tell the reader:</p>
 <ol style="list-style-type: decimal">
 <li>What is the product you are studying?</li>
-<li>What key product attributes make it different than its competitors?</li>
-<li>What major design decision variables will you focus on for your analysis?</li>
+<li>What key product attributes make it different than its
+competitors?</li>
+<li>What major design decision variables will you focus on for your
+analysis?</li>
 </ol>
 </div>
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
-<p>Provide a brief description and background of the product or technology. Include a picture or diagram of the product.</p>
+<p>Provide a brief description and background of the product or
+technology. Include a picture or diagram of the product.</p>
 </div>
 <div id="market-opportunity" class="section level3">
 <h3>Market Opportunity</h3>
 <div id="identify-your-customer" class="section level4">
 <h4>Identify Your Customer</h4>
-<p>If there are multiple potential markets, choose one to focus on for your analysis. Describe who you plan on taking your survey and how you intend to gain access to that population. You may survey customers of a “downstream” product, if appropriate (e.g. survey electric vehicle buyers to learn about preferences for electric vehicle battery attributes).</p>
+<p>If there are multiple potential markets, choose one to focus on for
+your analysis. Describe who you plan on taking your survey and how you
+intend to gain access to that population. You may survey customers of a
+“downstream” product, if appropriate (e.g. survey electric vehicle
+buyers to learn about preferences for electric vehicle battery
+attributes).</p>
 </div>
 <div id="identify-competitors" class="section level4">
 <h4>Identify Competitors</h4>
-<p>Which other products will compete with yours? Benchmark how competitors compare on your product’s attributes.</p>
+<p>Which other products will compete with yours? Benchmark how
+competitors compare on your product’s attributes.</p>
 </div>
 <div id="identify-market-size" class="section level4">
 <h4>Identify Market Size</h4>
-<p>Estimate the size of the annual market (expected sales in units per year) for this product and its competitors. Specify if your estimated annual market size is regional, national, or global, and provide references.</p>
+<p>Estimate the size of the annual market (expected sales in units per
+year) for this product and its competitors. Specify if your estimated
+annual market size is regional, national, or global, and provide
+references.</p>
 </div>
 </div>
 <div id="product-attributes-decision-variables" class="section level3">
 <h3>Product Attributes &amp; Decision Variables</h3>
-<p>A key component of your proposal is to identify the relationships between your <em>product attributes</em> and <em>decision variables</em>.</p>
+<p>A key component of your proposal is to identify the relationships
+between your <em>product attributes</em> and <em>decision
+variables</em>.</p>
 <div id="product-attributes" class="section level4">
 <h4>Product Attributes</h4>
-<p>These are the product features that consumers observe and care about. For example, <em>price</em> is almost always an important product attribute that influences consumer choices. You should list and describe the major product attributes you will include in your analysis. Where possible, label the product attributes on the diagram of your design. Where possible, quantify the metrics for each attribute (e.g. if one of your attributes is <em>weight</em>, the metric could be “kilograms”). Also list the set or range of possible levels you plan to explore for each attribute (e.g. for <em>color</em> you may choose the set {red, green, blue}, or for <em>price</em> you may choose the range $1 - $10).</p>
+<p>These are the product features that consumers observe and care about.
+For example, <em>price</em> is almost always an important product
+attribute that influences consumer choices. You should list and describe
+the major product attributes you will include in your analysis. Where
+possible, label the product attributes on the diagram of your design.
+Where possible, quantify the metrics for each attribute (e.g. if one of
+your attributes is <em>weight</em>, the metric could be “kilograms”).
+Also list the set or range of possible levels you plan to explore for
+each attribute (e.g. for <em>color</em> you may choose the set {red,
+green, blue}, or for <em>price</em> you may choose the range $1 -
+$10).</p>
 </div>
 <div id="decision-variables" class="section level4">
 <h4>Decision Variables</h4>
-<p>These are key elements of the product / technology that the designers focused on in designing the product. For example, engineers might be trying to choose the best <em>thickness</em> for a solar cell, which affects multiple product attributes, including <em>weight</em> (thicker cells are heavier), <em>price</em> (thicker cells use more material), <em>lifetime</em> (cell thickness may affect how quickly a cell degrades), etc. You should discuss ~2-3 key decision variables that are related to your product’s design that you propose to consider. Discuss why you chose these variables, and label them on your diagram of the product design. For each variable, specify units and the range of potential values under consideration.</p>
+<p>These are key elements of the product / technology that the designers
+focused on in designing the product. For example, engineers might be
+trying to choose the best <em>thickness</em> for a solar cell, which
+affects multiple product attributes, including <em>weight</em> (thicker
+cells are heavier), <em>price</em> (thicker cells use more material),
+<em>lifetime</em> (cell thickness may affect how quickly a cell
+degrades), etc. You should discuss ~2-3 key decision variables that are
+related to your product’s design that you propose to consider. Discuss
+why you chose these variables, and label them on your diagram of the
+product design. For each variable, specify units and the range of
+potential values under consideration.</p>
 </div>
 <div id="model-relationships-table" class="section level4">
 <h4>Model Relationships Table</h4>
-<p>Include a clearly legible image of your model relationships table identifying relationships between your <em>product attributes</em> and <em>decision variables</em>. For now, these relationships can simply be directional (e.g. <em>cell thickness</em> is positively related to <em>cell weight</em>). Use <a href="https://docs.google.com/spreadsheets/d/1iwMI9cbJjB6J8wghZY6Y_fCOSt7MDsUTnSuuC58_xjU/edit?usp=sharing">this example</a> as a template.</p>
+<p>Include a clearly legible image of your model relationships table
+identifying relationships between your <em>product attributes</em> and
+<em>decision variables</em>. For now, these relationships can simply be
+directional (e.g. <em>cell thickness</em> is positively related to
+<em>cell weight</em>). Use <a
+href="https://docs.google.com/spreadsheets/d/1iwMI9cbJjB6J8wghZY6Y_fCOSt7MDsUTnSuuC58_xjU/edit?usp=sharing">this
+example</a> as a template.</p>
 </div>
 </div>
 <div id="questions" class="section level3">
 <h3>Questions</h3>
-<p>List major outstanding questions (e.g. about the product / technology performance metrics, market opportunities, etc.) that you will need to know to conduct your analysis and how you propose to find answers. The purpose of this section is to identify high-priority items that you will need to know early on in your project.</p>
+<p>List major outstanding questions (e.g. about the product / technology
+performance metrics, market opportunities, etc.) that you will need to
+know to conduct your analysis and how you propose to find answers. The
+purpose of this section is to identify high-priority items that you will
+need to know early on in your project.</p>
 </div>
 </div>
 <div id="knit-and-submit" class="section level2">
 <h2>4. Knit and submit</h2>
-<p>Click the “knit” button to compile your <code>proposal.Rmd</code> file into a html web page, then create a zip file of everything in your R Project folder. Go to the “Assignment Submission” page on Blackboard and submit your zip file under “Project: Proposal”. <strong>Only one person from your team should submit the report.</strong></p>
+<p>Click the “knit” button to compile your <code>proposal.Rmd</code>
+file into a html web page, then create a zip file of everything in your
+R Project folder. Go to the “Assignment Submission” page on Blackboard
+and submit your zip file under “Project: Proposal”. <strong>Only one
+person from your team should submit the report.</strong></p>
 <hr />
 </div>
 <div id="policy-proposal-contents" class="section level2">
 <h2>Policy Proposal Contents</h2>
-<p>For teams looking at a policy design rather than a product design, your proposal should contain the following sections.</p>
+<p>For teams looking at a policy design rather than a product design,
+your proposal should contain the following sections.</p>
 <div id="abstract-1" class="section level3">
 <h3>Abstract</h3>
-<p>A few sentences summarizing the overall proposal and convincing the reader why it is important. Specifically, tell the reader:</p>
+<p>A few sentences summarizing the overall proposal and convincing the
+reader why it is important. Specifically, tell the reader:</p>
 <ol style="list-style-type: decimal">
 <li>What is the problem you are trying to address?</li>
 <li>What policy options are you considering to address the problem?</li>
-<li>What is the target population of your policies? Who will be affected by them?</li>
+<li>What is the target population of your policies? Who will be affected
+by them?</li>
 </ol>
 </div>
 <div id="introduction-1" class="section level3">
 <h3>Introduction</h3>
-<p>Provide a brief description and background of the problem you are trying to address and the goal of the policies you are considering.</p>
+<p>Provide a brief description and background of the problem you are
+trying to address and the goal of the policies you are considering.</p>
 </div>
 <div id="target-population" class="section level3">
 <h3>Target Population</h3>
-<p>Describe the target population for your analysis. Who will be affected by the policies you are considering? Who are you targeting these policies towards? Who are you planning on getting to take your survey, and how you intend to gain access to that population? Include an estimate of the size of the total target population.</p>
+<p>Describe the target population for your analysis. Who will be
+affected by the policies you are considering? Who are you targeting
+these policies towards? Who are you planning on getting to take your
+survey, and how you intend to gain access to that population? Include an
+estimate of the size of the total target population.</p>
 </div>
 <div id="policy-options" class="section level3">
 <h3>Policy Options</h3>
 <div id="identify-policy-options" class="section level4">
 <h4>Identify Policy Options</h4>
-<p>Which policies are you considering, and what are some of the potential pros and cons of them? Are some easier / more feasible to implement or enforce than others? Are some more costly to implement than others? Include a summary table comparing some basic features of each policy, e.g.</p>
+<p>Which policies are you considering, and what are some of the
+potential pros and cons of them? Are some easier / more feasible to
+implement or enforce than others? Are some more costly to implement than
+others? Include a summary table comparing some basic features of each
+policy, e.g.</p>
 <table>
 <thead>
 <tr class="header">
@@ -847,12 +936,22 @@ div.tocify {
 </div>
 <div id="identify-policy-attributes" class="section level4">
 <h4>Identify Policy Attributes</h4>
-<p>For each policy, identify the key attributes that your target population will observe. For example, if the policy involves a fee or tax, then the <em>amount</em> of that fee or tax would be a key attribute. For each attribute, specify the range of possible levels you plan to explore (e.g. for <em>amount</em> you may choose the range $1 - $10). You should choose levels that reflect the range of existing policies or potential policies. You may choose to include policies / attributes that have not yet been implemented as well.</p>
+<p>For each policy, identify the key attributes that your target
+population will observe. For example, if the policy involves a fee or
+tax, then the <em>amount</em> of that fee or tax would be a key
+attribute. For each attribute, specify the range of possible levels you
+plan to explore (e.g. for <em>amount</em> you may choose the range $1 -
+$10). You should choose levels that reflect the range of existing
+policies or potential policies. You may choose to include policies /
+attributes that have not yet been implemented as well.</p>
 </div>
 </div>
 <div id="questions-1" class="section level3">
 <h3>Questions</h3>
-<p>List major outstanding questions that you will need to know to conduct your analysis and how you propose to find answers. The purpose of this section is to identify high-priority items that you will need to know early on in your project.</p>
+<p>List major outstanding questions that you will need to know to
+conduct your analysis and how you propose to find answers. The purpose
+of this section is to identify high-priority items that you will need to
+know early on in your project.</p>
 </div>
 </div>
 
